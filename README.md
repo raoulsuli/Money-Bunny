@@ -3,27 +3,16 @@ Proiect IP
 
 Functionalitati ->
 
-    Customisable account names
-    Change contact details
-
-    Pay a bill
-    Schedule payments in advance
-    Online payments including currency conversion
-
-    Transfer funds
-
-    Get alerts
-
-    Manage all your accounts in one place
-    Ordering, blocking, unblocking, and closing of payment cards
-
-    View up-to-the-minute account statements and balance
-    View automatically updated spending report
-    Track your payment history
-    Downloadable account overview, available in PDF format
-
-    Verify terms and conditions
-    Chat with your customer assistant department
-
-    Apply for a loan or credit card
-    Purchase and manage CD accounts
+    Gestiunea tuturor conturilor bancare ale clientului
+    Aplicarea pentru un credit sau împrumut
+    Deschiderea de conturi de credit, debit sau economii
+    Blocarea sau inchiderea cardurilor
+    Realizarea de tranzacții: plata facturi, transfer bancar
+    Interogarea de sold
+    Schimbul valutar
+    Planificarea de plăți recurente
+    Verificarea și schimbarea datelor personale
+    Accesarea unui istoric al tranzacțiilor
+    Primirea de alerte pentru activitate
+    Accesare meniului de help si a serviciului de support
+    Descărcarea informațiilor unui cont în format PDF
