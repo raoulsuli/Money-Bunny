@@ -13181,14 +13181,6 @@
 					"name": "Cod PIN"
 				},
 				{
-					"_type": "UMLUseCaseSubject",
-					"_id": "AAAAAAF4QCVnAnDHPHg=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Inte"
-				},
-				{
 					"_type": "UMLUseCase",
 					"_id": "AAAAAAF4QCV8CnFpou0=",
 					"_parent": {
@@ -14019,7 +14011,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Collaboration1",
+					"name": "Diagrame de Secventa",
 					"ownedElements": [
 						{
 							"_type": "UMLInteraction",
@@ -14027,7 +14019,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Interaction1",
+							"name": "Sesiune",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -15617,7 +15609,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Interaction2",
+							"name": "Selectare Cont",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -17445,7 +17437,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Interaction3",
+							"name": "Selectare Banca",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -20409,7 +20401,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Interaction4",
+							"name": "Tranzactii",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -20521,7 +20513,7 @@
 															"left": -80,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -20637,7 +20629,7 @@
 															"left": 144,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -20753,7 +20745,7 @@
 															"left": -496,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -21315,7 +21307,7 @@
 															"left": -160,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -21766,7 +21758,7 @@
 															"left": -96,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -22217,7 +22209,7 @@
 															"left": -96,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -22333,7 +22325,7 @@
 															"left": -80,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -22449,7 +22441,7 @@
 															"left": -64,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -22565,7 +22557,7 @@
 															"left": 256,
 															"width": 106.20263671875,
 															"height": 13,
-															"text": "(from Interaction4)"
+															"text": "(from Tranzactii)"
 														},
 														{
 															"_type": "LabelView",
@@ -23545,9 +23537,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Client",
-									"represent": {
-										"$ref": "AAAAAAF4TuPWXPlzAt8="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23557,9 +23546,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Interogare Sold",
-									"represent": {
-										"$ref": "AAAAAAF4TuQz+fmUWyI="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23569,9 +23555,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Help",
-									"represent": {
-										"$ref": "AAAAAAF4TuSiMvm2lrI="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23581,9 +23564,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Raport Tranzactii",
-									"represent": {
-										"$ref": "AAAAAAF4TudNE/pa6GE="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23593,9 +23573,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Planificare Plati",
-									"represent": {
-										"$ref": "AAAAAAF4Tuq29/rNcPQ="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23605,9 +23582,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Blocare Cont",
-									"represent": {
-										"$ref": "AAAAAAF4Tu0LOfs5VtI="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23617,9 +23591,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Inchidere Cont",
-									"represent": {
-										"$ref": "AAAAAAF4Tu1eyPtbc2Y="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23629,9 +23600,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Aplicare Credit/Imprumut",
-									"represent": {
-										"$ref": "AAAAAAF4Tu2XOft8L18="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -23641,88 +23609,9 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Operator Bancar",
-									"represent": {
-										"$ref": "AAAAAAF4Tu4g5vufWiE="
-									},
 									"isMultiInstance": false
 								}
 							]
-						}
-					],
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TuPWXPlzAt8=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role1"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TuQz+fmUWyI=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role2"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TuSiMvm2lrI=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role3"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TudNE/pa6GE=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role4"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tuq29/rNcPQ=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role5"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tu0LOfs5VtI=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role6"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tu1eyPtbc2Y=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role7"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tu2XOft8L18=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role8",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tu4g5vufWiE=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role9",
-							"type": ""
 						}
 					]
 				}
