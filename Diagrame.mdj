@@ -14038,9 +14038,9 @@
 														"$ref": "AAAAAAF4Tp01Fu8zET0="
 													},
 													"font": "Arial;13;0",
-													"left": 30.55908203125,
+													"left": 32.72998046875,
 													"top": 5,
-													"width": 161.6337890625,
+													"width": 183.83154296875,
 													"height": 13,
 													"text": "Diagrama de Secventa Sesiune"
 												},
@@ -14053,7 +14053,7 @@
 													"font": "Arial;13;1",
 													"left": 13,
 													"top": 5,
-													"width": 12.55908203125,
+													"width": 14.72998046875,
 													"height": 13,
 													"text": "sd"
 												}
@@ -16323,9 +16323,6 @@
 										"$ref": "AAAAAAF4Tp01Fe8xZKY="
 									},
 									"name": "Lifeline1",
-									"represent": {
-										"$ref": "AAAAAAF4U7kcLy4OQ1I="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -16335,9 +16332,6 @@
 										"$ref": "AAAAAAF4Tp01Fe8xZKY="
 									},
 									"name": "Lifeline2",
-									"represent": {
-										"$ref": "AAAAAAF4U7lOqi4tDl4="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -16347,9 +16341,6 @@
 										"$ref": "AAAAAAF4Tp01Fe8xZKY="
 									},
 									"name": "Update User Data",
-									"represent": {
-										"$ref": "AAAAAAF4U7lc8S5MYvU="
-									},
 									"isMultiInstance": false
 								}
 							]
@@ -21404,9 +21395,6 @@
 										"$ref": "AAAAAAF4TtBV7fYz9fg="
 									},
 									"name": "Add Card",
-									"represent": {
-										"$ref": "AAAAAAF4VOFKTMh0I8Q="
-									},
 									"isMultiInstance": false
 								}
 							]
@@ -21444,9 +21432,9 @@
 														"$ref": "AAAAAAF4TuJWPvlRhhA="
 													},
 													"font": "Arial;13;0",
-													"left": 22.55908203125,
+													"left": 24.72998046875,
 													"top": 5,
-													"width": 175.57958984375,
+													"width": 197.06005859375,
 													"height": 13,
 													"text": "Diagrama de Secventa Tranzactie"
 												},
@@ -21459,7 +21447,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 12.55908203125,
+													"width": 14.72998046875,
 													"height": 13,
 													"text": "sd"
 												}
@@ -29392,9 +29380,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Pay Bill",
-									"represent": {
-										"$ref": "AAAAAAF4TwzPNx7P9pI="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -29404,9 +29389,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Bank Database",
-									"represent": {
-										"$ref": "AAAAAAF4TxE0QB9cS20="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -29416,9 +29398,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Payments Database",
-									"represent": {
-										"$ref": "AAAAAAF4TxdDtyA03Ts="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -29428,9 +29407,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Exchange",
-									"represent": {
-										"$ref": "AAAAAAF4TxzZgSCTKtc="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -29440,9 +29416,6 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "Transfer",
-									"represent": {
-										"$ref": "AAAAAAF4Tx/ZMSDlNTc="
-									},
 									"isMultiInstance": false
 								},
 								{
@@ -29452,180 +29425,7 @@
 										"$ref": "AAAAAAF4TuJWPvlPzh4="
 									},
 									"name": "MoneyBunny Account Database",
-									"represent": {
-										"$ref": "AAAAAAF4TytusyGt9co="
-									},
 									"isMultiInstance": false
-								}
-							]
-						}
-					],
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TwzPNx7P9pI=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role1",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TxE0QB9cS20=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role2",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TxdDtyA03Ts=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role3",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TxzZgSCTKtc=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role4",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4Tx/ZMSDlNTc=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role5",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4TytusyGt9co=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role6",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4U7kcLy4OQ1I=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role7",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4U7lOqi4tDl4=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role8",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4U7lc8S5MYvU=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role9",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF4VOFKTMh0I8Q=",
-							"_parent": {
-								"$ref": "AAAAAAF4Tp01FO8wFDE="
-							},
-							"name": "Role10"
-						}
-					]
-				},
-				{
-					"_type": "UMLCollaboration",
-					"_id": "AAAAAAF4TwZqoR3/l/Y=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Collaboration1",
-					"ownedElements": [
-						{
-							"_type": "UMLInteraction",
-							"_id": "AAAAAAF4TwZqoR4AqKA=",
-							"_parent": {
-								"$ref": "AAAAAAF4TwZqoR3/l/Y="
-							},
-							"name": "Interaction1",
-							"ownedElements": [
-								{
-									"_type": "UMLSequenceDiagram",
-									"_id": "AAAAAAF4TwZqoh4Bfvc=",
-									"_parent": {
-										"$ref": "AAAAAAF4TwZqoR4AqKA="
-									},
-									"name": "SequenceDiagram1",
-									"ownedViews": [
-										{
-											"_type": "UMLFrameView",
-											"_id": "AAAAAAF4TwZqoh4CxMI=",
-											"_parent": {
-												"$ref": "AAAAAAF4TwZqoh4Bfvc="
-											},
-											"model": {
-												"$ref": "AAAAAAF4TwZqoh4Bfvc="
-											},
-											"subViews": [
-												{
-													"_type": "LabelView",
-													"_id": "AAAAAAF4TwZqoh4DGMY=",
-													"_parent": {
-														"$ref": "AAAAAAF4TwZqoh4CxMI="
-													},
-													"font": "Arial;13;0",
-													"left": 30.55908203125,
-													"top": 13,
-													"width": 102.791015625,
-													"height": 13,
-													"text": "SequenceDiagram1"
-												},
-												{
-													"_type": "LabelView",
-													"_id": "AAAAAAF4TwZqoh4ELN4=",
-													"_parent": {
-														"$ref": "AAAAAAF4TwZqoh4CxMI="
-													},
-													"font": "Arial;13;1",
-													"left": 13,
-													"top": 13,
-													"width": 12.55908203125,
-													"height": 13,
-													"text": "sd"
-												}
-											],
-											"font": "Arial;13;0",
-											"left": 8,
-											"top": 8,
-											"width": 692,
-											"height": 592,
-											"nameLabel": {
-												"$ref": "AAAAAAF4TwZqoh4DGMY="
-											},
-											"frameTypeLabel": {
-												"$ref": "AAAAAAF4TwZqoh4ELN4="
-											}
-										}
-									]
 								}
 							]
 						}
