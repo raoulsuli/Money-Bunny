@@ -47,7 +47,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1088,
+											"left": 960,
 											"top": 1200,
 											"height": 13
 										},
@@ -58,7 +58,7 @@
 												"$ref": "AAAAAAF4Kva1DYpen8s="
 											},
 											"font": "Arial;13;1",
-											"left": 573,
+											"left": 509,
 											"top": 519,
 											"width": 1791,
 											"height": 13,
@@ -72,7 +72,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1088,
+											"left": 960,
 											"top": 1200,
 											"width": 73.67724609375,
 											"height": 13,
@@ -86,14 +86,14 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1088,
+											"left": 960,
 											"top": 1200,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 568,
+									"left": 504,
 									"top": 512,
 									"width": 1801,
 									"height": 25,
@@ -112,7 +112,7 @@
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 568,
+							"left": 504,
 							"top": 512,
 							"width": 1801,
 							"height": 1241,
@@ -15320,232 +15320,6 @@
 										},
 										{
 											"_type": "UMLSeqLifelineView",
-											"_id": "AAAAAAF4U7kcLy4QpR8=",
-											"_parent": {
-												"$ref": "AAAAAAF4Tp01Fe8ymnk="
-											},
-											"model": {
-												"$ref": "AAAAAAF4U7kcLy4PlGY="
-											},
-											"subViews": [
-												{
-													"_type": "UMLNameCompartmentView",
-													"_id": "AAAAAAF4U7kcLy4RpIc=",
-													"_parent": {
-														"$ref": "AAAAAAF4U7kcLy4QpR8="
-													},
-													"model": {
-														"$ref": "AAAAAAF4U7kcLy4PlGY="
-													},
-													"subViews": [
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7kcLy4SPzQ=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7kcLy4RpIc="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"height": 13
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7kcLy4T9vc=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7kcLy4RpIc="
-															},
-															"font": "Arial;13;1",
-															"left": 2021,
-															"top": 47,
-															"width": 62.736328125,
-															"height": 13,
-															"text": "Lifeline1"
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7kcMC4UpaM=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7kcLy4RpIc="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"width": 85.2490234375,
-															"height": 13,
-															"text": "(from Sesiune)"
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7kcMC4VwMc=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7kcLy4RpIc="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"height": 13,
-															"horizontalAlignment": 1
-														}
-													],
-													"font": "Arial;13;0",
-													"left": 2016,
-													"top": 40,
-													"width": 72.736328125,
-													"height": 40,
-													"stereotypeLabel": {
-														"$ref": "AAAAAAF4U7kcLy4SPzQ="
-													},
-													"nameLabel": {
-														"$ref": "AAAAAAF4U7kcLy4T9vc="
-													},
-													"namespaceLabel": {
-														"$ref": "AAAAAAF4U7kcMC4UpaM="
-													},
-													"propertyLabel": {
-														"$ref": "AAAAAAF4U7kcMC4VwMc="
-													}
-												},
-												{
-													"_type": "UMLLinePartView",
-													"_id": "AAAAAAF4U7kcMC4Wv24=",
-													"_parent": {
-														"$ref": "AAAAAAF4U7kcLy4QpR8="
-													},
-													"model": {
-														"$ref": "AAAAAAF4U7kcLy4PlGY="
-													},
-													"font": "Arial;13;0",
-													"left": 2052,
-													"top": 80,
-													"width": 1,
-													"height": 160
-												}
-											],
-											"font": "Arial;13;0",
-											"left": 2016,
-											"top": 40,
-											"width": 72.736328125,
-											"height": 200,
-											"nameCompartment": {
-												"$ref": "AAAAAAF4U7kcLy4RpIc="
-											},
-											"linePart": {
-												"$ref": "AAAAAAF4U7kcMC4Wv24="
-											}
-										},
-										{
-											"_type": "UMLSeqLifelineView",
-											"_id": "AAAAAAF4U7lOqi4v5WQ=",
-											"_parent": {
-												"$ref": "AAAAAAF4Tp01Fe8ymnk="
-											},
-											"model": {
-												"$ref": "AAAAAAF4U7lOqi4uvoM="
-											},
-											"subViews": [
-												{
-													"_type": "UMLNameCompartmentView",
-													"_id": "AAAAAAF4U7lOqi4wCSk=",
-													"_parent": {
-														"$ref": "AAAAAAF4U7lOqi4v5WQ="
-													},
-													"model": {
-														"$ref": "AAAAAAF4U7lOqi4uvoM="
-													},
-													"subViews": [
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7lOqi4xxko=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7lOqi4wCSk="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"height": 13
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7lOqi4yX1A=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7lOqi4wCSk="
-															},
-															"font": "Arial;13;1",
-															"left": 2021,
-															"top": 47,
-															"width": 62.736328125,
-															"height": 13,
-															"text": "Lifeline2"
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7lOqi4zXuw=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7lOqi4wCSk="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"width": 85.2490234375,
-															"height": 13,
-															"text": "(from Sesiune)"
-														},
-														{
-															"_type": "LabelView",
-															"_id": "AAAAAAF4U7lOqi40dkM=",
-															"_parent": {
-																"$ref": "AAAAAAF4U7lOqi4wCSk="
-															},
-															"visible": false,
-															"font": "Arial;13;0",
-															"height": 13,
-															"horizontalAlignment": 1
-														}
-													],
-													"font": "Arial;13;0",
-													"left": 2016,
-													"top": 40,
-													"width": 72.736328125,
-													"height": 40,
-													"stereotypeLabel": {
-														"$ref": "AAAAAAF4U7lOqi4xxko="
-													},
-													"nameLabel": {
-														"$ref": "AAAAAAF4U7lOqi4yX1A="
-													},
-													"namespaceLabel": {
-														"$ref": "AAAAAAF4U7lOqi4zXuw="
-													},
-													"propertyLabel": {
-														"$ref": "AAAAAAF4U7lOqi40dkM="
-													}
-												},
-												{
-													"_type": "UMLLinePartView",
-													"_id": "AAAAAAF4U7lOqi41j5E=",
-													"_parent": {
-														"$ref": "AAAAAAF4U7lOqi4v5WQ="
-													},
-													"model": {
-														"$ref": "AAAAAAF4U7lOqi4uvoM="
-													},
-													"font": "Arial;13;0",
-													"left": 2052,
-													"top": 80,
-													"width": 1,
-													"height": 160
-												}
-											],
-											"font": "Arial;13;0",
-											"left": 2016,
-											"top": 40,
-											"width": 72.736328125,
-											"height": 200,
-											"nameCompartment": {
-												"$ref": "AAAAAAF4U7lOqi4wCSk="
-											},
-											"linePart": {
-												"$ref": "AAAAAAF4U7lOqi41j5E="
-											}
-										},
-										{
-											"_type": "UMLSeqLifelineView",
 											"_id": "AAAAAAF4U7lc8i5OzSk=",
 											"_parent": {
 												"$ref": "AAAAAAF4Tp01Fe8ymnk="
@@ -16318,24 +16092,6 @@
 								},
 								{
 									"_type": "UMLLifeline",
-									"_id": "AAAAAAF4U7kcLy4PlGY=",
-									"_parent": {
-										"$ref": "AAAAAAF4Tp01Fe8xZKY="
-									},
-									"name": "Lifeline1",
-									"isMultiInstance": false
-								},
-								{
-									"_type": "UMLLifeline",
-									"_id": "AAAAAAF4U7lOqi4uvoM=",
-									"_parent": {
-										"$ref": "AAAAAAF4Tp01Fe8xZKY="
-									},
-									"name": "Lifeline2",
-									"isMultiInstance": false
-								},
-								{
-									"_type": "UMLLifeline",
 									"_id": "AAAAAAF4U7lc8i5NHno=",
 									"_parent": {
 										"$ref": "AAAAAAF4Tp01Fe8xZKY="
@@ -16351,7 +16107,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Selectare Cont",
+							"name": "Selectare Banca",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -16378,7 +16134,7 @@
 														"$ref": "AAAAAAF4TsaRCfQt8ro="
 													},
 													"font": "Arial;13;0",
-													"left": 32.72998046875,
+													"left": 24.72998046875,
 													"top": 13,
 													"width": 232.2451171875,
 													"height": 13,
@@ -16391,7 +16147,7 @@
 														"$ref": "AAAAAAF4TsaRCfQt8ro="
 													},
 													"font": "Arial;13;1",
-													"left": 13,
+													"left": 5,
 													"top": 13,
 													"width": 14.72998046875,
 													"height": 13,
@@ -16399,10 +16155,9 @@
 												}
 											],
 											"font": "Arial;13;0",
-											"left": 8,
 											"top": 8,
 											"width": 985,
-											"height": 721,
+											"height": 529,
 											"nameLabel": {
 												"$ref": "AAAAAAF4TsaRCvQu0BA="
 											},
@@ -16461,9 +16216,9 @@
 															},
 															"visible": false,
 															"font": "Arial;13;0",
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -16576,9 +16331,9 @@
 															"visible": false,
 															"font": "Arial;13;0",
 															"left": 208,
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -16692,9 +16447,9 @@
 															"visible": false,
 															"font": "Arial;13;0",
 															"left": -432,
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -17142,9 +16897,9 @@
 															"visible": false,
 															"font": "Arial;13;0",
 															"left": -112,
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -17369,9 +17124,9 @@
 															"visible": false,
 															"font": "Arial;13;0",
 															"left": -144,
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -17821,9 +17576,9 @@
 															"visible": false,
 															"font": "Arial;13;0",
 															"left": -80,
-															"width": 124.26171875,
+															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Cont)"
+															"text": "(from Selectare Banca)"
 														},
 														{
 															"_type": "LabelView",
@@ -18182,7 +17937,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4Tp01FO8wFDE="
 							},
-							"name": "Selectare Banca",
+							"name": "Selectare Cont",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -18294,7 +18049,7 @@
 															"left": -64,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -18410,7 +18165,7 @@
 															"left": 720,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -18526,7 +18281,7 @@
 															"left": 2016,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -18642,7 +18397,7 @@
 															"left": -672,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -18869,7 +18624,7 @@
 															"left": 432,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -19209,7 +18964,7 @@
 															"left": 192,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -19325,7 +19080,7 @@
 															"left": -304,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -19441,7 +19196,7 @@
 															"left": 528,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -20559,7 +20314,7 @@
 															"left": 320,
 															"width": 133.66259765625,
 															"height": 13,
-															"text": "(from Selectare Banca)"
+															"text": "(from Selectare Cont)"
 														},
 														{
 															"_type": "LabelView",
@@ -21432,7 +21187,7 @@
 														"$ref": "AAAAAAF4TuJWPvlRhhA="
 													},
 													"font": "Arial;13;0",
-													"left": 24.72998046875,
+													"left": 40.72998046875,
 													"top": 5,
 													"width": 197.06005859375,
 													"height": 13,
@@ -21445,7 +21200,7 @@
 														"$ref": "AAAAAAF4TuJWPvlRhhA="
 													},
 													"font": "Arial;13;1",
-													"left": 5,
+													"left": 21,
 													"top": 5,
 													"width": 14.72998046875,
 													"height": 13,
@@ -21453,6 +21208,7 @@
 												}
 											],
 											"font": "Arial;13;0",
+											"left": 16,
 											"width": 2273,
 											"height": 1609,
 											"nameLabel": {
@@ -21563,14 +21319,14 @@
 													"left": 60,
 													"top": 80,
 													"width": 1,
-													"height": 1735
+													"height": 1471
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 24,
 											"top": 40,
 											"width": 72.736328125,
-											"height": 1775,
+											"height": 1511,
 											"nameCompartment": {
 												"$ref": "AAAAAAF4TuPWXvl2D+o="
 											},
@@ -23032,14 +22788,14 @@
 													"left": 880,
 													"top": 80,
 													"width": 1,
-													"height": 564
+													"height": 537
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 824,
 											"top": 40,
 											"width": 111.0126953125,
-											"height": 604,
+											"height": 577,
 											"nameCompartment": {
 												"$ref": "AAAAAAF4Tu0LOvs8MoU="
 											},
@@ -23148,14 +22904,14 @@
 													"left": 1000,
 													"top": 80,
 													"width": 1,
-													"height": 577
+													"height": 567
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 944,
 											"top": 40,
 											"width": 111.0126953125,
-											"height": 617,
+											"height": 607,
 											"nameCompartment": {
 												"$ref": "AAAAAAF4Tu1eyftecTE="
 											},
@@ -23264,14 +23020,14 @@
 													"left": 1129,
 													"top": 80,
 													"width": 1,
-													"height": 761
+													"height": 705
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 1072,
 											"top": 40,
 											"width": 113,
-											"height": 801,
+											"height": 745,
 											"nameCompartment": {
 												"$ref": "AAAAAAF4Tu2XOft/D2k="
 											},
@@ -26297,14 +26053,14 @@
 													"left": 1721,
 													"top": 80,
 													"width": 1,
-													"height": 1735
+													"height": 1481
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 1664,
 											"top": 40,
 											"width": 113.919921875,
-											"height": 1775,
+											"height": 1521,
 											"nameCompartment": {
 												"$ref": "AAAAAAF4TxzZgiCWmHo="
 											},
@@ -28017,12 +27773,12 @@
 														"$ref": "AAAAAAF4TzvbVSKgjbA="
 													},
 													"font": "Arial;13;0",
-													"left": 656,
-													"top": 1292,
+													"left": 736,
+													"top": 1296,
 													"width": 463.88671875,
 													"height": 13,
-													"alpha": 1.5707963267948966,
-													"distance": 10,
+													"alpha": 0.07805339854202487,
+													"distance": 179.5466513193716,
 													"hostEdge": {
 														"$ref": "AAAAAAF4TzvbVSKhrOU="
 													},
@@ -28040,7 +27796,7 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"left": 887,
+													"left": 1145,
 													"top": 1307,
 													"height": 13,
 													"alpha": 1.5707963267948966,
@@ -28061,7 +27817,7 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"left": 888,
+													"left": 1146,
 													"top": 1272,
 													"height": 13,
 													"alpha": -1.5707963267948966,
@@ -28093,9 +27849,9 @@
 												"$ref": "AAAAAAF4TxE0QR9ku1I="
 											},
 											"tail": {
-												"$ref": "AAAAAAF4TwzPOB7XLAc="
+												"$ref": "AAAAAAF4Tx/ZMSDtpyc="
 											},
-											"points": "1305:1288;471:1288",
+											"points": "1821:1288;471:1288",
 											"nameLabel": {
 												"$ref": "AAAAAAF4TzvbVSKivQM="
 											},
@@ -29221,7 +28977,7 @@
 									},
 									"name": "transferFunds",
 									"source": {
-										"$ref": "AAAAAAF4TwzPNx7Qugo="
+										"$ref": "AAAAAAF4Tx/ZMSDmFtw="
 									},
 									"target": {
 										"$ref": "AAAAAAF4TxE0QB9dEKM="
