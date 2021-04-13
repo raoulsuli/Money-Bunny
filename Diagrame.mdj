@@ -31131,6 +31131,21 @@
 										},
 										{
 											"_type": "ERDColumnView",
+											"_id": "AAAAAAF4yx6UdJZNI9E=",
+											"_parent": {
+												"$ref": "AAAAAAF4u9SLpc6jnwc="
+											},
+											"model": {
+												"$ref": "AAAAAAF4yx6UaJZKoes="
+											},
+											"font": "Arial;13;0",
+											"left": 485,
+											"top": 679,
+											"width": 224.90234375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
 											"_id": "AAAAAAF4u+2Nm9FwTR4=",
 											"_parent": {
 												"$ref": "AAAAAAF4u9SLpc6jnwc="
@@ -31140,7 +31155,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 485,
-											"top": 679,
+											"top": 694,
 											"width": 224.90234375,
 											"height": 13
 										}
@@ -31149,14 +31164,14 @@
 									"left": 480,
 									"top": 599,
 									"width": 234.90234375,
-									"height": 98
+									"height": 113
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 480,
 							"top": 576,
 							"width": 234.90234375,
-							"height": 121,
+							"height": 136,
 							"nameLabel": {
 								"$ref": "AAAAAAF4u9SLpc6igyk="
 							},
@@ -32393,6 +32408,16 @@
 							"name": "moneda",
 							"type": "CHAR",
 							"length": "3"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF4yx6UaJZKoes=",
+							"_parent": {
+								"$ref": "AAAAAAF4u9SLpM6fYCo="
+							},
+							"name": "recurenta_zile",
+							"type": "NUMERIC",
+							"length": 0
 						},
 						{
 							"_type": "ERDColumn",
