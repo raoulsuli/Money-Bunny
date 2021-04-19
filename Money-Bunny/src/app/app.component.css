@@ -1,0 +1,16 @@
+.logo {
+    width: 4rem;
+    height: auto;
+}
+
+.nav-text {
+    font-size: 1.2rem;
+}
+
+.mb-color {
+    color: #91E542;
+}
+
+.hr-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
