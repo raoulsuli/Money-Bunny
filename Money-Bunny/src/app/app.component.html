@@ -2,57 +2,15 @@
     <div class="container justify-content-between">
         <div class="navbar-brand d-flex align-items-center">
             <span class="navbar-logo">
-                <a href="index.html">
+                <a routerLink="/">
                     <img class="logo" src="assets/images/logo.png" alt="Money Bunny Logo">
                 </a>
             </span>
             <span class="navbar-caption ml-1">
-                <a class="text-dark text-decoration-none font-weight-bold nav-text" href="index.html">Money Bunny</a>
+                <a class="text-dark text-decoration-none font-weight-bold nav-text" routerLink="/">Money Bunny</a>
             </span>
         </div>
-        <a class="btn mb-button">Login / Sign up</a>
+        <a class="btn mb-button" routerLink="/login">Login / Sign up</a>
     </div>
 </nav>
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12 col-sm-12">
-            <div class="font-weight-bold display-4 text-center">Welcome to Money Bunny</div>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-12 col-sm-12">
-            <h4 class="mb-color font-weight-bold text-center">Your Online Banking Solution</h4>
-        </div>
-    </div>
-</div>
-
-<div class="col-12 col-sm-12" style="margin-top: 14rem;">
-    <div class="font-weight-bold display-4 text-center">All your accounts in one place!</div>
-</div>
-
-<div class="row text-center mx-3 mt-5">
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-dollar mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">View account balance</span>
-    </div>
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-calendar mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">Schedule online payments</span>
-    </div>
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-download mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">Download payment history</span>
-    </div>
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-shield mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">Secure online transactions</span>
-    </div>
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-file mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">Open new accounts</span>
-    </div>
-    <div class="col-6 col-md my-3">
-        <span class="fa fa-lock mb-color icon mb-3"></span><br>
-        <span class="font-weight-bold font-1p3rem">Block cards or close accounts</span>
-    </div>
-</div>
+<router-outlet></router-outlet>
