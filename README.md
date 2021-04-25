@@ -1,5 +1,5 @@
 # Money-Bunny
-Proiect IP
+Proiect IP -- http://moneybunny.s3-website.eu-north-1.amazonaws.com/
 
 ID | Nume | Asignat | Sprint | Estimare | Mențiuni
 --- | --- | --- | --- |--- |---
