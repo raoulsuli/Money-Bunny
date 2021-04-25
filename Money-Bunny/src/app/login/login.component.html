@@ -1,7 +1,29 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center mt-5 pt-5">
     <div class="row">
         <div class="col-12 col-sm-12">
-            Login form + udemy chapter authentication
+            <form>
+                <div class="form-outline mb-4">
+                    <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username">
+                </div>
+              
+                <div class="form-outline mb-3">
+                    <input type="password" id="password" class="form-control p-3 input-style" placeholder="Password">
+                </div>
+              
+                <div class="row justify-content-center input-style">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="remember" checked>
+                        <label class="form-check-label" for="remember"> Remember me </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-block mb-2 input-style mb-button">Login</button>
+              
+                <div class="text-center">
+                    <a href="#" class="input-style">Forgot password?</a><br>
+                    <span class="input-style">Not a member? <a routerLink="/register">Sign up</a></span>
+                </div>
+              </form>
         </div>
     </div>
 </div>
