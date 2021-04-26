@@ -1,1 +1,57 @@
-<p>register works!</p>
+<div class="container d-flex justify-content-center mt-5 pt-5">
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <form>
+                <div class="form-outline mb-4">
+                    <input type="text" id="name" class="form-control p-3 input-style" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="email" id="email" class="form-control p-3 input-style" placeholder="Email" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="cnp" pattern="[1-2][0-9]{12}" class="form-control p-3 input-style" placeholder="CNP" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="telnumber" pattern="07[3-9][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number" required>
+                </div>
+                <!--  -->
+                <div class="form-outline mb-4">
+                    <input class="form-control datepicker" type="text" id="birthdate" title="DD/MM/YYYY" class="form-control p-3 input-style"  required>
+                </div>
+                
+                <div class="form-outline mb-4">
+                    <input type="text" id="telnumber" pattern="07[3-9][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="address" class="form-control p-3 input-style" placeholder="Home Address" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <select (input)="setUser($event)" class="form-control input-style" placeholder="User Type" id="usertype" required>
+                        <option value="" disabled selected>User Type</option>
+                        <option value="pfizica">Persoana Fizica</option>
+                        <option value="pjuridica">Procesator - Persoana Juridica</option>
+                    </select>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input *ngIf="userType === 'pjuridica'" type="text" id="numefirma" class="form-control p-3 input-style" placeholder="Company Name" [required]="userType === 'pjuridica'">
+                </div>
+                
+                <div class="form-outline mb-3">
+                    <input type="password" id="password" class="form-control p-3 input-style" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-block mb-2 input-style mb-button">Sign up</button>
+              </form>
+        </div>
+    </div>
+</div>

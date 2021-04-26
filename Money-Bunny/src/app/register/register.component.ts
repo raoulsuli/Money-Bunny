@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  userType = '';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setUser(event: Event) {
+    this.userType = (<HTMLInputElement>event.target).value;
+  }
 }
