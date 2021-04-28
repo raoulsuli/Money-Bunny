@@ -1,7 +1,7 @@
 <div class="container d-flex justify-content-center mt-5 pt-5">
     <div class="row">
         <div class="col-12 col-sm-12">
-            <form>
+            <form (ngSubmit)="onSubmit()">
                 <div class="form-outline mb-4">
                     <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username">
                 </div>
@@ -23,7 +23,7 @@
                     <a href="#" class="input-style">Forgot password?</a><br>
                     <span class="input-style">Not a member? <a routerLink="/register">Sign up</a></span>
                 </div>
-              </form>
+            </form>
         </div>
     </div>
 </div>

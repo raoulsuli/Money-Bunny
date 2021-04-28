@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -12,4 +13,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    var user = (<HTMLInputElement>document.getElementById('username')).value;
+    var pass = (<HTMLInputElement>document.getElementById('password')).value;
+    axios.post('http://localhost:8080/login', {'user' : user, 'pass' : pass}).then((response) => {
+      console.log(response);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 }
