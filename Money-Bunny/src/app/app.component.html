@@ -12,17 +12,30 @@
     <div class="nav-item d-none d-sm-block">
         <a class="btn mb-button mr-4" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
         <a class="btn mb-button" routerLink="/login">Login / Sign up</a>
+        <a class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{language.viewValue}}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownLang">
+                <a *ngFor="let lang of languages" class="dropdown-item itemLang" (click)="onUpdateLanguage(lang)">{{lang.viewValue}}</a>
+            </div>
+        </a>
     </div>
     <div class="nav-item dropdown position-static d-block d-sm-none">
         <a id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
             <span class="fa fa-bars" style="font-size: 3rem;"></span>
         </a>
-        <div class="dropdown-menu w-100 mt-0 shadow p-3 mb-5 bg-white rounded" aria-labelledby="navbarDropdownMenu">
+        <div class="dropdown-menu multi-level w-100 mt-0 shadow p-3 mb-5 bg-white rounded"
+            aria-labelledby="navbarDropdownMenu">
             <div class="row justify-content-center">
                 <a class="dropdown-item btn mb-button mb-4 w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
             </div>
             <div class="row justify-content-center">
                 <a class="dropdown-item btn mb-button w-auto" routerLink="/login">Login / Sign up</a>
+            </div>
+            <div class="row justify-content-center">
+                <a class="btn btn-secondary dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{language.viewValue}}</a>
+                <div class="dropdown-submenu" aria-labelledby="dropdownLang">
+                    <a *ngFor="let lang of languages" class="dropdown-item itemLang" (click)="onUpdateLanguage(lang)">{{lang.viewValue}}</a>
+                </div>
             </div>
         </div>
     </div>

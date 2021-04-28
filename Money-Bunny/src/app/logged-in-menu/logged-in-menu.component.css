@@ -1,0 +1,43 @@
+.logo {
+    width: 4rem;
+    height: auto;
+}
+
+.nav-text {
+    font-size: 1.2rem;
+}
+
+.mb-color {
+    color: #91E542;
+}
+
+.mb-bg {
+    background-color: #91E542;
+}
+
+.hr-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    font-size: 5rem;
+}
+
+.font-1p3rem {
+    font-size: 1.3rem;
+}
+
+.mb-button {
+    border-color: white;
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #142305;
+    background-color:white;
+}
+
+.mb-button:hover {
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #66b719;
+    background-color: white; 
+}
