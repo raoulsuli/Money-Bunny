@@ -1,0 +1,18 @@
+.mb-button {
+    border-color: white;
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #142305;
+    background-color:white;
+}
+
+.mb-button:hover {
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #66b719;
+    background-color: white; 
+}
+
+.font-1p3rem {
+    font-size: 1.3rem;
+}

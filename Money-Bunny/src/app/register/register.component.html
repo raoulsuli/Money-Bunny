@@ -2,25 +2,58 @@
     <div class="row">
         <div class="col-12 col-sm-12">
             <form>
+                <a class="text-dark text-decoration-none font-weight-bold">Money Bunny account credentials</a>
+                <br><br>
+                <div class="row justify-content-between">
+                    <div class="col-12 col-sm-4">
+                        <div class="form-outline mb-4">
+                            <input type="email" id="email" class="form-control p-3 input-style" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <div class="form-outline mb-4">
+                            <select (input)="setUser($event)" class="form-control input-style" placeholder="User Type" id="usertype" required>
+                                <option value="" disabled selected>User Type</option>
+                                <option value="pfizica">Persoana Fizica</option>
+                                <option value="pjuridica">Procesator - Persoana Juridica</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-outline mb-4" [ngClass]="{'col-sm-6': userType === 'pjuridica'}">
+                        <div class="form-outline" [ngClass]="{'mb-3': userType === 'pjuridica'}">
+                            <input *ngIf="userType === 'pjuridica'" type="text" id="numefirma" class="form-control p-3 input-style" placeholder="Company Name" [required]="userType === 'pjuridica'">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-12 col-sm-4">
+                        <div class="form-outline mb-4">
+                            <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-outline mb-3">
+                            <input type="password" id="password" class="form-control p-3 input-style" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-outline mb-3">
+                            <input type="password" id="password" class="form-control p-3 input-style" placeholder="Retype Password">
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <a class="text-dark text-decoration-none font-weight-bold">Personal information</a>
+                <br><br>
                 <div class="row justify-content-between">
                     <div class="col-12 col-sm-4">
                         <div class="form-outline mb-4">
                             <input type="text" id="name" class="form-control p-3 input-style" placeholder="Full Name" required>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="form-outline mb-4">
-                            <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username" required>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="form-outline mb-4">
-                            <input type="email" id="email" class="form-control p-3 input-style" placeholder="Email" required>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row justify-content-between">
                     <div class="col-12 col-sm-4">
                         <div class="form-outline mb-4">
                             <input type="text" id="cnp" pattern="[1-2][0-9]{12}" class="form-control p-3 input-style" placeholder="CNP" required>
@@ -41,43 +74,18 @@
                 <div class="row justify-content-between">
                     <div class="col-12 col-sm-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="telnumber" pattern="07[3-9][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number" required>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="form-outline mb-4">
                             <input type="text" id="address" class="form-control p-3 input-style" placeholder="Home Address" required>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="form-outline mb-4">
-                            <select (input)="setUser($event)" class="form-control input-style" placeholder="User Type" id="usertype" required>
-                                <option value="" disabled selected>User Type</option>
-                                <option value="pfizica">Persoana Fizica</option>
-                                <option value="pjuridica">Procesator - Persoana Juridica</option>
-                            </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-12" [ngClass]="{'col-sm-6': userType === 'pjuridica'}">
-                        <div class="form-outline" [ngClass]="{'mb-3': userType === 'pjuridica'}">
-                            <input *ngIf="userType === 'pjuridica'" type="text" id="numefirma" class="form-control p-3 input-style" placeholder="Company Name" [required]="userType === 'pjuridica'">
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="form-outline mb-3">
-                            <input type="password" id="password" class="form-control p-3 input-style" placeholder="Password">
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
                     <div class="col-12 col-sm-4">
-                        <button type="submit" class="btn btn-block mb-2 input-style mb-button">Sign up</button>
+                        <button type="submit" class="btn btn-block mb-2 input-style mb-button"
+                            routerLink="/logged-in-menu">Sign up</button>
                     </div>
                 </div>
-              </form>
+            </form>
         </div>
     </div>
 </div>
