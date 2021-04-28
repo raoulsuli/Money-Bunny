@@ -23,8 +23,16 @@
     font-size: 5rem;
 }
 
-.font-1p3rem {
-    font-size: 1.3rem;
+.font-item {
+    font-size: 1.25rem;
+}
+
+.font-title {
+    font-size: 3rem;
+}
+
+.font-subtitle {
+    font-size: 2rem;
 }
 
 .mb-button {
