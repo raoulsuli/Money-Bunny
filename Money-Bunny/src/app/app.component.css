@@ -39,3 +39,32 @@
     color: white;
     background-color: #66b719; 
 }
+
+.itemLang {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: white;
+}
+
+.itemLang:hover {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #66b719;
+    background-color: white; 
+}
+
+.btn-secondary {
+    border-color: white;
+    font-size: 1.25rem;
+    color: #91E542;
+    font-weight: 600;
+    background-color: white;
+}
+
+.btn-secondary:hover {
+    border-color: white;
+    font-size: 1.25rem;
+    color: #66b719;
+    font-weight: 600;
+    background-color: white;
+}
