@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     var user = (<HTMLInputElement>document.getElementById('username')).value;
     var pass = (<HTMLInputElement>document.getElementById('password')).value;
-    axios.post('http://localhost:8080/login', {'user' : user, 'pass' : pass}).then((response) => {
+    axios.post('http://ec2-18-156-2-153.eu-central-1.compute.amazonaws.com:3000/login', {'user' : user, 'pass' : pass}).then((response) => {
       if (response) {
         this.router.navigateByUrl('/logged-in-menu')
       }
