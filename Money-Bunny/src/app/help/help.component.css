@@ -1,0 +1,15 @@
+div.textul{
+	margin-right: 10%;
+	margin-left: 10%;
+}
+div.daiscroll{
+	overflow-y: scroll;
+}
+.logo {
+    width: 12rem;
+    height: auto;
+}
+.logosmall {
+    width: 8rem;
+    height: auto;
+}
