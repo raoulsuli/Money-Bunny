@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankSelectComponent implements OnInit {
 
+  bank: string = 'none';
+  accountType: string = '';
+  currency: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelectBank(bankCode: string) {
+    this.bank = bankCode;
+  }
+
+  setAccount(event: Event) {
+    this.accountType = (<HTMLInputElement>event.target).value;
+  }
+
+  setCurrency(event: Event) {
+    this.currency = (<HTMLInputElement>event.target).value;
+  }
 }
