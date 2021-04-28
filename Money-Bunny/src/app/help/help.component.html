@@ -1,1 +1,65 @@
-<p>help works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div *ngIf="tipHelp == ''" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the home page help section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/main_circle.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        You are currently on the home page, from here you can login, view your account balance, schedule online payments, secure online transations, open new accounts or the last option: block cards or close accounts.
+	        <br>
+	        <br>
+	        An individual help page for each of these will appear as soon as you click on your preferred option.
+    	</div>
+    </div>
+</div>
+<div *ngIf="tipHelp == 'login'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the login page help section!</h2>
+	        <br>
+	        You are currently on the login page, from here you can login into your account.
+	        <br>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/login_help1.png" alt="Login Logo">
+	        </div>
+	        <br>
+	        To do that you need to type your username in the box that is labeled "Username" and your password in the box that is labeled "Password".
+	        <br>
+	        <br>
+	   	    <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/login_help2.png" alt="Login Logo2">
+	        </div>
+	        In the end you need to click on the "Login" button.
+	        <br>
+	        <br>
+	   	    <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/login_help3.png" alt="Login Logo3">
+	        </div>
+	        If you want your credentials remembered for the next time you acces our website, you can opt to tick the option "Remember me", if not, just leave it unselected.
+	        <br>
+	        <br>
+	   	    <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/login_help4.png" alt="Login Logo4">
+	        </div>
+	        If you do not remember your password, click "Forgot password?" and a special form with clear instructions will appear on your screen.
+	        <br>
+	        <br>
+	   	    <div style="text-align: center;">
+	        	<img class="logosmall" src="assets/images/login_help5.png" alt="Login Logo5">
+	        </div>
+	        If you do not have an account on our website yet, you can click the button "Sign up" and a form will appear.
+    	</div>
+    </div>
+</div>
+</body>
+</html>

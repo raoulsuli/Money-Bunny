@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 
 @Component({
@@ -8,7 +9,7 @@ import axios from 'axios';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit {
     var user = (<HTMLInputElement>document.getElementById('username')).value;
     var pass = (<HTMLInputElement>document.getElementById('password')).value;
     axios.post('http://localhost:8080/login', {'user' : user, 'pass' : pass}).then((response) => {
-      console.log(response);
+      if (response) {
+        this.router.navigateByUrl('/logged-in-menu')
+      }
     }).catch((err) => {
       console.log(err);
     });
