@@ -130,6 +130,10 @@
               "devServerTarget": "Money-Bunny:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
