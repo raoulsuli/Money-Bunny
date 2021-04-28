@@ -21,8 +21,8 @@ const db = mysql.createConnection({
 app.post('/login', function(req, res) {
     const query = "SELECT * FROM users WHERE username=? AND parola=?";
     db.query(query, [req.body.user, req.body.pass], (err, result) => {
-        if (err) res.send("Error to the database");
-        res.send(result);
+        if (err) res.send("Error");
+        else if (result.length != 0) res.send(result);
     });
 })
 
