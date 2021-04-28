@@ -1,5 +1,5 @@
 # Money-Bunny
-Proiect IP -- http://moneybunny.s3-website.eu-north-1.amazonaws.com/
+Proiect IP -- https://console.firebase.google.com/u/0/project/money-bunny-920e7/overview
 
 ID | Nume | Asignat | Sprint | Estimare | Mențiuni
 --- | --- | --- | --- |--- |---
