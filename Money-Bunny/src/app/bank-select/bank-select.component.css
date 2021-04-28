@@ -21,7 +21,9 @@
     background-color: #91E542;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
 	color: white;
     background-color: #66b719;
 }
