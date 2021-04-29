@@ -21,20 +21,6 @@ const db = mysql.createConnection({
     database: 'MoneyBunny'
 })
 
-app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-const db = mysql.createConnection({
-            host: 'money-bunny-instance-1.c8zbm7k90fa0.eu-north-1.rds.amazonaws.com',
-            user: 'admin',
-            password: 'admin123',
-            port: '3306',
-            database: 'MoneyBunny'
-})
-
-
 app.post('/login', function(req, res) {
             const query = "SELECT * FROM users WHERE username=? AND parola=?";
             db.query(query, [req.body.user, req.body.pass], (err, result) => {
