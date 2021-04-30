@@ -40,7 +40,8 @@
                 <a class="dropdown-item btn mb-button mb-4 w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
             </div>
             <div class="row justify-content-center">
-                <a class="dropdown-item btn mb-button w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'logged-in-menu'" routerLink="/login">Login / Sign up</a>
+                <!--<a class="dropdown-item btn mb-button w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'logged-in-menu'" routerLink="/login">Login / Sign up</a>-->
+                <a class="dropdown-item btn mb-button w-auto" routerLink="/login">Login / Sign up</a>
             </div>
         </div>
     </div>

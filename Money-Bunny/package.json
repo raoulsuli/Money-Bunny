@@ -24,6 +24,7 @@
     "@popperjs/core": "^2.9.2",
     "@types/cors": "^2.8.10",
     "@types/jquery": "^3.5.5",
+    "angularfire2": "^5.4.2",
     "apisauce": "^2.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
