@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 		'', // username
 		'', // password
 		'', // email
-		'',
+		'', // cnp
 		'', // phone
 		new Date(),
 		'', // address
