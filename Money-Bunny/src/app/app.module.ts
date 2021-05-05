@@ -16,16 +16,19 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from '../environments/environment';
+import { AuthGuardService } from './services/auth-guard.service';
+import { NotAuthGuardService } from './services/not-auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent},
-  { path: 'bank-select', component: BankSelectComponent},
-  { path: 'user-profile', component: UserProfileComponent},
-  { path: 'logged-in-menu', component: LoggedInMenuComponent},
-  { path: 'card-select', component: CardSelectComponent},
-  { path: 'help', component: HelpComponent}
+  { path: '', component: HomeComponent, canActivate: [NotAuthGuardService]},
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]},
+  { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService]},
+  { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService]},
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
+  { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService]},
+  { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService]},
+  { path: 'help', component: HelpComponent},
+  { path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

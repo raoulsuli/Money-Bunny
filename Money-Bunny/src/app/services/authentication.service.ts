@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   userData: Observable<firebase.User | null>;
+  public loggedIn = false;
 
-  constructor(private angularFireAuth: AngularFireAuth) {
+  constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
+    this.loggedIn = !!sessionStorage.getItem('user');
   }
   
   /* Sign up */
@@ -27,16 +30,28 @@ export class AuthenticationService {
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then(res => {
-      console.log('You are Successfully logged in!', res);
+    .then(() => {
+      this.router.navigateByUrl('logged-in-menu');
+      sessionStorage.setItem('user', email);
+      this.loggedIn = true;
     })
     .catch(err => {
-      console.log('Something is wrong:',err.message);
+      alert(err.message);
     });
   }
    
   /* Sign out */
   SignOut() {
     this.angularFireAuth.signOut();
+    this.loggedIn = false;
+    sessionStorage.removeItem('user');
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
+  }
+
+  getCurrentUser() {
+    return sessionStorage.getItem('user') || undefined;
   }
 }

@@ -1,17 +1,18 @@
 <nav class="navbar hr-bottom">
     <div class="navbar-brand d-flex align-items-center mr-0">
         <div class="navbar-logo">
-            <a routerLink="/">
+            <a [routerLink]="this.auth.isLoggedIn() ? ['/logged-in-menu'] : ['/']">
                 <img class="logo" src="assets/images/logo.png" alt="Money Bunny Logo">
             </a>
         </div>
         <div class="navbar-caption">
-            <a class="text-dark text-decoration-none font-weight-bold nav-text" routerLink="/">Money Bunny</a>
+            <a class="text-dark text-decoration-none font-weight-bold nav-text" [routerLink]="this.auth.isLoggedIn() ? ['logged-in-menu'] : ['/']">Money Bunny</a>
         </div>
     </div>
     <div class="nav-item d-none d-sm-block">
         <a class="btn mb-button mr-4" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
-        <a class="btn mb-button mr-2" *ngIf="route.url.split('?')[0].slice(1) !== 'logged-in-menu'" routerLink="/login">Login / Sign up</a>
+        <a class="btn mb-button mr-2" *ngIf="this.auth.isLoggedIn()" routerLink="/" (click)="this.auth.SignOut()">Logout</a>
+        <a class="btn mb-button mr-2" *ngIf="!this.auth.isLoggedIn()" routerLink="/login">Login / Sign up</a>
         <a class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{language.viewValue}}</a>
             <div class="dropdown-menu" aria-labelledby="dropdownLang">
@@ -40,8 +41,8 @@
                 <a class="dropdown-item btn mb-button mb-4 w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
             </div>
             <div class="row justify-content-center">
-                <!--<a class="dropdown-item btn mb-button w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'logged-in-menu'" routerLink="/login">Login / Sign up</a>-->
-                <a class="dropdown-item btn mb-button w-auto" routerLink="/login">Login / Sign up</a>
+                <a class="dropdown-item btn mb-button w-auto" *ngIf="!this.auth.isLoggedIn()" routerLink="/login">Login / Sign up</a>
+                <a class="dropdown-item btn mb-button w-auto" *ngIf="this.auth.isLoggedIn()" routerLink="/" (click)="this.auth.SignOut()">Logout</a>
             </div>
         </div>
     </div>

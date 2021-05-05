@@ -1,13 +1,13 @@
 <div class="container d-flex justify-content-center mt-5 pt-5">
     <div class="row">
         <div class="col-12 col-sm-12">
-            <form (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="signIn()">
                 <div class="form-outline mb-4">
-                    <input type="text" id="username" class="form-control p-3 input-style" placeholder="Username" required>
+                    <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="email" class="form-control p-3 input-style" placeholder="Email" required>
                 </div>
               
                 <div class="form-outline mb-3">
-                    <input type="password" id="password" class="form-control p-3 input-style" placeholder="Password" required>
+                    <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password" class="form-control p-3 input-style" placeholder="Password" required>
                 </div>
               
                 <div class="row justify-content-center input-style">

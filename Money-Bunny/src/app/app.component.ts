@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 interface Language {
   value: string;
@@ -21,5 +22,5 @@ export class AppComponent {
     this.language = newLanguage;
   }
 
-  constructor(public route: Router) { }
+  constructor(public route: Router, public auth: AuthenticationService) { }
 }
