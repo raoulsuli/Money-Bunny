@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-card-select',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardSelectComponent implements OnInit {
 
-  constructor() { }
+  public banks = [];
+  public accounts = [];
+  
+  constructor(private firestore: AngularFirestore) {
+    this.firestore.collection('banks').valueChanges().subscribe((data: any) => {
+      this.banks = data;
+    });
+    this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
+      this.accounts = data;
+    });
+  }
 
   ngOnInit(): void {
   }
-
 }

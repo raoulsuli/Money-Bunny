@@ -1,1 +1,9 @@
 <p>card-select works!</p>
+<div class="container">
+    <div class="row" *ngFor="let item of this.banks">
+        {{item['name']}}
+    </div>
+    <div class="row" *ngFor="let item of this.accounts">
+        {{item['IBAN'] + " " + item['PIN']}}
+    </div>
+</div>
