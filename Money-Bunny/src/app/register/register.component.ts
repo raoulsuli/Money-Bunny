@@ -29,10 +29,13 @@ export class RegisterComponent implements OnInit {
   signUp() {
     if (this.passCheck === this.newUser.password) {
 
-      var existentUser = this.firestore.collection('users').doc(this.newUser.username);
+      const existentUser = this.firestore.collection('users').doc(this.newUser.username);
 
       existentUser.get().toPromise().then((doc) => {
-        if (!doc.exists) {
+        if (!(doc.exists)) {
+          console.log("Not found");
+          console.log(this.newUser.username);
+
           this.authenticationService.SignUp(this.newUser.email, this.newUser.password);
           this.firestore.collection('users').doc(this.newUser.username).set({
             name: this.newUser.name,
