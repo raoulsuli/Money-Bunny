@@ -2,9 +2,9 @@
 	<div class="row">
 		<a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
 		<ul style="list-style-type:none;">
-			<li><a class="btn mb-button" (click)='onSelectBank("BT")'>Banca Transilvania</a></li>
-			<li><a class="btn mb-button" (click)='onSelectBank("BRD")'>BRD</a></li>
-			<li><a class="btn mb-button" (click)='onSelectBank("LB")'>Libra Bank</a></li>
+			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BT'}" (click)='onSelectBank("BT")'>Banca Transilvania</a></li>
+			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BRD'}" (click)='onSelectBank("BRD")'>BRD</a></li>
+			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'LB'}" (click)='onSelectBank("LB")'>Libra Bank</a></li>
 		</ul>
 
 		<form *ngIf='bank !== "none"'>

@@ -36,7 +36,7 @@ export class AuthenticationService {
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then((res) => {
+    .then(() => {
       this.router.navigateByUrl('logged-in-menu');
       this.firestore.collection('users').valueChanges().subscribe((data) => {
         data.forEach((item: any) => {

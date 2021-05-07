@@ -1,1 +1,9 @@
-@import '../app.component.css'
+@import '../app.component.css';
+
+.card-mb-icon {
+    font-size: 2.5rem;
+}
+
+.card-mb-header {
+    font-size: 1.5rem;
+}

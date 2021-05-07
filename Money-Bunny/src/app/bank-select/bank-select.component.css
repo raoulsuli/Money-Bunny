@@ -13,6 +13,10 @@
     background-color: white; 
 }
 
+.mb-button-selected {
+    color: #66b719;
+}
+
 .btn-primary {
 	border-color: #91E542;
     font-size: 1.25rem;
