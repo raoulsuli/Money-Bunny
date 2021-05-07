@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthenticationService {
   userData: Observable<firebase.User | null>;
   public loggedIn = false;
 
-  constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
+  constructor(private router: Router, private angularFireAuth: AngularFireAuth, private firestore: AngularFirestore) {
     this.userData = angularFireAuth.authState;
     this.loggedIn = !!sessionStorage.getItem('user');
   }
@@ -30,9 +31,13 @@ export class AuthenticationService {
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then(() => {
+    .then((res) => {
       this.router.navigateByUrl('logged-in-menu');
-      sessionStorage.setItem('user', email);
+      this.firestore.collection('users').valueChanges().subscribe((data) => {
+        data.forEach((item: any) => {
+          if (item['email'] == email) sessionStorage.setItem('user', item['username']);
+        })
+      });
       this.loggedIn = true;
     })
     .catch(err => {
