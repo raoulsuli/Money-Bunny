@@ -5,8 +5,8 @@ ID | Nume | Asignat | Sprint | Estimare | Mențiuni
 --- | --- | --- | --- |--- |---
 A-1 | Instalare Componente necesare Implementării | Toți Membrii | 1 | 2h |  X
 A-2 | Configurare Servicii AWS (SGBD, Hosting) | Toți Membrii | 1 | 6h | X
-CF-1 | Autentificare | Sulimovici Raoul, Popa Alexandru | 1 | 2-3 zile
-CF-2 | Meniu Help | Marcu Daniel | 1 | 1-2 zile 
+CF-1 | Autentificare | Sulimovici Raoul, Popa Alexandru | 1 | 2-3 zile | X
+CF-2 | Meniu Help | Marcu Daniel | 1 | 1-2 zile | X
 CF-3 | Selectare Banca | Georgescu Ioana | 1 | 1-2 zile 
 CF-4 | Selectare Cont | Marcu Daniel, Georgescu Ioana | 2 | 2-3 zile 
 CF-5 | Inițiere Tranzacție | Sulimovici Raoul | 2 | 1-2 zile 
