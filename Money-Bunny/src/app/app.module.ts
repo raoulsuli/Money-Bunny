@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService]},
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService]},
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService]},
   { path: 'help', component: HelpComponent},
+  { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService]}, // de adaugat guard pentru card selectat
   { path: '**', redirectTo: '/'}
 ];
 
@@ -41,7 +43,8 @@ const routes: Routes = [
     LoggedInMenuComponent,
     BankSelectComponent,
     CardSelectComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AccountDashboardComponent
   ],
   imports: [
     BrowserModule,

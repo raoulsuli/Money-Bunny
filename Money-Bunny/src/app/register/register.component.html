@@ -40,13 +40,13 @@
                         <a class="text font-error" *ngIf="usernameInUse() && (invalidUser!=='')">Username already in use!</a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="max-width: 17.5rem;">
                     <div class="form-outline mb-3">
-                        <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$"
+                        <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-[\]#%])[A-Za-z\d@$!%*?&-[\]#]{10,}$"
                             class="form-control p-3 input-style" placeholder="Password"
                             name="password" id="password" #password="ngModel" [(ngModel)]="newUser.password" required>
-                        <a class="text font-error" *ngIf="password.errors?.pattern">
-                            Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</a>
+                        <span class="text font-error" *ngIf="password.errors?.pattern">
+                            Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
                     </div>
                 </div>
                 <div class="row">

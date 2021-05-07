@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../services/authentication.service';
 import { MoneyBunnyUser } from './../models/money-bunny-user.model';
 import { AngularFirestore } from "@angular/fire/firestore";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
   passCheck: string = '';
   invalidUser: string = '';
  
-  constructor(private authenticationService:AuthenticationService, private firestore: AngularFirestore) { }
+  constructor(private authenticationService:AuthenticationService, private firestore: AngularFirestore, private router: Router) { }
 
   signUp() {
     if (this.passCheck === this.newUser.password) {
@@ -51,6 +52,7 @@ export class RegisterComponent implements OnInit {
           })
           .then(res => {
               console.log(res);
+              this.router.navigateByUrl('login');
           })
           .catch(e => {
               console.log(e);
