@@ -1,0 +1,41 @@
+.mb-button {
+    border-color: white;
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #142305;
+    background-color:white;
+}
+
+.mb-button:hover {
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #66b719;
+    background-color: white; 
+}
+
+.mb-button-selected {
+    color: #66b719;
+}
+
+.mb-bg {
+    background-color: #91E542;
+}
+
+.btn-primary {
+	border-color: #91E542;
+    font-size: 1.25rem;
+    color: #142305;
+    font-weight: 600;
+    background-color: #91E542;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+	color: white;
+    background-color: #66b719;
+}
+
+.font-1p3rem {
+    font-size: 1.3rem;
+}

@@ -1,9 +1,38 @@
-<p>card-select works!</p>
 <div class="container">
-    <div class="row" *ngFor="let item of this.banks">
-        {{item['name']}}
-    </div>
-    <div class="row" *ngFor="let item of this.accounts">
-        {{item['IBAN'] + " " + item['PIN']}}
-    </div>
+    <h2><div class="row justify-content-center">
+        <a class="text-dark text-decoration-none font-weight-bold">Your registered accounts</a>
+        </div>
+    </h2>
+    <h2><div class="row justify-content-left">
+        <a class="text-dark text-decoration-none font-weight-bold">Please select a bank</a>
+        </div>
+    </h2>
+    <h3>
+        <div class="row" *ngFor="let item of this.banks">
+            <div class="col-4 col-sm my-2">
+                <span class="btn btn-primary btn-lg" routerLink="/card-select">
+                    {{item['name']}}
+                </span>
+            </div>
+        </div>        
+    </h3>
+    <h4>    
+        <div class="row" *ngFor="let item of this.accounts">
+            {{['IBAN: ' + item['IBAN']]}}
+        </div>
+        <div class="row" *ngFor="let item of this.accounts">
+            {{['Account type: ' + item['account_type']]}}
+        </div>
+    </h4>
+
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+      
 </div>
