@@ -23,6 +23,7 @@ import { NotAccountGuardService } from './services/not-account-guard.service';
 import { AccountGuardService } from './services/account-guard.service';
 import { FormPersFizComponent } from './form-pers-fiz/form-pers-fiz.component';
 import { FormPersJurComponent } from './form-pers-jur/form-pers-jur.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
+  { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 
@@ -50,7 +52,8 @@ const routes: Routes = [
     UserProfileComponent,
     AccountDashboardComponent,
     FormPersFizComponent,
-    FormPersJurComponent
+    FormPersJurComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
