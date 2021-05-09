@@ -1,5 +1,7 @@
 # Money-Bunny
-Proiect IP -- https://console.firebase.google.com/u/0/project/money-bunny-920e7/overview
+Proiect IP
+-> https://console.firebase.google.com/u/0/project/money-bunny-920e7/overview
+-> https://money-bunny-920e7.web.app/
 
 ID | Nume | Asignat | Sprint | Estimare | Mențiuni
 --- | --- | --- | --- |--- |---
