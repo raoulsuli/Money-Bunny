@@ -1,7 +1,12 @@
 <div class="container">
+	<div class="row mt-4">
+		<div class="col-12 col-sm-12 d-flex justify-content-center">
+			<h2 class="font-weight-bold">Welcome <span class="mb-color">{{this.auth.getCurrentUser()}}</span></h2>
+		</div>
+	</div> 
 	<div class="row justify-content-center">
 		<div class="counter-container col-md-12 col-lg-4">
-			<div class="row text-center mx-3 mt-5">
+			<div class="row text-center mx-3">
 				<div class="col-6 col-sm my-3">
 					<span class="btn mb-button" routerLink="/card-select"><a class="bi bi-credit-card-2-front mb-color icon mb-3"></a><br>
 						Select registered bank account</span>

@@ -9,13 +9,20 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class AccountDashboardComponent implements OnInit {
 
-  public data = [];
-  public bank = Object();
+  public account: any;
+  public bank: any;
 
   constructor(public auth: AuthenticationService, public firestore: AngularFirestore) {
+    var currentAccount = auth.getCurrentAccount();
+  
     firestore.collection('accounts').valueChanges().subscribe((data: any) => {
-      this.data = data;
-      data[0]['bank_id'].get().then((result: any) => this.bank = result.data());
+      data.forEach((element: any) => {
+        if (element['account_name'] == currentAccount) {
+          this.account = element;
+          element['bank_id'].get().then((result: any) => this.bank = result.data());
+          return;
+        }
+      });
     });
   }
 

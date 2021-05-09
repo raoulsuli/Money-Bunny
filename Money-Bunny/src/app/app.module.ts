@@ -19,17 +19,19 @@ import { environment } from '../environments/environment';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
+import { NotAccountGuardService } from './services/not-account-guard.service';
+import { AccountGuardService } from './services/account-guard.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [NotAuthGuardService]},
-  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]},
-  { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService]},
-  { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService]},
-  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
-  { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService]},
-  { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService]},
+  { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
+  { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
+  { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
-  { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService]}, // de adaugat guard pentru card selectat
+  { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 

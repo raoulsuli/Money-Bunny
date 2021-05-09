@@ -55,6 +55,7 @@ export class AuthenticationService {
     this.angularFireAuth.signOut();
     this.loggedIn = false;
     sessionStorage.removeItem('user');
+    this.unsetCurrentAccount();
   }
 
   isLoggedIn() {
@@ -63,5 +64,21 @@ export class AuthenticationService {
 
   getCurrentUser() {
     return sessionStorage.getItem('user') || undefined;
+  }
+
+  isAccountSet() {
+    return sessionStorage.getItem('account') != null;
+  }
+
+  setCurrentAccount(account_name: string) {
+    sessionStorage.setItem('account', account_name);
+  }
+
+  getCurrentAccount() {
+    return sessionStorage.getItem('account');
+  }
+
+  unsetCurrentAccount() {
+    sessionStorage.removeItem('account');
   }
 }
