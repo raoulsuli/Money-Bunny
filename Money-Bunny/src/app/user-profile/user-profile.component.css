@@ -1,0 +1,22 @@
+.input-style {
+    font-size: 1.2rem;
+    height: 50px;
+}
+
+.mb-button {
+    border-color: #91E542;
+    font-size: 1.25rem;
+    color: #142305;
+    font-weight: 600;
+    background-color: #91E542;
+}
+
+.mb-button:hover {
+    color: white;
+    background-color: #66b719; 
+}
+
+.font-error {
+    color: red;
+    font-size: 1.2rem;
+}
