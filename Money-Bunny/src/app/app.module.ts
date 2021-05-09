@@ -21,6 +21,8 @@ import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 import { NotAccountGuardService } from './services/not-account-guard.service';
 import { AccountGuardService } from './services/account-guard.service';
+import { FormPersFizComponent } from './form-pers-fiz/form-pers-fiz.component';
+import { FormPersJurComponent } from './form-pers-jur/form-pers-jur.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -46,7 +48,9 @@ const routes: Routes = [
     BankSelectComponent,
     CardSelectComponent,
     UserProfileComponent,
-    AccountDashboardComponent
+    AccountDashboardComponent,
+    FormPersFizComponent,
+    FormPersJurComponent
   ],
   imports: [
     BrowserModule,

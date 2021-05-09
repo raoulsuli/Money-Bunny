@@ -24,6 +24,8 @@ export class RegisterComponent implements OnInit {
   );
   passCheck: string = '';
   invalidUser: string = '';
+  signUpMessage: string = '';
+  invalidEmail: string = '';
  
   constructor(private authenticationService:AuthenticationService, private firestore: AngularFirestore, private router: Router) { }
 
@@ -34,29 +36,33 @@ export class RegisterComponent implements OnInit {
 
       existentUser.get().toPromise().then((doc) => {
         if (!(doc.exists)) {
-          console.log("Not found");
-          console.log(this.newUser.username);
+          this.signUpMessage = this.authenticationService.SignUp(this.newUser.email, this.newUser.password);
+          if (this.signUpMessage === 'Account created!') {
 
-          this.authenticationService.SignUp(this.newUser.email, this.newUser.password);
-          this.firestore.collection('users').doc(this.newUser.username).set({
-            name: this.newUser.name,
-            username: this.newUser.username,
-            password: this.newUser.password,
-            email: this.newUser.email,
-            cnp: this.newUser.cnp,
-            phone: this.newUser.phone,
-            birthday: this.newUser.birthday,
-            address: this.newUser.address,
-            userType: this.newUser.userType,
-            companyName: this.newUser.companyName
-          })
-          .then(res => {
-              console.log(res);
-              this.router.navigateByUrl('login');
-          })
-          .catch(e => {
+            this.firestore.collection('users').doc(this.newUser.username).set({
+              name: this.newUser.name,
+              username: this.newUser.username,
+              password: this.newUser.password,
+              email: this.newUser.email,
+              cnp: this.newUser.cnp,
+              phone: this.newUser.phone,
+              birthday: this.newUser.birthday,
+              address: this.newUser.address,
+              userType: this.newUser.userType,
+              companyName: this.newUser.companyName
+            })
+            .then(res => {
+                console.log(res);
+                this.router.navigateByUrl('login');
+            })
+            .catch(e => {
               console.log(e);
-          })
+            })
+          }
+          else {
+            this.invalidEmail = this.newUser.email;
+          }
+
         } else {
           this.invalidUser = this.newUser.username;
         }
@@ -64,6 +70,10 @@ export class RegisterComponent implements OnInit {
           console.log("Error getting document:", error);
       });
     }
+  }
+
+  emailInUse() {
+    return this.invalidEmail == this.newUser.email;
   }
 
   usernameInUse() {

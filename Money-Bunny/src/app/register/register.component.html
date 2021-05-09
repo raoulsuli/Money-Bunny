@@ -10,6 +10,7 @@
                             placeholder="Email"
                             name="email" #email="ngModel" [(ngModel)]="newUser.email" required>
                         <a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
+                        <a class="text font-error" *ngIf="emailInUse() && (invalidEmail!=='')">{{ signUpMessage }}</a>
                     </div>
                 </div>
                 <div class="row">
