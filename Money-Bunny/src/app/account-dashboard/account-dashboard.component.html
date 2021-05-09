@@ -1,46 +1,109 @@
-<div class="container">
-    <div class="row mt-2">
-        <div class="col-12 col-sm-12 d-flex justify-content-center">
-            <h3 class="font-weight-bold">Welcome <span class="mb-color">{{this.auth.getCurrentUser()}}</span></h3>
-        </div>
+<div class="container mt-4">
+  <!-- <div class="row my-4">
+    <div class="col-12 col-sm-12 d-flex justify-content-center">
+      <h2 class="font-weight-bold">Welcome <span class="mb-color">{{this.auth.getCurrentUser()}}</span></h2>
     </div>
+  </div>  -->
 
-    <div class="row mt-5">
-        <div class="col-12 col-sm-4">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <span class="font-weight-bold card-mb-header">Card Details</span>
-                    <i class="fa fa-credit-card mb-color card-mb-icon"></i>
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">View your card details</h5>
-                  <a class="btn mb-button" routerLink="/login">Card Details</a>
-                </div>
-              </div>
+  <div class="row">
+    <div class="col-12 col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <span class="font-weight-bold card-mb-header">Account details</span>
+          <i class="fa fa-credit-card mb-color card-mb-icon"></i>
         </div>
-        <div class="col-12 col-sm-4">
-          <div class="card">
-              <div class="card-header d-flex justify-content-between">
-                  <span class="font-weight-bold card-mb-header">Card Details</span>
-                  <i class="fa fa-credit-card mb-color card-mb-icon"></i>
+        <div class="card-body text-center pl-0">
+          <div class="row" *ngIf="this.data[0]">
+            <div class="col-6 col-sm pl-0">
+              <div class="row">
+                <div class="col-12">
+                  <h4 class="mb-color font-weight-bold">Bank</h4>
+                </div>
               </div>
-              <div class="card-body text-center">
-                <h5 class="card-title">View your card details</h5>
-                <a class="btn mb-button" routerLink="/login">Card Details</a>
+              <div class="row mt-2">
+                <div class="col-12">
+                  <h4 class="font-weight-bold">{{this.bank['name']}}</h4>
+                </div>
               </div>
             </div>
-      </div>
-      <div class="col-12 col-sm-4">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between">
-                <span class="font-weight-bold card-mb-header">Card Details</span>
-                <i class="fa fa-credit-card mb-color card-mb-icon"></i>
+            <div class="col-6 col-sm">
+              <div class="row">
+                <div class="col-12">
+                  <h4 class="font-weight-bold mb-color">IBAN</h4>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-12">
+                  <h4 class="font-weight-bold">{{this.data[0]['IBAN']}}</h4>
+                </div>
+              </div>
             </div>
-            <div class="card-body text-center">
-              <h5 class="card-title">View your card details</h5>
-              <a class="btn mb-button" routerLink="/login">Card Details</a>
+            <div class="col-6 col-sm">
+              <div class="row">
+                <div class="col-12">
+                  <h4 class="font-weight-bold mb-color">Account Type</h4>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-12">
+                  <h4 class="font-weight-bold">{{this.data[0]['account_type']}}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-sm">
+              <div class="row">
+                <div class="col-12">
+                  <h4 class="font-weight-bold mb-color">Balance</h4>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-12">
+                  <h4 class="font-weight-bold">{{this.data[0]['balance'] + " " + this.data[0]['currency']}}</h4>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 col-sm-4">
+      <div class="card">
+          <div class="card-header d-flex justify-content-between">
+              <span class="font-weight-bold card-mb-header">Card Details</span>
+              <i class="fa fa-credit-card mb-color card-mb-icon"></i>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">View your card details</h5>
+            <a class="btn mb-button" routerLink="/login">Card Details</a>
+          </div>
+        </div>
     </div>
+    <div class="col-12 col-sm-4">
+      <div class="card">
+          <div class="card-header d-flex justify-content-between">
+              <span class="font-weight-bold card-mb-header">Card Details</span>
+              <i class="fa fa-credit-card mb-color card-mb-icon"></i>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">View your card details</h5>
+            <a class="btn mb-button" routerLink="/login">Card Details</a>
+          </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="card">
+          <div class="card-header d-flex justify-content-between">
+              <span class="font-weight-bold card-mb-header">Card Details</span>
+              <i class="fa fa-credit-card mb-color card-mb-icon"></i>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">View your card details</h5>
+            <a class="btn mb-button" routerLink="/login">Card Details</a>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>

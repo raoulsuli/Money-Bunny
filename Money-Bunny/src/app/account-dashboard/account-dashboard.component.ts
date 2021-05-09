@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -8,7 +9,15 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class AccountDashboardComponent implements OnInit {
 
-  constructor(public auth: AuthenticationService) { }
+  public data = [];
+  public bank = Object();
+
+  constructor(public auth: AuthenticationService, public firestore: AngularFirestore) {
+    firestore.collection('accounts').valueChanges().subscribe((data: any) => {
+      this.data = data;
+      data[0]['bank_id'].get().then((result: any) => this.bank = result.data());
+    });
+  }
 
   ngOnInit(): void {
   }
