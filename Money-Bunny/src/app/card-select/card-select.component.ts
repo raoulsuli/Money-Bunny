@@ -10,6 +10,7 @@ export class CardSelectComponent implements OnInit {
 
   public banks = [];
   public accounts = [];
+  public click_message = '';
   
   constructor(private firestore: AngularFirestore) {
     this.firestore.collection('banks').valueChanges().subscribe((data: any) => {
@@ -21,5 +22,9 @@ export class CardSelectComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onClickMe() {
+    this.click_message = this.accounts[0]['IBAN'];
   }
 }
