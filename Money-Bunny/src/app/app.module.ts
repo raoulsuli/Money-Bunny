@@ -21,6 +21,7 @@ import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 import { NotAccountGuardService } from './services/not-account-guard.service';
 import { AccountGuardService } from './services/account-guard.service';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
+  { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 
@@ -46,7 +48,8 @@ const routes: Routes = [
     BankSelectComponent,
     CardSelectComponent,
     UserProfileComponent,
-    AccountDashboardComponent
+    AccountDashboardComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

@@ -38,8 +38,11 @@
         </a>
         <div class="dropdown-menu multi-level w-100 mt-0 shadow p-3 mb-5 bg-white rounded"
             aria-labelledby="navbarDropdownMenu">
-            <div class="row justify-content-center">
-                <a class="dropdown-item btn mb-button mb-4 w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
+            <div class="row justify-content-center mb-3">
+                <a class="dropdown-item btn mb-button w-auto" *ngIf="route.url.split('?')[0].slice(1) !== 'help'" routerLink="/help" [queryParams]="{page: this.route.url.slice(1)}">Help</a>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <a class="btn mb-button" *ngIf="this.auth.isAccountSet()" routerLink="/logged-in-menu" (click)="this.auth.unsetCurrentAccount()">Back to accounts</a>
             </div>
             <div class="row justify-content-center">
                 <a class="dropdown-item btn mb-button w-auto" *ngIf="!this.auth.isLoggedIn()" routerLink="/login">Login / Sign up</a>
