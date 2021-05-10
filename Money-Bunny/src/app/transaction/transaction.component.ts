@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Transaction } from '../models/transaction.model';
 import { AuthenticationService } from '../services/authentication.service';
@@ -12,7 +12,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class TransactionComponent implements OnInit {
   public account: any;
   public currentAccount = this.auth.getCurrentAccount();
-  public transaction: Transaction = new Transaction('', 0, new Date(), '', this.firestore.collection('accounts').doc(this.currentAccount), 0);
+  public transaction: Transaction = new Transaction('', 0, new Date(), '', this.firestore.collection('accounts').doc(this.currentAccount).ref, 0);
   private updated = false;
 
   constructor(private auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {

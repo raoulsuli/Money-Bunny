@@ -1,4 +1,4 @@
-import { AngularFirestoreDocument } from "@angular/fire/firestore";
+import { DocumentReference } from "@angular/fire/firestore";
 
 export class Transaction {
     constructor(
@@ -6,7 +6,7 @@ export class Transaction {
 		public amount: number,
 		public date: Date,
 		public currency: string,
-        public IBAN_src: AngularFirestoreDocument,
+        public IBAN_src: DocumentReference<unknown>,
         public recurrent_days: number
 	) {};
 }
