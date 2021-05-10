@@ -1,1 +1,26 @@
-<!-- <p>{{this.transactions[0]['IBAN_dest']}}</p> -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col" class="mb-color font-weight-bold h4">Destination IBAN</th>
+                        <th scope="col" class="mb-color font-weight-bold h4">Source IBAN</th>
+                        <th *ngIf="this.currentAccount" scope="col" class="mb-color font-weight-bold h4">Amount ({{this.currentAccount['currency']}})</th>
+                        <th scope="col" class="mb-color font-weight-bold h4">Date</th>
+                        <th scope="col" class="mb-color font-weight-bold h4">Recurrency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of this.transactions">
+                        <th>{{transaction['IBAN_dest']}}</th>
+                        <th>{{transaction['IBAN_src']}}</th>
+                        <th>{{transaction['amount']}}</th>
+                        <th>{{transaction['date'].toDate() | date: 'dd-MM-yyyy'}}</th>
+                        <th>{{transaction['recurrent_days']}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
