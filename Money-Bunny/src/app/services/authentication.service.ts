@@ -75,7 +75,7 @@ export class AuthenticationService {
   }
 
   getCurrentAccount() {
-    return sessionStorage.getItem('account');
+    return sessionStorage.getItem('account') || undefined;
   }
 
   unsetCurrentAccount() {

@@ -1,0 +1,6 @@
+@import '../app.component.css';
+
+.font-error {
+    color: red;
+    font-size: 1.2rem;
+}

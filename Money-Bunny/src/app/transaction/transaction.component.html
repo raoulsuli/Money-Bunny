@@ -1,7 +1,24 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-sm-12">
-            a
+<div class="container mt-5">
+    <form (ngSubmit)="completeTransaction()" *ngIf="this.account">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h4" for="destIBAN">Destination IBAN</label>
+                    <input type="text" class="form-control input-style" #destIBAN="ngModel" [(ngModel)]="this.transaction['IBAN_dest']" id="destIBAN" name="destIBAN" placeholder="IBAN" required>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h4" for="amount">Amount ({{this.transaction['currency']}}) - <span class="text-dark">{{this.account['balance'].toFixed(2)}}</span> Available</label>
+                    <input type="number" class="form-control input-style" #amount="ngModel" [(ngModel)]="this.transaction['amount']" name="amount" id="amount" placeholder="Amount" required>
+                    <p class="font-error" *ngIf="this.account['balance'] < this.transaction['amount']">Not enough money for this transaction!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="this.account['balance'] < this.transaction['amount'] || destIBAN.errors || amount.errors || amount.value == 0" >Complete Transaction</button>
+        </div>
+    </form>
 </div>
