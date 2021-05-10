@@ -11,6 +11,16 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
+                    <label for="frequent_accounts" class="font-weight-bold mb-color h5">Frequent Accounts (Account Name - IBAN - Bank Name)</label>
+                    <select name="frequent_accounts" [(ngModel)]="this.transaction.IBAN_dest" id="frequent_accounts" class="form-control input-style">
+                        <option *ngFor="let item of this.frequent_accounts" [ngValue]="item['IBAN']">{{this.all_accounts[item['IBAN']] === undefined ? 'Not in Money Bunny' : this.all_accounts[item['IBAN']]['account_name']}} - {{item['IBAN']}} - {{item['bank_name']}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
                     <label class="font-weight-bold mb-color h4" for="amount">Amount ({{this.transaction['currency']}}) - <span class="text-dark">{{this.account['balance'].toFixed(2)}}</span> Available</label>
                     <input type="number" class="form-control input-style" #amount="ngModel" [(ngModel)]="this.transaction['amount']" name="amount" id="amount" placeholder="Amount" required>
                     <p class="font-error" *ngIf="this.account['balance'] < this.transaction['amount']">Not enough money for this transaction!</p>
