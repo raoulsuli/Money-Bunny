@@ -13,7 +13,7 @@ CF-3 | Selectare Banca | Georgescu Ioana | 1 | 1-2 zile | X todo ioana
 CF-4 | Selectare Cont | Marcu Daniel, Georgescu Ioana | 2 | 2-3 zile | X
 CF-5 | Inițiere Tranzacție | Sulimovici Raoul | 2 | 1-2 zile | X
 T-1 | Accesare Detalii Card | Popa Alexandru | 2 | 1-2 zile | X
-T-2 | Transfer Bancar | Sulimovici Raoul, Popa Alexandru | 2 | 3-4 zile | X todo
+T-2 | Transfer Bancar | Sulimovici Raoul, Popa Alexandru | 2 | 3-4 zile | X
 T-3 | Interogare Sold | Georgescu Ioana | 2 | 1-2 zile | X
 T-4 | Raport Tranzacții | Marcu Daniel | 2 | 1-2 zile 
 CF-6 | Acțiuni Operator Bancar | Popa Alexandru | 3 | 1-2 zile 
