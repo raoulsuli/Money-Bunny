@@ -15,6 +15,7 @@
     	</div>
     </div>
 </div>
+
 <div *ngIf="tipHelp == 'login'" class="row">
     <div class="col">
     	<div class="textul">
@@ -53,6 +54,117 @@
 	        	<img class="logosmall" src="assets/images/login_help5.png" alt="Login Logo5">
 	        </div>
 	        If you do not have an account on our website yet, you can click the button "Sign up" and a form will appear.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'logged-in-menu'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the logged in help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logo" src="assets/images/lip.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        If you click on "Select Registered Bank Account", a new page with its own help page will open, listing all of your registered bank accounts.
+	        <br>
+	        <br>
+	        If you click on "Update Profile", a new page with its own help page will open, listing your profile details such as name, email or password.
+	        <br>
+	        <br>
+	        If you click on "Open New Bank Account", a new page with its own help page will open, listing a group of banks and forms to choose and complete.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'card-select'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the select bank account help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/cs.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you either have to click on an existing Bank Account, or click the green button below to create a new Banking account. Each option will provide you with a new help page.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'bank-select'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the select bank help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/bs.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can choose from which bank to open a new Banking Account with Money-Bunny. After you click the desired bank, you will be prompted with a series of self-explainatory forms to complete.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'user-profile'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the user profile help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/up.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can modify your personal information, including Full Name, Email Address, Password, CNP and more. Make sure to complete the forms accordingly.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'register'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the register help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/up.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can register an account for our website for use with multiple bank accounts. Make sure to complete each form accordingly and your account will be activated in no time.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'account-dashboard'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the account dashboard help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/ad.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can view your account dashboard. This includes your current account bank, IBAN, Account Type, your Balance and many other actions such as transactions of paying bills.
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'transaction'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the transaction help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/t.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can perform a transaction. You must provide the Destination IBAN as well as the amount you wish to transfer. The last step is to click on "Complete Transaction".
     	</div>
     </div>
 </div>
