@@ -35,6 +35,7 @@ export class TransactionComponent implements OnInit {
       amount: this.transaction['amount'],
       date: this.transaction['date'],
       currency: this.transaction['currency'],
+      IBAN_src: this.transaction['IBAN_src'],
       recurrent_days: this.transaction['recurrent_days']
     });
     
