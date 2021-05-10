@@ -22,6 +22,7 @@ import { AccountDashboardComponent } from './account-dashboard/account-dashboard
 import { NotAccountGuardService } from './services/not-account-guard.service';
 import { AccountGuardService } from './services/account-guard.service';
 import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionsReportComponent } from './transactions-report/transactions-report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
+  { path: 'transactions-report', component: TransactionsReportComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 
@@ -49,7 +51,8 @@ const routes: Routes = [
     CardSelectComponent,
     UserProfileComponent,
     AccountDashboardComponent,
-    TransactionComponent
+    TransactionComponent,
+    TransactionsReportComponent
   ],
   imports: [
     BrowserModule,
