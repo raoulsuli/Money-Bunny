@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'operator-menu', component: OperatorMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
