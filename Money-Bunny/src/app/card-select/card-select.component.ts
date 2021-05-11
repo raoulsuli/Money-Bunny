@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -12,10 +13,10 @@ export class CardSelectComponent implements OnInit {
 
   public accounts = [] as any;
   public banks = new Map();
+  private subscription: Subscription;
   
   constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router) {
-    this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
-      if (this.accounts.length != 0) return;
+    this.subscription = this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         element['user_id'].get().then((result: any) => {
           if (result.data()['username'] == auth.getCurrentUser()) {
@@ -24,7 +25,12 @@ export class CardSelectComponent implements OnInit {
           }
         });
       });
+      this.unsubscribe();
     });
+  }
+
+  unsubscribe() {
+    this.subscription.unsubscribe();
   }
 
   selectAccount(account: any) {

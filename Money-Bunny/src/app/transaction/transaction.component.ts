@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { convert } from 'exchange-rates-api';
 import { Transaction } from '../models/transaction.model';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -58,8 +59,12 @@ export class TransactionComponent implements OnInit {
         if (element['IBAN'] == this.transaction.IBAN_dest) {
           if (!this.updated) {
             this.updated = true;
-            this.firestore.collection('accounts').doc(element['account_name']).update({
-              balance: element['balance'] + this.transaction.amount
+            var date = new Date();
+            var today = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0');
+            convert(this.transaction.amount, this.transaction.currency, element['currency'], today).then((res: any) => {
+              this.firestore.collection('accounts').doc(element['account_name']).update({
+                balance: element['balance'] + res
+              });
             });
           }
         }

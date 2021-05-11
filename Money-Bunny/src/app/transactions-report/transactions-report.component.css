@@ -1,0 +1,5 @@
+@import '../account-dashboard/account-dashboard.component.css';
+
+.table-responsive {
+    max-height: 37rem;
+}
