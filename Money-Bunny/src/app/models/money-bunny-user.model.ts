@@ -9,7 +9,6 @@ export class MoneyBunnyUser {
 		public birthday: Date,
 		public address: string,
 		public userType: string,
-		public companyName?: string, // optional
-		public userId?: string // to be completed by firebase
+		public companyName?: string // optional
 	) {};
 }

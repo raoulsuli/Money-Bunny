@@ -7,9 +7,117 @@
 			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'LB'}" (click)='onSelectBank("LB")'>Libra Bank</a></li>
 		</ul>
 
-		<form *ngIf='bank !== "none"'>
-			<app-form-pers-fiz *ngIf='user.userType !== "none"'></app-form-pers-fiz>>
-			<button type="submit" class="btn btn-primary">Submit</button><br><br>
+		<form *ngIf='user && account && account.bank !== ""'>
+			<div class="form-group" *ngIf='user.userType === "pfizica"'>
+				<input type="text" name="surname" id="surname" #surname="ngModel" class="form-control p-3 input-style" placeholder="Surname"
+					[(ngModel)]="account.surname" required><br>
+				<input type="text" name="firstname" id="firstname" #firstname="ngModel" class="form-control p-3 input-style" placeholder="Firstname"
+					[(ngModel)]="account.name" required><br>
+			
+				<input type="date" class="form-control p-3 input-style" placeholder="{{user.birthday}}"
+					name="birthday" id="birthday" #birthday="ngModel" [(ngModel)]="account.birthday" required>
+			</div>
+
+			<div class="form-group" *ngIf='user.userType === "pjuridica"' #formjur>
+				<!--<input type="text" id="companyName" class="form-control p-3 input-style" placeholder="Denumirea societății" required><br><br>-->
+				<input type="text" name="companyName" id="companyName" #companyName="ngModel" class="form-control p-3 input-style" placeholder="user.companyName"
+					[(ngModel)]="account.name" required><br>
+				<!--<input type="text" id="type" class="form-control p-3 input-style" placeholder="Forma de organizare" required>-->
+				<input type="text" name="organizationType" id="organizationType" #organizationType="ngModel" class="form-control p-3 input-style" placeholder="Organisation Type"
+					[(ngModel)]="account.organizationType" required><br>
+				<!--<input type="text" id="code" class="form-control p-3 input-style" placeholder="Cod Unic de Inregistrare/ Cod de inregistrare fiscala" required>-->
+				<input type="text" name="code" id="code" #code="ngModel" class="form-control p-3 input-style" placeholder="Unique Registration Code/ Fiscal Registration Code"
+					[(ngModel)]="account.cui" pattern="(RO)?[0-9]{10}" required>
+				<a class="text font-error" *ngIf="code.errors?.pattern">Not a valid fiscal registration code!</a><br>
+
+				<label>Registration Certificate</label><!--Certificat de inregistrare la Registrul Comertului-->
+				<span>
+					<input type="text" name="certificateNumber" id="certificateNumber" #certificateNumber="ngModel"
+						class="form-control p-3 input-style" placeholder="Number format [JCF]nn/mmmmmm/aaaa"
+						[(ngModel)]="account.certificateNumber" pattern="[JCF][0-9]{2}/[0-9]{6}/[0-9]{4}" required><br>
+					<a class="text font-error" *ngIf="certificateNumber.errors?.pattern">Not a valid comerce register number! Respect the [JCF]nn/mmmmmm/aaaa format!</a>
+				</span><br>
+
+				<input type="date" class="form-control p-3 input-style" placeholder="DD/MM/YYYY - Registration Date"
+					name="registerDate" id="registerDate" #registerDate="ngModel" [(ngModel)]="account.registerDate" required>
+
+				<label>Representative</label>
+				<input type="text" name="surname" id="surname" #surname="ngModel" class="form-control p-3 input-style" placeholder="Surname"
+					[(ngModel)]="account.representativeSurname" required><br>
+				<input type="text" name="firstname" id="firstname" #firstname="ngModel" class="form-control p-3 input-style" placeholder="Firstname"
+					[(ngModel)]="account.representativeName" required><br>
+			</div>
+
+			<br>
+			<label>ID</label>
+			<div class="row justify-content-between">
+				<div class="col-xs-4">
+					<div class="form-outline mb-4">
+						<input type="text" pattern="[1-8][0-9]{12}" class="form-control p-3 input-style" placeholder="{{user.cnp}}"
+							name="cnp" id="cnp" #cnp="ngModel" [(ngModel)]="account.cnp" required>
+						<a class="text font-error" *ngIf="cnp.errors?.pattern">Not a valid CNP!</a>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-outline mb-4">
+						<input type="text" name="id_series" id="id_series"  #id_series="ngModel"
+							pattern="[A-Z]{2}" class="form-control p-3 input-style" placeholder="Series"
+							[(ngModel)]="account.idSeries" required>
+						<a class="text font-error" *ngIf="id_series.errors?.pattern">Not a valid ID series! Make sure you used all caps!</a>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-outline mb-4">
+						<input type="text" name="id_nr" id="id_nr" #id_nr="ngModel"
+							pattern="[0-9]{6}" class="form-control p-3 input-style" placeholder="Number"
+							[(ngModel)]="account.idNumber" required>
+						<a class="text font-error" *ngIf="id_nr.errors?.pattern">Not a valid ID number!</a>
+					</div>
+				</div>
+			</div>
+			<span>
+				<a class="text font-1p3rem">Nationality: </a>
+				<input type="text" id="nationality" name="nationality" #nationality="ngModel" class="form-control p-3 input-style"
+					placeholder="Romanian" [(ngModel)]="account.nationality" required>
+			</span>
+			<span>
+				<a class="text font-1p3rem">Email: </a>
+				<input type="email" id="email" name="email" #email="ngModel" class="form-control p-3 input-style"
+					placeholder="{{user.email}}" [(ngModel)]="account.email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+				<a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
+			</span>
+			<span>
+				<a class="text font-1p3rem">Phone Number: </a>
+				<input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="{{user.phone}}"
+					name="phone" id="phone" #phone="ngModel" [(ngModel)]="account.phone" required>
+				<a class="text font-error" *ngIf="phone.errors?.pattern">Not a valid Romanian phone number!<br>
+					Insert without international prefix, spaces or special characters!</a>
+			</span>
+			<span>
+				<a class="text font-1p3rem">Address: </a>
+				<input type="text" id="address" name="adress" #adress="ngModel" class="form-control p-3 input-style"
+					placeholder="{{user.address}}" [(ngModel)]="account.address" required>
+			</span>
+			<br>
+			
+			<div class="form-group">
+				<div class="form-outline mb-4">
+					<select (input)="setAccount($event)" class="form-control input-style" placeholder="Account Type" id="type" required>
+						<option value="" disabled selected>Account Type</option>
+						<option value="checking">Checking</option><!--cont curent-->
+						<option value="savings">Savings</option><!--cont de economii-->
+						<option value="CD">Certificate of deposit</option><!--depozit-->
+					</select>
+					<br>
+					<select (input)="setCurrency($event)" class="form-control input-style" placeholder="Currency" id="currency" required>
+						<option value="" disabled selected>Currency</option>
+						<option value="RON">Lei</option>
+						<option value="EUR">Euro</option>
+						<option value="USD">USD</option>
+					</select>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" (click)="submit()">Submit</button><br><br>
 		</form>
 	</div>
 </div>

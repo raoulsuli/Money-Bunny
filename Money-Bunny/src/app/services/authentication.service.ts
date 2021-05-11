@@ -81,4 +81,21 @@ export class AuthenticationService {
   unsetCurrentAccount() {
     sessionStorage.removeItem('account');
   }
+
+  // doesn't work; don't know why
+  async gerUserData() {
+    await this.firestore.collection('users').doc(this.getCurrentUser()).get().toPromise().then((doc) => {
+      if (doc.exists) {
+        console.log(doc.data());
+        return doc.data();
+
+      } else {
+          console.log("No such document!");
+          return undefined;
+      }
+    }).catch((error: any) => {
+        console.log("Error getting document:", error);
+        return undefined;
+    });
+  }
 }

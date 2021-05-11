@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormPersJurComponent } from './form-pers-jur.component';
+import { OperatorMenuComponent } from './operator-menu.component';
 
-describe('FormPersJurComponent', () => {
-  let component: FormPersJurComponent;
-  let fixture: ComponentFixture<FormPersJurComponent>;
+describe('OperatorMenuComponent', () => {
+  let component: OperatorMenuComponent;
+  let fixture: ComponentFixture<OperatorMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormPersJurComponent ]
+      declarations: [ OperatorMenuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormPersJurComponent);
+    fixture = TestBed.createComponent(OperatorMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
