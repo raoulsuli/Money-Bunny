@@ -1,5 +1,18 @@
 <div class="container mt-4">
     <div class="row">
+        <div class="col-6">
+            <p class="font-weight-bold h6"><i class="fa fa-check-circle mb-color ml-2"></i> - Current Account</p>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <a class="btn mb-button mr-4" (click)="downloadPDF()">Download as PDF</a>
+            <select name="filter_date" [(ngModel)]="this.filter" id="filter_date" *ngIf="this.dates">
+                <option value="today" selected>Today</option>
+                <option value="lastweek">Last Week</option>
+                <option *ngFor="let item of this.dates" value="{{item}}">{{this.months[item]}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
         <div class="col-12 col-sm-12 table-responsive">
             <table id="transactions-table" class="table table-hover table-light text-center table-bordered table-striped">
                 <thead>
@@ -12,23 +25,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let transaction of this.transactions">
-                        <th>{{transaction['IBAN_dest']}}</th>
-                        <th>{{transaction['account_iban']}}</th>
-                        <th>{{transaction['amount']}}</th>
+                    <tr *ngFor="let transaction of getItems()">
+                        <th *ngIf="transaction['source_iban'] == this.currentAccount['IBAN']">{{transaction['IBAN_dest']}}</th>
+                        <th data-toggle="tooltip" data-placement="top" title="Current Account" *ngIf="transaction['source_iban'] != this.currentAccount['IBAN']">{{transaction['IBAN_dest']}}<i class="fa fa-check-circle mb-color ml-2"></i></th>
+                        <th *ngIf="transaction['source_iban'] != this.currentAccount['IBAN']">{{transaction['source_iban']}}</th>
+                        <th data-toggle="tooltip" data-placement="top" title="Current Account" *ngIf="transaction['source_iban'] == this.currentAccount['IBAN']">{{transaction['source_iban']}}<i class="fa fa-check-circle mb-color ml-2"></i></th>
+                        <th>{{transaction['source_iban'] == this.currentAccount['IBAN'] ? '-' : '+'}}{{transaction['amount']}}</th>
                         <th>{{transaction['date'].toDate() | date: 'HH:MM dd-MM-yyyy'}}</th>
                         <th>{{transaction['recurrent_days'] == 0 ? 'Not recurrent' : transaction['recurrent_days']}}</th>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-6 d-flex justify-content-end">
-            <a class="btn mb-button mr-4" (click)="downloadPDF()">Download as PDF</a>
-        </div>
-        <div class="col-6">
-            
         </div>
     </div>
 </div>
