@@ -17,6 +17,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './services/auth-guard.service';
+import { OperatorGuardService } from './services/operator-guard.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 import { NotAccountGuardService } from './services/not-account-guard.service';
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
-  { path: 'operator-menu', component: OperatorMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'operator-menu', component: OperatorMenuComponent, canActivate: [AuthGuardService, OperatorGuardService]},
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},

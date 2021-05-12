@@ -44,6 +44,7 @@ export class AuthenticationService {
           if (item['email'] == email) {
             sessionStorage.setItem('user', item['username']);
             if (item['userType'] === 'operator') {
+              sessionStorage.setItem('userType', 'operator');
               this.router.navigateByUrl('operator-menu');
             }
             else {
@@ -64,6 +65,7 @@ export class AuthenticationService {
     this.angularFireAuth.signOut();
     this.loggedIn = false;
     sessionStorage.removeItem('user');
+    sessionStorage.removeItem('userType');
     this.unsetCurrentAccount();
   }
 
@@ -85,6 +87,10 @@ export class AuthenticationService {
 
   getCurrentAccount() {
     return sessionStorage.getItem('account') || undefined;
+  }
+
+  getUserType() {
+    return sessionStorage.getItem('userType') || undefined;
   }
 
   unsetCurrentAccount() {
