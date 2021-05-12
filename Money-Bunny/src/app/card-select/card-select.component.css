@@ -49,3 +49,17 @@
 .account-link:hover {
     color: #91E542;
 }
+
+@media (max-width: 576px) {
+    .select-btn {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .select-btn {
+        justify-content: end;
+    }
+}
+    

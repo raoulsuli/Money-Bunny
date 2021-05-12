@@ -33,9 +33,45 @@ export class CardSelectComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  refresh(){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigateByUrl('card-select'));
+ }
+
   selectAccount(account: any) {
     this.auth.setCurrentAccount(account);
     this.router.navigateByUrl('/account-dashboard');
+  }
+
+  blockAccount(account: any) {
+    var response = confirm("Are you sure you want to block this account?");
+    if (response) {
+      this.firestore.collection('accounts').doc(account['IBAN']).update({blocked: true});
+      alert("Success");
+      this.refresh()
+    }
+  }
+
+  unblockAccount(account: any) {
+    var response = confirm("Are you sure you want to unblock this account?");
+    if (response) {
+      this.firestore.collection('accounts').doc(account['IBAN']).update({blocked: false});
+      alert("Success");
+      this.refresh()
+    }
+  }
+
+  closeAccount(account: any) {
+    var response = confirm("Are you sure you want to close this account?\nThis action is irreversible, once accepted by an Operator!");
+    if (response) {
+      this.firestore.collection('accounts').doc(account['IBAN']).update({closing: true});
+      this.firestore.collection('requests').add({
+        requestType: "close",
+		    iban: account['IBAN']
+      });
+      alert("Your request has been sent!");
+      this.refresh()
+    }
   }
 
   ngOnInit(): void {
