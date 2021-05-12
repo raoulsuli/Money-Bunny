@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="email" pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$" class="form-control p-3 input-style"
                         placeholder="Email"
@@ -14,7 +14,7 @@
                     <a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
                 </div>
             </div>
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="text" pattern=".{0,25}" class="form-control p-3 input-style" placeholder="Username"
                         name="username" id="username" #username="ngModel" [(ngModel)]="newUser.username" required>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <select (input)="setUserType($event)" class="form-control input-style" placeholder="User Type"
                         name="usertype" id="usertype" [(ngModel)]="newUser.userType" required>
@@ -34,7 +34,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-6 col-sm-6" [hidden]="newUser.userType !== 'pjuridica'">
+            <div class="col-12 col-sm-6" [hidden]="newUser.userType !== 'pjuridica'">
                 <div class="form-outline mb-4">
                     <div class="form-outline">
                         <input *ngIf="newUser.userType === 'pjuridica'" type="text" class="form-control p-3 input-style"
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-3">
                     <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-[\]#%])[A-Za-z\d@$!%*?&-[\]#]{10,}$"
                         class="form-control p-3 input-style" placeholder="Password"
@@ -54,7 +54,7 @@
                         Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
                 </div>
             </div>
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-3">
                     <input type="password" class="form-control p-3 input-style" placeholder="Retype Password"
                         name="passwordCheck" [(ngModel)]="passCheck" required>
@@ -68,13 +68,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="text" class="form-control p-3 input-style" placeholder="Full Name"
                         name="name" id="name" [(ngModel)]="newUser.name" required>
                 </div>
             </div>
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="text" pattern="[1-8][0-9]{12}" class="form-control p-3 input-style" placeholder="CNP"
                         name="cnp" id="cnp" #cnp="ngModel" [(ngModel)]="newUser.cnp" required>
@@ -83,7 +83,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number"
                         name="phone" id="phone" #phone="ngModel" [(ngModel)]="newUser.phone" required>
@@ -91,7 +91,7 @@
                         Insert without international prefix, spaces or special characters!</a>
                 </div>
             </div>
-            <div class="col-6 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="form-outline mb-4">
                     <input type="date" class="form-control p-3 input-style" placeholder="DD/MM/YYYY - Birth Date"
                         name="birthdate" id="birthdate" [(ngModel)]="newUser.birthday" required>
