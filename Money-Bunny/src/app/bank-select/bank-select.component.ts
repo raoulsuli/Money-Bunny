@@ -103,7 +103,7 @@ export class BankSelectComponent implements OnInit {
 		    email: this.account.email,
 		    phone: this.account.phone,
 		    address: this.account.address,
-		    bank: this.account.bank
+		    bank: this.firestore.doc('banks/' + this.account.bank).ref
       })
       .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
@@ -131,10 +131,11 @@ export class BankSelectComponent implements OnInit {
 		    phone: this.account.phone,
 		    email: this.account.email,
 		    address: this.account.address,
-		    bank: this.account.bank
+		    bank: this.firestore.doc('banks/' + this.account.bank).ref
       })
       .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
+          alert("Request sent!");
           this.router.navigateByUrl('logged-in-menu');
       })
       .catch((error) => {
