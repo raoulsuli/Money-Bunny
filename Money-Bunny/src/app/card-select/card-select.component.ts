@@ -19,7 +19,7 @@ export class CardSelectComponent implements OnInit {
     this.subscription = this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         element['user_id'].get().then((result: any) => {
-          if (result.data()['username'] == auth.getCurrentUser()) {
+          if (result.data() != undefined && result.data()['username'] == auth.getCurrentUser()) {
             this.accounts.push(element);
             element['bank_id'].get().then((res: any) => this.banks.set(element['account_name'], res.data()['name']));
           }

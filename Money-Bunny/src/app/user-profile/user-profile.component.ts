@@ -14,12 +14,25 @@ export class UserProfileComponent implements OnInit {
   newUser!: MoneyBunnyUser;
   passCheck: string = '';
   invalidUser: string = '';
+  currentName: string = "";
+  accounts = [] as any;
 
   constructor(private authenticationService: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
     this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).get().subscribe((res: any) => {
       this.newUser = new MoneyBunnyUser(res.data()['name'], res.data()['username'], res.data()['password'], res.data()['email'],
       res.data()['cnp'], res.data()['phone'], res.data()['birthday'], res.data()['address'], res.data()['userType'], res.data()['companyName']);
+      this.currentName = res.data()['username'];
       this.passCheck = res.data()['password'];
+    });
+
+    this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
+      data.forEach((element: any) => {
+        element['user_id'].get().then((result: any) => {
+          if (result.data() != undefined && result.data()['username'] == authenticationService.getCurrentUser()) {
+            this.accounts.push(element);
+          }
+        });
+      });
     });
   }
 
@@ -60,6 +73,9 @@ export class UserProfileComponent implements OnInit {
         }).then(() => {
           alert("Success");
           this.router.navigateByUrl('logged-in-menu');
+          this.accounts.forEach((acc: any) => {
+            this.firestore.doc('/accounts/' + acc['name']).update({user_id: this.newUser.username});
+          });
         });
         this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).delete();
         sessionStorage.setItem('user', this.newUser.username);
