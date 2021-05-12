@@ -35,12 +35,21 @@ export class AuthenticationService {
    
   /* Sign in */
   SignIn(email: string, password: string) {
+
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
-      this.router.navigateByUrl('logged-in-menu');
+      //this.router.navigateByUrl('logged-in-menu');
       this.firestore.collection('users').valueChanges().subscribe((data) => {
         data.forEach((item: any) => {
-          if (item['email'] == email) sessionStorage.setItem('user', item['username']);
+          if (item['email'] == email) {
+            sessionStorage.setItem('user', item['username']);
+            if (item['userType'] === 'operator') {
+              this.router.navigateByUrl('operator-menu');
+            }
+            else {
+              this.router.navigateByUrl('logged-in-menu');
+            }
+          }
         })
       });
       this.loggedIn = true;
