@@ -1,4 +1,6 @@
 .input-style {
+    max-width: 500px;
+    min-width: 250px;
     font-size: 1.2rem;
     height: 50px;
 }

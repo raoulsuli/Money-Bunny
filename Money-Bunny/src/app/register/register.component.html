@@ -2,9 +2,11 @@
     <form>
         <div class="row">
             <div class="col-12 col-sm-12">
-                <a class="text-dark text-decoration-none font-weight-bold">Money Bunny account credentials</a>
-                <br><br>
-                <div class="row">
+                <div class="col-12 col-sm-12 justify-content-center d-flex">
+                    <h4 class="font-weight-bold">Money Bunny account credentials</h4>
+                </div>
+                <br>
+                <div class="row d-flex justify-content-center">
                     <div class="form-outline mb-4">
                         <input type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" class="form-control p-3 input-style"
                             placeholder="Email"
@@ -12,8 +14,15 @@
                         <a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
                         <a class="text font-error" *ngIf="emailInUse() && (invalidEmail!=='')">{{ signUpMessage }}</a>
                     </div>
+                    <div class="text-center d-none d-sm-none d-md-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="form-outline mb-4">
+                        <input type="text" pattern=".{0,25}" class="form-control p-3 input-style" placeholder="Username"
+                            name="username" id="username" #username="ngModel" [(ngModel)]="newUser.username" required>
+                        <a class="text font-error" *ngIf="username.errors?.pattern">Maximum 25 characters!</a>
+                        <a class="text font-error" *ngIf="usernameInUse() && (invalidUser!=='')">Username already in use!</a>
+                    </div>
                 </div>
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="form-outline mb-4">
                         <select (input)="setUserType($event)" class="form-control input-style" placeholder="User Type"
                             name="usertype" id="usertype" [(ngModel)]="newUser.userType" required>
@@ -23,8 +32,7 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="form-outline mb-4" [ngClass]="{'col-sm-6': newUser.userType === 'pjuridica'}">
                         <div class="form-outline" [ngClass]="{'mb-3': newUser.userType === 'pjuridica'}">
                             <input *ngIf="newUser.userType === 'pjuridica'" type="text" class="form-control p-3 input-style"
@@ -34,88 +42,52 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <select (input)="setUserType($event)" class="form-control input-style" placeholder="User Type"
-                        name="usertype" id="usertype" [(ngModel)]="newUser.userType" required>
-                        <option value="" disabled selected>User Type</option>
-                        <option value="pfizica">Persoana Fizica</option>
-                        <option value="pjuridica">Procesator - Persoana Juridica</option>
-                    </select>
-                </div>
-            </div>
         </div>
+
         <div class="row d-flex justify-content-center">
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <input type="text" pattern=".{0,25}" class="form-control p-3 input-style" placeholder="Username"
-                        name="username" id="username" #username="ngModel" [(ngModel)]="newUser.username" required>
-                    <a class="text font-error" *ngIf="username.errors?.pattern">Maximum 25 characters!</a>
-                    <a class="text font-error" *ngIf="usernameInUse() && (invalidUser!=='')">Username already in use!</a>
-                </div>
+            <div class="form-outline mb-3">
+                <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-[\]#%])[A-Za-z\d@$!%*?&-[\]#]{10,}$"
+                    class="form-control p-3 input-style" placeholder="Password"
+                    name="password" id="password" #password="ngModel" [(ngModel)]="newUser.password" required>
+                <span class="text font-error" *ngIf="password.errors?.pattern">
+                    Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
             </div>
-            <div class="col-6 col-sm-6" [hidden]="newUser.userType !== 'pjuridica'">
-                <div class="form-outline mb-4">
-                    <div class="form-outline">
-                        <input *ngIf="newUser.userType === 'pjuridica'" type="text" class="form-control p-3 input-style"
-                            placeholder="Company Name"
-                            name="company" id="company" [(ngModel)]="newUser.companyName" [required]="newUser.userType === 'pjuridica'">
-                    </div>
-                </div>
+            <div class="text-center d-none d-sm-none d-md-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="form-outline mb-3">
+                <input type="password" class="form-control p-3 input-style" placeholder="Retype Password"
+                    name="passwordCheck" [(ngModel)]="passCheck" required>
+                <a class="text font-error" *ngIf="passCheck !== newUser.password">Passwords do not match!</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-3">
-                    <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-[\]#%])[A-Za-z\d@$!%*?&-[\]#]{10,}$"
-                        class="form-control p-3 input-style" placeholder="Password"
-                        name="password" id="password" #password="ngModel" [(ngModel)]="newUser.password" required>
-                    <span class="text font-error" *ngIf="password.errors?.pattern">
-                        Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-3">
-                    <input type="password" class="form-control p-3 input-style" placeholder="Retype Password"
-                        name="passwordCheck" [(ngModel)]="passCheck" required>
-                    <a class="text font-error" *ngIf="passCheck !== newUser.password">Passwords do not match!</a>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 mb-3">
+        <br>
+        <div class="row d-flex justify-content-center">
             <div class="col-12 col-sm-12 justify-content-center d-flex">
                 <h4 class="font-weight-bold">Personal information</h4>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <input type="text" class="form-control p-3 input-style" placeholder="Full Name"
-                        name="name" id="name" [(ngModel)]="newUser.name" required>
-                </div>
+        <div class="row d-flex justify-content-center">
+            <div class="form-outline mb-4">
+                <input type="text" class="form-control p-3 input-style" placeholder="Full Name"
+                    name="name" id="name" [(ngModel)]="newUser.name" required>
             </div>
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <input type="text" pattern="[1-8][0-9]{12}" class="form-control p-3 input-style" placeholder="CNP"
-                        name="cnp" id="cnp" #cnp="ngModel" [(ngModel)]="newUser.cnp" required>
-                    <a class="text font-error" *ngIf="cnp.errors?.pattern">Not a valid CNP!</a>
-                </div>
+            <div class="text-center d-none d-sm-none d-md-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="form-outline mb-4">
+                <input type="text" pattern="[1-8][0-9]{12}" class="form-control p-3 input-style" placeholder="CNP"
+                    name="cnp" id="cnp" #cnp="ngModel" [(ngModel)]="newUser.cnp" required>
+                <a class="text font-error" *ngIf="cnp.errors?.pattern">Not a valid CNP!</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number"
-                        name="phone" id="phone" #phone="ngModel" [(ngModel)]="newUser.phone" required>
-                    <a class="text font-error" *ngIf="phone.errors?.pattern">Not a valid Romanian phone number!<br>
-                        Insert without international prefix, spaces or special characters!</a>
-                </div>
+        <div class="row d-flex justify-content-center">
+            <div class="form-outline mb-4">
+                <input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="Phone Number"
+                    name="phone" id="phone" #phone="ngModel" [(ngModel)]="newUser.phone" required>
+                <a class="text font-error" *ngIf="phone.errors?.pattern">Not a valid Romanian phone number!<br>
+                    Insert without international prefix, spaces or special characters!</a>
             </div>
-            <div class="col-6 col-sm-6">
-                <div class="form-outline mb-4">
-                    <input type="date" class="form-control p-3 input-style" placeholder="DD/MM/YYYY - Birth Date"
-                        name="birthdate" id="birthdate" [(ngModel)]="newUser.birthday" required>
-                </div>
+            <div class="text-center d-none d-sm-none d-md-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="form-outline mb-4">
+                <input type="date" class="form-control p-3 input-style" placeholder="DD/MM/YYYY - Birth Date"
+                    name="birthdate" id="birthdate" [(ngModel)]="newUser.birthday" required>
             </div>
         </div>
         <div class="row justify-content-center">

@@ -1,12 +1,18 @@
 <div class="container d-flex justify-content-center mt-5 pt-5">
 	<div class="row">
 		<a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
-		<ul style="list-style-type:none;">
+		<!--<ul style="list-style-type:none; display: inline-block;">
 			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BT'}" (click)='onSelectBank("BT")'>Banca Transilvania</a></li>
 			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BRD'}" (click)='onSelectBank("BRD")'>BRD</a></li>
 			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'LB'}" (click)='onSelectBank("LB")'>Libra Bank</a></li>
-		</ul>
-
+		</ul>-->
+		<select (input)="setBank($event)" class="form-control input-style" placeholder="Bank" id="bank" required>
+			<option value="" disabled selected>Select bank</option>
+			<option value="BT">Banca Transilvania</option>
+			<option value="BRD">BRD</option>
+			<option value="LB">Libra Bank</option>
+		</select>
+		<br><br>
 		<form *ngIf='user && account && account.bank !== ""'>
 			<div class="form-group" *ngIf='user.userType === "pfizica"'>
 				<div>
@@ -144,6 +150,7 @@
 						<option value="checking">Checking</option><!--cont curent-->
 						<option value="savings">Savings</option><!--cont de economii-->
 						<option value="CD">Certificate of deposit</option><!--depozit-->
+						<option value="credit">Credit</option><!--credit-->
 					</select>
 					<br>
 					<select (input)="setCurrency($event)" class="form-control input-style" placeholder="Currency" id="currency" required>

@@ -87,6 +87,11 @@ export class BankSelectComponent implements OnInit {
     this.account.coin = (<HTMLInputElement>event.target).value;
   }
 
+  setBank(event: Event) {
+    this.account.bank = (<HTMLInputElement>event.target).value;
+    console.log(this.account.bank);
+  }
+
   submit() {
     if (this.user.userType === 'pfizica') {
       this.firestore.collection('requests').add({
