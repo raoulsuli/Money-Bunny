@@ -18,8 +18,8 @@ T-3 | Interogare Sold | Georgescu Ioana | 2 | 1-2 zile | X
 T-4 | Raport Tranzacții | Marcu Daniel | 2 | 1-2 zile | X
 CF-6 | Acțiuni Operator Bancar | Popa Alexandru | 3 | 1-2 zile 
 T-5 | Aplicare Credit | Georgescu Ioana | 3 | 1-2 zile | X
-T-6 | Blocare Card | Sulimovici Raoul | 3 | 1-2 zile 
-T-7 | Inchidere Cont | Marcu Daniel | 3 | 1-2 zile 
+T-6 | Blocare Card | Sulimovici Raoul | 3 | 1-2 zile | X
+T-7 | Inchidere Cont | Marcu Daniel | 3 | 1-2 zile  | X
 T-8 | Planificare Plăți | Marcu Daniel, Sulimovici Raoul | 3 | 2-3 zile 
 T-9 | Plata Facturi | Georgescu Ioana | 3 | 1-2 zile 
 T-10 | Schimb Valutar | Popa Alexandru | 3 | 1-2 zile | 
