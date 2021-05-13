@@ -112,6 +112,7 @@ export class BankSelectComponent implements OnInit {
       })
       .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
+          this.router.navigateByUrl('logged-in-menu');
       })
       .catch((error) => {
           console.error("Error adding document: ", error);

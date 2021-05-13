@@ -13,7 +13,6 @@ export class AccountDashboardComponent implements OnInit {
   public bank: any;
 
   constructor(public auth: AuthenticationService, public firestore: AngularFirestore) {
-    //var currentAccount = auth.getCurrentAccount();
     var currentAccount = auth.getCurrentIBAN();
   
     firestore.collection('accounts').valueChanges().subscribe((data: any) => {

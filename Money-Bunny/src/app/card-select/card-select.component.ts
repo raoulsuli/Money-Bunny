@@ -43,7 +43,6 @@ export class CardSelectComponent implements OnInit {
       data.forEach((element: any) => {
         if (element['account_name'] == account) {
           this.firestore.doc(element['user_id']).get().toPromise().then((result: any) => {
-            console.log("res",result.data());
             var res = result.data();
             if (res['username'] == this.auth.getCurrentUser()) {
               this.auth.setCurrentAccount(account);

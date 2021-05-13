@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { convert } from 'exchange-rates-api';
+import { Subscription } from 'rxjs';
 import { Transaction } from '../models/transaction.model';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -12,12 +13,13 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class TransactionComponent implements OnInit {
   public account: any;
-  //public currentAccount = this.auth.getCurrentAccount();
+  public currentAccountName = this.auth.getCurrentAccount();
   public currentAccount = this.auth.getCurrentIBAN();
   public frequent_accounts: any = [] as any;
   public all_accounts: any = [] as any;
   public transaction: Transaction = new Transaction('', 0, new Date(), '', this.firestore.collection('accounts').doc(this.currentAccount).ref, 0);
   private updated = false;
+  private subscription: Subscription;
 
   constructor(private auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
     this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
@@ -25,18 +27,25 @@ export class TransactionComponent implements OnInit {
         this.all_accounts[element['IBAN']] = [];
         this.all_accounts[element['IBAN']]['account_name'] = element['account_name'];
         element['bank_id'].get().then((result: any) => this.all_accounts[element['IBAN']]['bank_name'] = result.data()['name']);
-        //if (element['account_name'] == this.currentAccount) {
-          if (element['IBAN'] == this.currentAccount) {
+        if (element['IBAN'] == this.currentAccount) {
           this.account = element;
           this.transaction['currency'] = element['currency'];
         }
       });
     });
 
-    this.firestore.collection('frequent_accounts').valueChanges().subscribe((data: any) => {
-      this.frequent_accounts = data;
+    this.subscription = this.firestore.collection('frequent_accounts').valueChanges().subscribe((data: any) => {
+      data.forEach((acc: any) => {
+        acc['account_id'].get().then((result: any) => {
+          if (result.data()['IBAN'] == this.currentAccount) this.frequent_accounts.push(acc);
+        });
+      });
+      this.unsubscribe();
     });
+  }
 
+  unsubscribe() {
+    this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -52,8 +61,7 @@ export class TransactionComponent implements OnInit {
       recurrent_days: this.transaction['recurrent_days']
     });
     
-    //this.firestore.collection('accounts').doc(this.account['account_name']).update({
-    this.firestore.collection('accounts').doc(this.account['IBAN']).update({
+    this.firestore.collection('accounts').doc(this.currentAccount).update({
       balance: this.account['balance'] - this.transaction.amount
     });
 
@@ -66,7 +74,7 @@ export class TransactionComponent implements OnInit {
             var today = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0');
             convert(this.transaction.amount, this.transaction.currency, element['currency'], today).then((res: any) => {
               //this.firestore.collection('accounts').doc(element['account_name']).update({
-              this.firestore.collection('accounts').doc(this.account['IBAN']).update({
+              this.firestore.collection('accounts').doc(this.transaction.IBAN_dest).update({
                 balance: element['balance'] + res
               });
             });
@@ -75,7 +83,7 @@ export class TransactionComponent implements OnInit {
       });
     });
 
-    var docRef: string | undefined = this.currentAccount;
+    var docRef: string | undefined = this.currentAccountName;
     docRef += this.all_accounts[this.transaction['IBAN_dest']]['account_name'] === undefined ? this.transaction['IBAN_dest'] : this.all_accounts[this.transaction['IBAN_dest']]['account_name'];
     const freqAcc = this.firestore.collection('frequent_accounts').doc(docRef);
     const bankName = this.all_accounts[this.transaction['IBAN_dest']]['account_name'] === undefined ? this.transaction['IBAN_dest'].slice(4, 7) : this.all_accounts[this.transaction['IBAN_dest']]['bank_name'];
@@ -85,7 +93,7 @@ export class TransactionComponent implements OnInit {
         this.firestore.collection('frequent_accounts').doc(docRef).set({
           IBAN: this.transaction['IBAN_dest'],
           bank_name: bankName,
-          user_id: this.firestore.collection('accounts').doc(this.currentAccount).ref
+          account_id: this.firestore.collection('accounts').doc(this.currentAccount).ref
         });
       }
     });
