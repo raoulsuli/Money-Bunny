@@ -24,7 +24,7 @@
                         <th scope="col" class="mb-color font-weight-bold h4">Recurrency</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="this.currentAccount">
                     <tr *ngFor="let transaction of getItems()">
                         <th *ngIf="transaction['source_iban'] == this.currentAccount['IBAN']">{{transaction['IBAN_dest']}}</th>
                         <th data-toggle="tooltip" data-placement="top" title="Current Account" *ngIf="transaction['source_iban'] != this.currentAccount['IBAN']">{{transaction['IBAN_dest']}}<i class="fa fa-check-circle mb-color ml-2"></i></th>

@@ -28,7 +28,7 @@ export class TransactionsReportComponent implements OnInit {
     this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       this.all_accounts = data;
       data.forEach((res: any) => {
-        if (res['account_name'] == this.auth.getCurrentAccount()) {
+          if (res['IBAN'] == this.auth.getCurrentIBAN()) {
           this.currentAccount = res;
         }
       })

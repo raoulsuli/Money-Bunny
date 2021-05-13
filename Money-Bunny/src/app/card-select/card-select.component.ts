@@ -39,8 +39,21 @@ export class CardSelectComponent implements OnInit {
  }
 
   selectAccount(account: any) {
-    this.auth.setCurrentAccount(account);
-    this.router.navigateByUrl('/account-dashboard');
+    this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
+      data.forEach((element: any) => {
+        if (element['account_name'] == account) {
+          this.firestore.doc(element['user_id']).get().toPromise().then((result: any) => {
+            console.log("res",result.data());
+            var res = result.data();
+            if (res['username'] == this.auth.getCurrentUser()) {
+              this.auth.setCurrentAccount(account);
+              this.auth.setCurrentIBAN(element['IBAN']);
+              this.router.navigateByUrl('/account-dashboard');
+            }
+          });
+        }
+      });
+    });
   }
 
   blockAccount(account: any) {

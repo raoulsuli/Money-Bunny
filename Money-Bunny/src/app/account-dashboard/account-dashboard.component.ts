@@ -13,11 +13,12 @@ export class AccountDashboardComponent implements OnInit {
   public bank: any;
 
   constructor(public auth: AuthenticationService, public firestore: AngularFirestore) {
-    var currentAccount = auth.getCurrentAccount();
+    //var currentAccount = auth.getCurrentAccount();
+    var currentAccount = auth.getCurrentIBAN();
   
     firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
-        if (element['account_name'] == currentAccount) {
+        if (element['IBAN'] == currentAccount) {
           this.account = element;
           element['bank_id'].get().then((result: any) => this.bank = result.data());
           return;

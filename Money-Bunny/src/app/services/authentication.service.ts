@@ -38,7 +38,6 @@ export class AuthenticationService {
 
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
-      //this.router.navigateByUrl('logged-in-menu');
       this.firestore.collection('users').valueChanges().subscribe((data) => {
         data.forEach((item: any) => {
           if (item['email'] == email) {
@@ -67,6 +66,7 @@ export class AuthenticationService {
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('userType');
     this.unsetCurrentAccount();
+    this.unsetCurrentIBAN();
   }
 
   isLoggedIn() {
@@ -89,12 +89,29 @@ export class AuthenticationService {
     return sessionStorage.getItem('account') || undefined;
   }
 
+  isIBANSet() {
+    return sessionStorage.getItem('iban') != null;
+  }
+
+  setCurrentIBAN(iban: string) {
+    sessionStorage.setItem('iban', iban);
+  }
+
+  getCurrentIBAN() {
+    return sessionStorage.getItem('iban') || undefined;
+  }
+
   getUserType() {
     return sessionStorage.getItem('userType') || undefined;
   }
 
   unsetCurrentAccount() {
     sessionStorage.removeItem('account');
+    this.unsetCurrentIBAN();
+  }
+
+  unsetCurrentIBAN() {
+    sessionStorage.removeItem('iban');
   }
 
   // doesn't work; don't know why
