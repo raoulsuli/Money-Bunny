@@ -26,6 +26,7 @@ import { AccountGuardService } from './services/account-guard.service';
 import { TransactionComponent } from './transaction/transaction.component';
 import { OperatorMenuComponent } from './operator-menu/operator-menu.component';
 import { TransactionsReportComponent } from './transactions-report/transactions-report.component';
+import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: 'transactions-report', component: TransactionsReportComponent, canActivate: [AuthGuardService, AccountGuardService]},
+  { path: 'currency-conversion', component: CurrencyConversionComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 
@@ -57,7 +59,8 @@ const routes: Routes = [
     AccountDashboardComponent,
     TransactionComponent,
     OperatorMenuComponent,
-    TransactionsReportComponent
+    TransactionsReportComponent,
+    CurrencyConversionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <form *ngIf="this.account" (ngSubmit)="transaction()">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="convertedAmount">Desired Amount <span *ngIf="this.currency != ''">({{this.currency}})</span></label>
+                    <input type="number" class="form-control input-style" #conversionAmount="ngModel" [(ngModel)]="this.amount" id="conversionAmount" name="conversionAmount" required>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="currency" class="font-weight-bold mb-color h5">Desired Currency</label>
+                    <select name="currency" [(ngModel)]="this.currency" id="currency" class="form-control input-style" (change)="selectCurrency()">
+                        <option *ngFor="let item of this.currencies | keyvalue" [ngValue]="item.key">{{item.key}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" *ngIf="this.rate != 0">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="convertedAmount">Converted Amount ({{this.account['currency']}}) - <span class="text-dark">{{this.account['balance'].toFixed(2)}}</span> Available</label>
+                    <input type="text" class="form-control input-style" [(ngModel)]="this.amount / this.rate" id="convertedAmount" name="convertedAmount" required disabled>
+                    <p class="font-error" *ngIf="this.account['balance'] < this.amount / this.rate">Not enough money for this transaction!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="this.account['balance'] < this.amount / this.rate || this.currency == ''" >Insert this amount into a new transaction</button>
+        </div>
+    </form>
+</div>

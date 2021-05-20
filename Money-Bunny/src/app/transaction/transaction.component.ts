@@ -42,6 +42,10 @@ export class TransactionComponent implements OnInit {
       });
       this.unsubscribe();
     });
+    if (sessionStorage.getItem('convertedAmount') != undefined) {
+      this.transaction['amount'] = Number(sessionStorage.getItem('convertedAmount'));
+      sessionStorage.removeItem('convertedAmount');
+    }
   }
 
   unsubscribe() {
