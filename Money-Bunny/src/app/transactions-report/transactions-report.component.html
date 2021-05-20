@@ -1,7 +1,8 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-6">
-            <p class="font-weight-bold h6"><i class="fa fa-check-circle mb-color ml-2"></i> - Current Account</p>
+            <span class="font-weight-bold h6 mr-2"><i class="fa fa-check-circle mb-color ml-2"></i> - Current Account</span>
+            <span class="font-weight-bold h6"><i class="fa fa-times ml-2" style="color: red;"></i> - Cancel Recurrent Payment</span>
         </div>
         <div class="col-6 d-flex justify-content-end">
             <a class="btn mb-button mr-4" (click)="downloadPDF()">Download as PDF</a>
@@ -32,7 +33,10 @@
                         <th data-toggle="tooltip" data-placement="top" title="Current Account" *ngIf="transaction['source_iban'] == this.currentAccount['IBAN']">{{transaction['source_iban']}}<i class="fa fa-check-circle mb-color ml-2"></i></th>
                         <th>{{transaction['source_iban'] == this.currentAccount['IBAN'] ? '-' : '+'}}{{transaction['amount']}}</th>
                         <th>{{transaction['date'].toDate() | date: 'HH:MM dd-MM-yyyy'}}</th>
-                        <th>{{transaction['recurrent_days'] == 0 ? 'Not recurrent' : transaction['recurrent_days']}}</th>
+                        <th>
+                            {{transaction['recurrent_days'] == 0 ? 'Not recurrent' : transaction['recurrent_days']}}
+                            <span (click)="removeRecurrency(transaction)" class="pull-right fa fa-times" style="font-size: 1.5rem; color: red; cursor: pointer;" *ngIf="transaction['recurrent_days'] != 0"></span>
+                        </th>
                     </tr>
                 </tbody>
             </table>

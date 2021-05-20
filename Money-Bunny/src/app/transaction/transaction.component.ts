@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { convert } from 'exchange-rates-api';
 import { Subscription } from 'rxjs';
 import { Transaction } from '../models/transaction.model';
 import { AuthenticationService } from '../services/authentication.service';
@@ -21,7 +21,7 @@ export class TransactionComponent implements OnInit {
   private updated = false;
   private subscription: Subscription;
 
-  constructor(private auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
+  constructor(private auth: AuthenticationService, private firestore: AngularFirestore, private router: Router, private http: HttpClient) {
     this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         this.all_accounts[element['IBAN']] = [];
@@ -52,13 +52,17 @@ export class TransactionComponent implements OnInit {
   }
 
   completeTransaction() {
-    this.firestore.collection('transactions').doc().set({
+    const doc = this.firestore.collection('transactions').doc();
+    var id = doc.ref.id;
+    doc.set({
       IBAN_dest: this.transaction['IBAN_dest'],
       amount: this.transaction['amount'],
       date: this.transaction['date'],
       currency: this.transaction['currency'],
       IBAN_src: this.transaction['IBAN_src'],
-      recurrent_days: this.transaction['recurrent_days']
+      recurrent_days: this.transaction['recurrent_days'],
+      count: 1,
+      id: id
     });
     
     this.firestore.collection('accounts').doc(this.currentAccount).update({
@@ -70,12 +74,11 @@ export class TransactionComponent implements OnInit {
         if (element['IBAN'] == this.transaction.IBAN_dest) {
           if (!this.updated) {
             this.updated = true;
-            var date = new Date();
-            var today = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0');
-            convert(this.transaction.amount, this.transaction.currency, element['currency'], today).then((res: any) => {
-              //this.firestore.collection('accounts').doc(element['account_name']).update({
+            var conv_string =  this.transaction['currency'] + "_" + element['currency'];
+            var api_string = 'http://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
+            this.http.get(api_string).subscribe((res: any) => {
               this.firestore.collection('accounts').doc(this.transaction.IBAN_dest).update({
-                balance: element['balance'] + res
+                balance: element['balance'] + res[conv_string]['val'] * this.transaction['amount']
               });
             });
           }

@@ -56,8 +56,8 @@ export class UserProfileComponent implements OnInit {
           companyName: this.newUser.companyName
         }).then(() => {
           alert("Success");
-          this.router.navigateByUrl('logged-in-menu');
         });
+        this.router.navigateByUrl('logged-in-menu');
       } else {
         this.firestore.collection('users').doc(this.newUser.username).set({
           name: this.newUser.name,

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
-                    <label class="font-weight-bold mb-color h4" for="destIBAN">Destination IBAN</label>
+                    <label class="font-weight-bold mb-color h5" for="destIBAN">Destination IBAN</label>
                     <input type="text" class="form-control input-style" #destIBAN="ngModel" [(ngModel)]="this.transaction['IBAN_dest']" id="destIBAN" name="destIBAN" placeholder="IBAN" required>
                 </div>
             </div>
@@ -21,9 +21,25 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
-                    <label class="font-weight-bold mb-color h4" for="amount">Amount ({{this.transaction['currency']}}) - <span class="text-dark">{{this.account['balance'].toFixed(2)}}</span> Available</label>
+                    <label class="font-weight-bold mb-color h5" for="amount">Amount ({{this.transaction['currency']}}) - <span class="text-dark">{{this.account['balance'].toFixed(2)}}</span> Available</label>
                     <input type="number" class="form-control input-style" #amount="ngModel" [(ngModel)]="this.transaction['amount']" name="amount" id="amount" placeholder="Amount" required>
                     <p class="font-error" *ngIf="this.account['balance'] < this.transaction['amount']">Not enough money for this transaction!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="recurrency">Recurrency in days (leave 0 for one time transaction)</label>
+                    <input type="number" class="form-control input-style" #recurrency="ngModel" [(ngModel)]="this.transaction['recurrent_days']" name="recurrency" id="recurrency">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="invoice_number">Invoice Number</label>
+                    <input type="text" class="form-control input-style" name="invoice_number" id="invoice_number" placeholder="Only applicable if this is an utility bill">
                 </div>
             </div>
         </div>
