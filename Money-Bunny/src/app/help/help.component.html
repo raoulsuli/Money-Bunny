@@ -90,6 +90,18 @@
 	        </div>
 	        <br>
 	        On this page you either have to click on an existing Bank Account, or click the green button below to create a new Banking account. Each option will provide you with a new help page.
+	        <br>
+	        <br>
+	        After you click on the existing Bank Account, you have to choose between Select This Account, Close This Account or Block This Account.
+	        <br>
+	        <br>
+	        "Select This Account" redirects you to a different page with several options which has its own help page.
+	        <br>
+	        <br>
+	        "Close This Account" provides you with a message of confirmation in regards to closing the account.
+	        <br>
+	        <br>
+	        "Block This Account" provides you with a message of confirmation in regards to blocking the account.
     	</div>
     </div>
 </div>
@@ -104,7 +116,10 @@
 	        	<img class="logobig" src="assets/images/bs.png" alt="Help Logo">
 	        </div>
 	        <br>
-	        On this page you can choose from which bank to open a new Banking Account with Money-Bunny. After you click the desired bank, you will be prompted with a series of self-explainatory forms to complete.
+	        On this page you can choose from which bank to open a new Banking Account with Money-Bunny. After you click the desired bank, you will be prompted with a series of forms to complete.
+	        <br>
+	        <br>
+	        Each form has a default text which provides information in regards to the information to be written inside it.
     	</div>
     </div>
 </div>
@@ -119,7 +134,7 @@
 	        	<img class="logobig" src="assets/images/up.png" alt="Help Logo">
 	        </div>
 	        <br>
-	        On this page you can modify your personal information, including Full Name, Email Address, Password, CNP and more. Make sure to complete the forms accordingly.
+	        On this page you can modify your personal information, including Full Name, Email Address, Password, CNP and more. Make sure to complete the forms according to the default text instructions. After you write anything inside the form, the default background text will disappear.
     	</div>
     </div>
 </div>
@@ -149,7 +164,7 @@
 	        	<img class="logobig" src="assets/images/ad.png" alt="Help Logo">
 	        </div>
 	        <br>
-	        On this page you can view your account dashboard. This includes your current account bank, IBAN, Account Type, your Balance and many other actions such as transactions of paying bills.
+	        On this page you can view your account dashboard. This includes your current account Bank, IBAN, Account Type, your Balance and many other actions such as Transaction, Transaction Reports, Apply for Credit Card and Convert Currency.
     	</div>
     </div>
 </div>
@@ -164,7 +179,52 @@
 	        	<img class="logobig" src="assets/images/t.png" alt="Help Logo">
 	        </div>
 	        <br>
-	        On this page you can perform a transaction. You must provide the Destination IBAN as well as the amount you wish to transfer. The last step is to click on "Complete Transaction".
+	        On this page you can perform a transaction.
+	        <br>
+	        <br>
+	        You must provide the Destination IBAN or choose from Frequent Accounts as well as the amount you wish to transfer. In addition to that the last step is to provide details for a Recurring Payment and an Invoice Number if it is an utility bill.
+	        <br>
+	        <br>
+	        The last step is to click on "Complete Transaction".
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'transactions-report'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the transaction report help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/tr.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can view your transactions and also download them as a .PDF file.
+	        <br>
+	        <br>
+	        You can choose if you wish Today, Last Week or Last Month's transactions. A table will prompt with Source, Destination, Amount and Date. To download as a .PDF file click on "Download as PDF".
+    	</div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'currency-conversion'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the currency conversion help page section!</h2>
+	        <br>
+	        <div style="text-align: center;">
+	        	<img class="logobig" src="assets/images/cc.png" alt="Help Logo">
+	        </div>
+	        <br>
+	        On this page you can convert from any currency into the required amount in euro.
+	        <br>
+	        <br>
+	        Feel free to choose any currency from the Drop-Down Menu and then complete the field which reffers to the amount required.
+	        <br>
+	        <br>
+	        Last but not least, you can click "Insert this amount into a new transaction" to further use the conversion that was executed.
     	</div>
     </div>
 </div>
