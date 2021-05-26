@@ -14,7 +14,6 @@ export class BankSelectComponent implements OnInit {
 
   user: any;
   account: any;
-  bank: string = 'none';
 
   constructor(public auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
   }
@@ -72,13 +71,6 @@ export class BankSelectComponent implements OnInit {
     });
   }
 
-  onSelectBank(bankCode: string) {
-    if (this.account) {
-      this.bank = bankCode;
-      this.account.bank = bankCode;
-    }
-  }
-
   setAccount(event: Event) {
     this.account.type = (<HTMLInputElement>event.target).value;
   }
@@ -89,13 +81,13 @@ export class BankSelectComponent implements OnInit {
 
   setBank(event: Event) {
     this.account.bank = (<HTMLInputElement>event.target).value;
-    console.log(this.account.bank);
   }
 
   submit() {
     if (this.user.userType === 'pfizica') {
       this.firestore.collection('requests').add({
         requestType: "open",
+        timestamp: new Date(),
         type: this.account.type,
 		    coin: this.account.coin,
 		    name: this.account.name,
@@ -108,11 +100,12 @@ export class BankSelectComponent implements OnInit {
 		    email: this.account.email,
 		    phone: this.account.phone,
 		    address: this.account.address,
-		    bank: this.firestore.doc('banks/' + this.account.bank).ref
+		    bank: this.firestore.doc('banks/' + this.account.bank).ref,
+        fromUserType: this.user.userType
       })
       .then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
           this.router.navigateByUrl('logged-in-menu');
+          this.firestore.collection('requests').doc(docRef.id).update({ requestID: docRef.id });
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
@@ -137,7 +130,8 @@ export class BankSelectComponent implements OnInit {
 		    phone: this.account.phone,
 		    email: this.account.email,
 		    address: this.account.address,
-		    bank: this.firestore.doc('banks/' + this.account.bank).ref
+		    bank: this.firestore.doc('banks/' + this.account.bank).ref,
+        fromUserType: this.user.userType
       })
       .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);

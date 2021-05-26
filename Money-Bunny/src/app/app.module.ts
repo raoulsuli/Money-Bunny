@@ -27,6 +27,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { OperatorMenuComponent } from './operator-menu/operator-menu.component';
 import { TransactionsReportComponent } from './transactions-report/transactions-report.component';
 import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
+import { AddCardComponent } from './add-card/add-card.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'operator-menu', component: OperatorMenuComponent, canActivate: [AuthGuardService, OperatorGuardService]},
   { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'add-card', component: AddCardComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
   { path: 'help', component: HelpComponent},
   { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
   { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
@@ -60,7 +62,8 @@ const routes: Routes = [
     TransactionComponent,
     OperatorMenuComponent,
     TransactionsReportComponent,
-    CurrencyConversionComponent
+    CurrencyConversionComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,

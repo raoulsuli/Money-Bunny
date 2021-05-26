@@ -1,11 +1,6 @@
 <div class="container d-flex justify-content-center mt-5 pt-5">
 	<div class="row">
 		<a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
-		<!--<ul style="list-style-type:none; display: inline-block;">
-			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BT'}" (click)='onSelectBank("BT")'>Banca Transilvania</a></li>
-			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'BRD'}" (click)='onSelectBank("BRD")'>BRD</a></li>
-			<li><a class="btn mb-button" [ngClass]="{'mb-button-selected': this.bank == 'LB'}" (click)='onSelectBank("LB")'>Libra Bank</a></li>
-		</ul>-->
 		<select (input)="setBank($event)" class="form-control input-style" placeholder="Bank" id="bank" required>
 			<option value="" disabled selected>Select bank</option>
 			<option value="BT">Banca Transilvania</option>
@@ -14,6 +9,26 @@
 		</select>
 		<br><br>
 		<form *ngIf='user && account && account.bank !== ""'>
+			<div class="form-group">
+				<div class="form-outline mb-4">
+					<select (input)="setAccount($event)" class="form-control input-style" placeholder="Account Type" id="type" required>
+						<option value="" disabled selected>Account Type</option>
+						<option value="checking">Checking</option><!--cont curent-->
+						<option value="savings">Savings</option><!--cont de economii-->
+						<option value="certificate of deposit">Certificate of deposit</option><!--depozit-->
+						<option value="credit">Credit</option><!--credit-->
+					</select>
+					<br>
+					<select (input)="setCurrency($event)" class="form-control input-style" placeholder="Currency" id="currency" required>
+						<option value="" disabled selected>Currency</option>
+						<option value="RON">Lei</option>
+						<option value="EUR">Euro</option>
+						<option value="USD">USD</option>
+					</select>
+				</div>
+			</div>
+			<hr>
+
 			<div class="form-group" *ngIf='user.userType === "pfizica"'>
 				<div>
 					<label class="text-dark text-decoration-none font-weight-bold">Surname </label>
@@ -27,6 +42,12 @@
 					<label class="text-dark text-decoration-none font-weight-bold">Birthdate </label>
 					<input type="date" class="form-control p-3 input-style" placeholder="{{user.birthday}}"
 						name="birthday" id="birthday" #birthday="ngModel" [(ngModel)]="account.birthday" required>
+				</div>
+				<br>
+				<div>
+					<label class="text-dark text-decoration-none font-weight-bold">Nationality </label>
+					<input type="text" id="nationality" name="nationality" #nationality="ngModel" class="form-control p-3 input-style"
+						placeholder="Romanian" [(ngModel)]="account.nationality" required>
 				</div>
 			</div>
 
@@ -50,24 +71,29 @@
 						[(ngModel)]="account.cui" pattern="(RO)?[0-9]{10}" required>
 					<a class="text font-error" *ngIf="code.errors?.pattern">Not a valid fiscal registration code!</a><br>
 				</div>
+				<div>
+					<label class="text-dark text-decoration-none font-weight-bold">Nationality </label>
+					<input type="text" id="nationality" name="nationality" #nationality="ngModel" class="form-control p-3 input-style"
+						placeholder="Romanian" [(ngModel)]="account.nationality" required>
+				</div>
 
 				<div>
 					<hr>
 					<label class="font-1p3rem">Registration Certificate</label><!--Certificat de inregistrare la Registrul Comertului-->
 					<br>
 					<span>
-						<label class="text-dark text-decoration-none font-weight-bold">Comerce Register Number </label>
+						<label class="text-dark text-decoration-none font-weight-bold">Commerce Register Number </label>
 						<input type="text" name="certificateNumber" id="certificateNumber" #certificateNumber="ngModel"
 							class="form-control p-3 input-style" placeholder="Number format [JCF]nn/mmmmmm/aaaa"
 							[(ngModel)]="account.certificateNumber" pattern="[JCF][0-9]{2}/[0-9]{6}/[0-9]{4}" required><br>
 						<a class="text font-error" *ngIf="certificateNumber.errors?.pattern">Not a valid comerce register number! Respect the [JCF]nn/mmmmmm/aaaa format!</a>
-					</span><br>
+					</span>
 
 					<label class="text-dark text-decoration-none font-weight-bold">Registration Date </label>
 					<input type="date" class="form-control p-3 input-style" placeholder="DD/MM/YYYY - Registration Date"
 						name="registerDate" id="registerDate" #registerDate="ngModel" [(ngModel)]="account.registerDate" required>
 				</div>
-				<br><br>
+				<br>
 
 				<hr>
 				<label class="font-1p3rem">Representative</label>
@@ -81,34 +107,8 @@
 						[(ngModel)]="account.representativeName" required><br>
 				</div>
 			</div>
-			<span>
-				<label class="text-dark text-decoration-none font-weight-bold">Nationality </label>
-				<input type="text" id="nationality" name="nationality" #nationality="ngModel" class="form-control p-3 input-style"
-					placeholder="Romanian" [(ngModel)]="account.nationality" required>
-			</span>
 			<br>
 
-			<span>
-				<label class="text-dark text-decoration-none font-weight-bold">Email: </label>
-				<input type="email" id="email" name="email" #email="ngModel" class="form-control p-3 input-style"
-					placeholder="{{user.email}}" [(ngModel)]="account.email" pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$" required>
-				<a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
-			</span>
-			<span>
-				<label class="text-dark text-decoration-none font-weight-bold">Phone Number: </label>
-				<input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="{{user.phone}}"
-					name="phone" id="phone" #phone="ngModel" [(ngModel)]="account.phone" required>
-				<a class="text font-error" *ngIf="phone.errors?.pattern">Not a valid Romanian phone number!<br>
-					Insert without international prefix, spaces or special characters!</a>
-			</span>
-			<span>
-				<label class="text-dark text-decoration-none font-weight-bold">Address: </label>
-				<input type="text" id="address" name="adress" #adress="ngModel" class="form-control p-3 input-style"
-					placeholder="{{user.address}}" [(ngModel)]="account.address" required>
-			</span>
-			<br>
-
-			<hr>
 			<div>
 				<label class="text-dark text-decoration-none font-weight-bold">ID</label>
 			</div>
@@ -140,28 +140,32 @@
 					</div>
 				</div>
 			</div>
-			<br>
-			
+
 			<hr>
-			<div class="form-group">
-				<div class="form-outline mb-4">
-					<select (input)="setAccount($event)" class="form-control input-style" placeholder="Account Type" id="type" required>
-						<option value="" disabled selected>Account Type</option>
-						<option value="checking">Checking</option><!--cont curent-->
-						<option value="savings">Savings</option><!--cont de economii-->
-						<option value="CD">Certificate of deposit</option><!--depozit-->
-						<option value="credit">Credit</option><!--credit-->
-					</select>
-					<br>
-					<select (input)="setCurrency($event)" class="form-control input-style" placeholder="Currency" id="currency" required>
-						<option value="" disabled selected>Currency</option>
-						<option value="RON">Lei</option>
-						<option value="EUR">Euro</option>
-						<option value="USD">USD</option>
-					</select>
+			<div>
+				<label class="text-dark text-decoration-none font-weight-bold">Email: </label>
+				<input type="email" id="email" name="email" #email="ngModel" class="form-control p-3 input-style"
+					placeholder="{{user.email}}" [(ngModel)]="account.email" pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$" required>
+				<a class="text font-error" *ngIf="email.errors?.pattern">Not a valid email address!</a>
+			</div>
+			<div>
+				<label class="text-dark text-decoration-none font-weight-bold">Phone Number: </label>
+				<input type="text" pattern="0[72][24-8][0-9]{7}" class="form-control p-3 input-style" placeholder="{{user.phone}}"
+					name="phone" id="phone" #phone="ngModel" [(ngModel)]="account.phone" required>
+				<a class="text font-error" *ngIf="phone.errors?.pattern">Not a valid Romanian phone number!<br>
+					Insert without international prefix, spaces or special characters!</a>
+			</div>
+			<div>
+				<label class="text-dark text-decoration-none font-weight-bold">Address: </label>
+				<input type="text" id="address" name="adress" #adress="ngModel" class="form-control p-3 input-style"
+					placeholder="{{user.address}}" [(ngModel)]="account.address" required>
+			</div>
+			<br><div class="row mt-2">
+				<div class="col-12 col-sm-12 d-flex justify-content-center">
+					<button type="submit" class="btn btn-primary" (click)="submit()">Submit</button><br><br>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary" (click)="submit()">Submit</button><br><br>
+			<br><br>
 		</form>
 	</div>
 </div>

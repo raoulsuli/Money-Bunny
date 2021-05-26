@@ -31,25 +31,14 @@ export class OperatorMenuComponent implements OnInit {
 
     this.subscription = this.firestore.collection('requests').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
-        console.log('elem', element['bank']);
-        console.log('usr',this.user.bank);
-        console.log('id',element.id);
 
         element['bank'].get().then((req: any) => {
           this.user.bank.get().then((op: any) => {
             if (req.id == op.id) {
               this.requests.push(element);
-              console.log('email',element['email']);
-              console.log(req.id);
             }
           });
         });
-
-        /*if (element['bank'].get().id == this.user.bank.get().id) {
-          this.requests.push(element);
-          console.log(element.id);
-          //this.requestData.set(element.id, element.data());
-        }*/
       });
       this.unsubscribe();
     });
@@ -59,9 +48,23 @@ export class OperatorMenuComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  selectAccount(request: any) {
-    //this.auth.setCurrentAccount(account);
-    //this.router.navigateByUrl('/account-dashboard');
+  acceptRequest(request: any) {
+    if (request['requestType'] === 'open') {
+
+    }
+    else if (request['requestType'] === 'close') {
+      this.firestore.collection('accounts').doc(request['iban']).delete().then(() => {
+        console.log("Document successfully deleted!");
+
+        this.firestore.collection('requests').doc(request['requestID']).delete().then(() => {
+          console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+      }).catch((error) => {
+          console.error("Error removing document: ", error);
+      });
+    }
     console.log(request);
   }
 

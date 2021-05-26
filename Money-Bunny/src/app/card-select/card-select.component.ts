@@ -36,7 +36,7 @@ export class CardSelectComponent implements OnInit {
   refresh(){
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
     this.router.navigateByUrl('card-select'));
- }
+  }
 
   selectAccount(account: any) {
     this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
@@ -79,7 +79,15 @@ export class CardSelectComponent implements OnInit {
       this.firestore.collection('accounts').doc(account['IBAN']).update({closing: true});
       this.firestore.collection('requests').add({
         requestType: "close",
+        timestamp: new Date(),
+        bank: account['bank_id'],
 		    iban: account['IBAN']
+      })
+      .then((docRef) => {
+        this.firestore.collection('requests').doc(docRef.id).update({ requestID: docRef.id })
+      })
+      .catch((error) => {
+          console.error("Error adding document: ", error);
       });
       alert("Your request has been sent!");
       this.refresh()

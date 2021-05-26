@@ -1,0 +1,44 @@
+<div class="container d-flex justify-content-center mt-4">
+    <form>
+        <div class="row mb-3">
+            <div class="col-12 col-sm-12 justify-content-center d-flex">
+                <h4 class="font-weight-bold">Money Bunny Account Credentials</h4>
+            </div>
+        </div>
+        <a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
+		<select (input)="setBank($event)" class="form-control input-style" placeholder="Bank" id="bank" required>
+			<option value="" disabled selected>Select bank</option>
+			<option value="BT">Banca Transilvania</option>
+			<option value="BRD">BRD</option>
+			<option value="LB">Libra Bank</option>
+		</select>
+        <div class="row d-flex justify-content-center">
+			<div class="form-outline mb-4">
+				<input type="text" pattern="RO[0-9]{2}[A-Z]{4}[0-9A-Z]{16}" class="form-control p-3 input-style"
+					placeholder="IBAN"
+					name="iban" #iban="ngModel" [(ngModel)]="iban" required>
+				<a class="text font-error" *ngIf="iban.errors?.pattern">Not a valid Romanian IBAN!</a>
+			</div>
+        </div>
+        <div class="row">
+			<div class="form-outline mb-4">
+				<input type="text" pattern="[0-9]{4}$" class="form-control p-3 input-style"
+					placeholder="PIN"
+					name="pin" #pin="ngModel" [(ngModel)]="pin" required>
+				<a class="text font-error" *ngIf="pin.errors?.pattern">Not a valid PIN!</a>
+			</div>
+        </div>
+        <div class="row">
+			<div class="form-outline mb-4">
+				<input type="text" class="form-control p-3 input-style"
+					placeholder="Nickname"
+					name="account_name" #account_name="ngModel" [(ngModel)]="account_name" required>
+					<a class="text font-error" *ngIf="nicknameInUse() && (invalidNickname!=='')">Account nickname already in use!</a>
+			</div>
+        </div>
+
+        <div class="row justify-content-center">
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" (click)="submitRequest()">Submit</button>
+        </div>
+    </form>
+</div>

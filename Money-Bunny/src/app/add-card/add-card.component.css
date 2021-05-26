@@ -1,22 +1,20 @@
 .mb-button {
-    border-color: #91E542;
-    font-size: 1.25rem;
+    border-color: white;
+	font-weight: bold;
+    font-size: 1.3rem;
     color: #142305;
-    font-weight: 600;
-    background-color: #91E542;
+    background-color:white;
 }
 
 .mb-button:hover {
-    color: white;
-    background-color: #66b719;
+	font-weight: bold;
+    font-size: 1.3rem;
+    color: #66b719;
+    background-color: white; 
 }
 
 .mb-button-selected {
     color: #66b719;
-}
-
-.mb-bg {
-    background-color: #91E542;
 }
 
 .btn-primary {
@@ -35,21 +33,11 @@
 }
 
 .font-1p3rem {
+    color: #66b719;
     font-size: 1.3rem;
 }
 
-.mb-color {
-    color: #91E542;
-}
-
-.mb-form-field {
-    color: #66b719;
-}
-
-.account-link {
-    color: black;
-}
-
-.account-link:hover {
-    color: #91E542;
+.font-error {
+    color: red;
+    font-size: 1.2rem;
 }
