@@ -4,7 +4,7 @@
             <div class="col-12 col-sm-6">
                 <div class="form-group">
                     <label for="banks" class="font-weight-bold mb-color h5">Select a Partner Bank</label>
-					<select name="banks" [(ngModel)]="this.bank" id="banks" class="form-control input-style">
+					<select name="banks" [(ngModel)]="this.bank" id="banks" class="form-control input-style" required>
                         <option *ngFor="let item of this.banks" [ngValue]="item.name">{{item.name}}</option>
                     </select>
                 </div>

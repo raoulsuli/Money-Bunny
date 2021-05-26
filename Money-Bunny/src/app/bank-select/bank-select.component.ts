@@ -12,10 +12,12 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class BankSelectComponent implements OnInit {
 
-  user: any;
-  account: any;
+  public user: any;
+  public account: any;
+  public banks = [] as any;
 
   constructor(public auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
+    this.firestore.collection('banks').valueChanges().subscribe((banks: any) => this.banks = banks);
   }
 
   ngOnInit(): void {
@@ -27,12 +29,9 @@ export class BankSelectComponent implements OnInit {
             this.account = new OpenPF(
               '', // type
               '', // coin
-              '', // name
-              '', // surname
+              this.user.name, // name
               'Romanian', // nationality
               this.user.cnp, // cnp
-              '', // idSeries
-              '', // idNumber
               this.user.birthday, // birthday
               this.user.phone, // phone
               this.user.email, // email
@@ -45,14 +44,7 @@ export class BankSelectComponent implements OnInit {
               '', // type
               '', // coin
               this.user.companyName, // name
-              '', // organizationType
-              '', // representativeName
-              '', // representativeSurname
               this.user.cnp, // cnp
-              '', // idSeries
-              '', // idNumber
-              '', // cui
-              '', // certificateNumber
               'Romanian', // nationality
               new Date(), // registerDate
               this.user.phone, // phone
@@ -71,18 +63,6 @@ export class BankSelectComponent implements OnInit {
     });
   }
 
-  setAccount(event: Event) {
-    this.account.type = (<HTMLInputElement>event.target).value;
-  }
-
-  setCurrency(event: Event) {
-    this.account.coin = (<HTMLInputElement>event.target).value;
-  }
-
-  setBank(event: Event) {
-    this.account.bank = (<HTMLInputElement>event.target).value;
-  }
-
   submit() {
     if (this.user.userType === 'pfizica') {
       this.firestore.collection('requests').add({
@@ -91,11 +71,8 @@ export class BankSelectComponent implements OnInit {
         type: this.account.type,
 		    coin: this.account.coin,
 		    name: this.account.name,
-		    surname: this.account.surname,
 		    nationality: this.account.nationality,
 		    cnp: this.account.cnp,
-		    idSeries: this.account.idSeries,
-		    idNumber: this.account.idNumber,
 		    birthday: this.account.birthday,
 		    email: this.account.email,
 		    phone: this.account.phone,
@@ -117,16 +94,8 @@ export class BankSelectComponent implements OnInit {
         type: this.account.type,
 		    coin: this.account.coin,
 		    name: this.account.name,
-		    organizationType: this.account.organizationType,
-		    representativeName: this.account.representativeName,
-		    representativeSurname: this.account.representativeSurname,
 		    cnp: this.account.cnp,
-		    idSeries: this.account.idSeries,
-		    idNumber: this.account.idNumber,
-		    cui: this.account.cui,
-		    registerDate: this.account.registerDate,
 		    nationality: this.account.nationality,
-		    certificateNumber: this.account.certificateNumber,
 		    phone: this.account.phone,
 		    email: this.account.email,
 		    address: this.account.address,
