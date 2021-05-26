@@ -53,3 +53,8 @@
 .account-link:hover {
     color: #91E542;
 }
+
+.font-error {
+    color: red;
+    font-size: 1.2rem;
+}
