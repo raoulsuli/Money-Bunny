@@ -9,22 +9,19 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./add-card.component.css']
 })
 export class AddCardComponent implements OnInit {
-
   public iban: string = '';
   public pin: string = '';
   public bank: string = '';
+  public invalidNickname: string = '';
   public account_name: string = '';
-  invalidNickname: string = '';
-  ok: boolean = false;
+  public banks = [] as any;
+  public ok: boolean = false;
 
   constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router) {
+    this.firestore.collection('banks').valueChanges().subscribe((bnk: any) => this.banks = bnk);
   }
 
   ngOnInit(): void {
-  }
-
-  setBank(event: Event) {
-    this.bank = (<HTMLInputElement>event.target).value;
   }
 
   submitRequest() {

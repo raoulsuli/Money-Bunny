@@ -9,7 +9,6 @@
                 <div class="form-outline mb-3">
                     <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password" class="form-control p-3 input-style" placeholder="Password" required>
                 </div>
-                <!-- <a class="text font-error" *ngIf="message !== '' && message !== 'Success'">{{ message }}</a> -->
 
                 <div class="row justify-content-center input-style">
                     <div class="form-check">
@@ -21,7 +20,6 @@
                 <button type="submit" class="btn btn-block mb-2 input-style mb-button">Login</button>
               
                 <div class="text-center">
-                    <!-- <a href="#" class="input-style">Forgot password?</a><br> -->
                     <span class="input-style">Not a member? <a routerLink="/register">Sign up</a><br><br></span>
                 </div>
             </form>

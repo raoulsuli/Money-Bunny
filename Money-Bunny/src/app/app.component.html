@@ -14,22 +14,7 @@
         <a class="btn mb-button mr-4" *ngIf="this.auth.isAccountSet()" routerLink="/logged-in-menu" (click)="this.auth.unsetCurrentAccount()">Back to accounts</a>
         <a class="btn mb-button mr-2" *ngIf="this.auth.isLoggedIn()" routerLink="/login" (click)="this.auth.SignOut()">Logout</a>
         <a class="btn mb-button mr-2" *ngIf="!this.auth.isLoggedIn()" routerLink="/login">Login / Sign up</a>
-        <!-- <a class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{language.viewValue}}</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownLang">
-                <a *ngFor="let lang of languages" class="dropdown-item itemLang" (click)="onUpdateLanguage(lang)">{{lang.viewValue}}</a>
-            </div>
-        </a> -->
     </div>
-
-    <!-- <div class="nav-item d-block d-sm-none">
-        <a class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{language.viewValue}}</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownLang">
-                <a *ngFor="let lang of languages" class="dropdown-item itemLang" (click)="onUpdateLanguage(lang)">{{lang.viewValue}}</a>
-            </div>
-        </a>
-    </div> -->
 
     <div class="nav-item dropdown position-static d-block d-sm-none">
         <a id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

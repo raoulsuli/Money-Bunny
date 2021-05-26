@@ -1,44 +1,42 @@
-<div class="container d-flex justify-content-center mt-4">
-    <form>
-        <div class="row mb-3">
-            <div class="col-12 col-sm-12 justify-content-center d-flex">
-                <h4 class="font-weight-bold">Money Bunny Account Credentials</h4>
+<div class="container mt-5">
+    <form (ngSubmit)="submitRequest()">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="banks" class="font-weight-bold mb-color h5">Select a Partner Bank</label>
+					<select name="banks" [(ngModel)]="this.bank" id="banks" class="form-control input-style">
+                        <option *ngFor="let item of this.banks" [ngValue]="item.name">{{item.name}}</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
-		<select (input)="setBank($event)" class="form-control input-style" placeholder="Bank" id="bank" required>
-			<option value="" disabled selected>Select bank</option>
-			<option value="BT">Banca Transilvania</option>
-			<option value="BRD">BRD</option>
-			<option value="LB">Libra Bank</option>
-		</select>
-        <div class="row d-flex justify-content-center">
-			<div class="form-outline mb-4">
-				<input type="text" pattern="RO[0-9]{2}[A-Z]{4}[0-9A-Z]{16}" class="form-control p-3 input-style"
-					placeholder="IBAN"
-					name="iban" #iban="ngModel" (ngModel)="iban" [ngModel]="iban" required>
-				<a class="text font-error" *ngIf="iban.errors?.pattern">Not a valid Romanian IBAN!</a>
-			</div>
+		<div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="iban">IBAN</label>
+                    <input type="text" pattern="RO[0-9]{2}[A-Z]{4}[0-9]{16}" class="form-control input-style" [(ngModel)]="this.iban" id="iban" name="iban" required>
+				</div>
+            </div>
         </div>
-        <div class="row">
-			<div class="form-outline mb-4">
-				<input type="text" pattern="[0-9]{4}$" class="form-control p-3 input-style"
-					placeholder="PIN"
-					name="pin" #pin="ngModel" [ngModel]="pin" (ngModel)="pin" required>
-				<a class="text font-error" *ngIf="pin.errors?.pattern">Not a valid PIN!</a>
-			</div>
+		<div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="pin">PIN</label>
+                    <input pattern="[0-9]{4}" type="text" class="form-control input-style" [(ngModel)]="this.pin" id="pin" name="pin" required>
+                </div>
+            </div>
         </div>
-        <div class="row">
-			<div class="form-outline mb-4">
-				<input type="text" class="form-control p-3 input-style"
-					placeholder="Nickname"
-					name="account_name" #account_name="ngModel" (ngModel)="account_name" [ngModel]="account_name" required>
-					<a class="text font-error" *ngIf="nicknameInUse() && (invalidNickname!=='')">Account nickname already in use!</a>
-			</div>
+		<div class="row justify-content-center">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-bold mb-color h5" for="account_name">Account Name</label>
+                    <input type="text" class="form-control input-style" [(ngModel)]="this.account_name" id="account_name" name="account_name" required>
+					<p class="text font-error" *ngIf="nicknameInUse() && (invalidNickname!=='')">Account nickname already in use!</p>
+				</div>
+            </div>
         </div>
-
         <div class="row justify-content-center">
-            <button type="submit" class="btn mb-2 input-style mb-button w-50" (click)="submitRequest()">Submit</button>
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="(nicknameInUse() && (invalidNickname!=='')) || this.bank == '' || this.pin == '' || this.iban == ''" >Submit</button>
         </div>
     </form>
 </div>
