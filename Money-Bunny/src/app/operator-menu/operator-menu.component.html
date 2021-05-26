@@ -1,160 +1,113 @@
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<h1 class="mb-color font-weight-bold">Your pending requests</h1>
-	</div>
-	<div class="row mt-2" *ngFor="let request of this.requests">
-	  <div class="col-12 col-sm-12">
-		<a class="h2 text-decoration-none account-link font-weight-bold" data-toggle="collapse"
-			*ngIf="request['requestID'] !== 'placeholder'" href="#{{request['requestID']}}"
-			role="button" aria-expanded="false" aria-controls="request['requestID']">
-			{{ request['requestType'].toUpperCase().concat(' REQUEST ID ').concat(request['requestID']) }}
-			<i class="fa fa-chevron-circle-down pull-right"></i>
-		</a>
-		<hr>
-		<div class="collapse" id="{{request['requestID']}}" *ngIf="request['requestID'] !== 'placeholder'">
-		  <div class="card card-body">
-			<div *ngIf="request['requestType'] === 'open'">
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Request sent on:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['timestamp'].toDate()}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="mb-form-field font-weight-bold">To:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['requestType'].concat(' new account')}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Desired Account Type:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['type'].toUpperCase()}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">In Coin:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['coin'].toUpperCase()}}</h4>
-				</div>
-
-				<br>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">For Company:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['name']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Operating as:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['organizationType']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Nationality&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['nationality']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Registered on:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['registerDate']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Unique Registration Code:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['cui']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Commerce Register Number:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['certificateNumber']}}</h4>
-				</div>
-				<br>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">Company Representative:&nbsp;</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pjuridica'">
-					<h4 class="font-weight-bold mb-form-field">First Name&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['representativeName']}}</h4>
-					<h4 class="font-weight-bold mb-form-field">&nbsp;Surname&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['representativeSurname']}}</h4>
-				</div>
-				
-				<div class="row" *ngIf="request['fromUserType'] === 'pfizica'">
-					<h4 class="font-weight-bold mb-form-field">First Name&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['name']}}</h4>
-					<h4 class="font-weight-bold mb-form-field">&nbsp;Surname&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['surname']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pfizica'">
-					<h4 class="font-weight-bold mb-form-field">Nationality:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['nationality']}}</h4>
-				</div>
-				<div class="row" *ngIf="request['fromUserType'] === 'pfizica'">
-					<h4 class="font-weight-bold mb-form-field">Born on:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['birthday']}}</h4>
-				</div>
-				
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">CNP&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['cnp']}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">ID Series&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['idSeries']}}</h4>
-					<h4 class="font-weight-bold mb-form-field">&nbsp;Number&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['idNumber']}}</h4>
-				</div>
-	
-				<br>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Contact Email:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['email']}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Contact Phone:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['phone']}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Address:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['address']}}</h4>
-				</div>
-			</div>
-
-			<div *ngIf="request['requestType'] === 'close'">
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">Request sent on:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['timestamp'].toDate()}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="mb-form-field font-weight-bold">To:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['requestType'].concat(' account')}}</h4>
-				</div>
-				<div class="row">
-					<h4 class="font-weight-bold mb-form-field">For Account with IBAN:&nbsp;</h4>
-					<h4 class="font-weight-bold">{{request['iban']}}</h4>
-				</div>
-			</div>
-
-			<div *ngIf="addAccount">
-				<div class="row">
-					<input type="text" pattern="RO[0-9]{2}[A-Z]{4}[0-9A-Z]{16}" class="form-control p-3 input-style"
-						placeholder="IBAN"
-						name="iban" #iban="ngModel" [(ngModel)]="newAccount.iban" required>
-					<a class="text font-error" *ngIf="iban.errors?.pattern">Not a valid Romanian IBAN!</a>
-				</div>
-				<div class="row">
-					<input type="text" pattern="[0-9]{4}$" class="form-control p-3 input-style"
-						placeholder="PIN"
-						name="pin" #pin="ngModel" [(ngModel)]="newAccount.pin" required>
-					<a class="text font-error" *ngIf="pin.errors?.pattern">Not a valid PIN!</a>
-				</div>
-				<div class="row">
-					<input type="number" class="form-control p-3 input-style"
-						placeholder="Sold"
-						name="sold" #sold="ngModel" [(ngModel)]="newAccount.sold" required>
-				</div>
-				<div class="row mt-2">
-					<div class="col-12 col-sm-12 d-flex justify-content-center">
-						<a class="btn mb-button" (click)="this.createAccount(request)">Submit</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="row mt-2">
-				<div class="col-12 col-sm-12 d-flex justify-content-center">
-					<a class="btn mb-button" (click)="this.acceptRequest(request)">Accept</a>
-				</div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
+<div class="container my-3">
+  <div class="row justify-content-center my-3">
+      <h1 class="mb-color font-weight-bold">Your pending requests</h1>
   </div>
+  <div class="row mt-2" *ngFor="let request of this.requests">
+    <div class="col-12 col-sm-12">
+      <a class="h2 text-decoration-none account-link font-weight-bold" data-toggle="collapse" href="#{{request['requestID']}}" role="button" aria-expanded="false">
+          {{ request['requestType']}} Request {{ (request['requestType'] == 'open') ? request['requestID'] : request['iban'] }}
+          <i class="fa fa-chevron-circle-down pull-right"></i>
+      </a>
+      <hr>
+      <div class="collapse" id="{{request['requestID']}}">
+        <div class="card card-body">
+			<div class="row mb-2 ml-4 ml-4">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Date of Request: </span>
+					<span class="font-weight-bold h4">{{ request['timestamp'].toDate() | date: 'dd-MM-yyyy' }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Action: </span>
+					<span class="font-weight-bold h4">{{ request['requestType']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Request ID: </span>
+					<span class="font-weight-bold h4">{{ request['requestID']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'close' || request['requestType'] == 'verify'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">IBAN: </span>
+					<span class="font-weight-bold h4">{{ request['iban']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'verify'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">PIN: </span>
+					<span class="font-weight-bold h4">{{ request['pin']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open' || request['requestType'] == 'verify'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Account Type: </span>
+					<span class="font-weight-bold h4">{{ request['type']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Name: </span>
+					<span class="font-weight-bold h4">{{ request['name']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Email: </span>
+					<span class="font-weight-bold h4">{{ request['email']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Phone: </span>
+					<span class="font-weight-bold h4">{{ request['phone']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">User Type: </span>
+					<span class="font-weight-bold h4">{{ this.user_types[request['fromUserType']]  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">CNP: </span>
+					<span class="font-weight-bold h4">{{ request['cnp']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open' || request['requestType'] == 'verify'">
+				<div class="col-12 col-sm-12">
+					<span class="font-weight-bold mb-form-field h4">Currency: </span>
+					<span class="font-weight-bold h4">{{ request['coin']  }}</span>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="(request['requestType'] == 'verify' || request['requestType'] == 'open') && request['type'] == 'credit'">
+				<div class="col-12 col-sm-12">
+					<label for="credit_amount" class="font-weight-bold mb-form-field h4">Credit Amount</label>
+					<input type="number" [(ngModel)]="this.balance" id="credit_amount" name="credit_amount" class="form-control input-style w-25" required>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<label for="iban" class="font-weight-bold mb-form-field h4">IBAN</label>
+					<input type="text" pattern="RO[0-9]{2}[A-Z]{4}[0-9]{16}" class="form-control input-style" [(ngModel)]="this.iban" id="iban" name="iban" required>
+				</div>
+			</div>
+			<div class="row mb-2 ml-4" *ngIf="request['requestType'] == 'open'">
+				<div class="col-12 col-sm-12">
+					<label for="pin" class="font-weight-bold mb-form-field h4">PIN</label>
+					<input pattern="[0-9]{4}" type="text" class="form-control input-style" [(ngModel)]="this.pin" id="pin" name="pin" required>
+				</div>
+			</div>
+			<div class="row mt-3 mb-1 ml-4">
+				<div class="col-12 col-sm-12">
+					<button class="btn mb-button" (click)="accept(request)" [disabled]="(request['requestType'] == 'open' && (this.pin == '' || this.iban == ''))">Accept</button>
+				</div>
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

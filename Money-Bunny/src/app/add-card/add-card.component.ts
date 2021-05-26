@@ -14,6 +14,8 @@ export class AddCardComponent implements OnInit {
   public bank: string = '';
   public invalidNickname: string = '';
   public account_name: string = '';
+  public account_type: string = '';
+  public account_coin: string = '';
   public banks = [] as any;
   public ok: boolean = false;
 
@@ -43,7 +45,11 @@ export class AddCardComponent implements OnInit {
         timestamp: new Date(),
         iban: this.iban,
         pin: this.pin,
-        bank: this.firestore.doc('banks/' + this.bank).ref
+        bank: this.firestore.doc('banks/' + this.bank).ref,
+        account_name: this.account_name,
+        type: this.account_type,
+        coin: this.account_coin,
+        email: this.auth.getCurrentUser()
       })
       .then((docRef) => {
         this.firestore.collection('requests').doc(docRef.id).update({ requestID: docRef.id })
