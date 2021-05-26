@@ -1,13 +1,12 @@
 <div class="container d-flex justify-content-center mt-5 pt-5">
 	<div class="row">
 		<a class="text-dark text-decoration-none font-weight-bold">Select a partner bank!</a>
-		<select (input)="setBank($event)" class="form-control input-style" placeholder="Bank" id="bank" required>
+		<select (input)="setBank($event)" class="form-control input-style mb-3" placeholder="Bank" id="bank" required>
 			<option value="" disabled selected>Select bank</option>
 			<option value="BT">Banca Transilvania</option>
 			<option value="BRD">BRD</option>
 			<option value="LB">Libra Bank</option>
 		</select>
-		<br><br>
 		<form *ngIf='user && account && account.bank !== ""'>
 			<div class="form-group">
 				<div class="form-outline mb-4">
