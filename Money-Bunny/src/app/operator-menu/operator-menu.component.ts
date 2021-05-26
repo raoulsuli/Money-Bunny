@@ -17,6 +17,7 @@ export class OperatorMenuComponent implements OnInit {
   public requestData = new Map();
   private subscription: Subscription;
   addAccount: boolean = false;
+  validateAccount: boolean = false;
   newAccount: BankAccount = new BankAccount(
 		'', // iban
 		'', // pin
@@ -80,7 +81,9 @@ export class OperatorMenuComponent implements OnInit {
           console.error("Error removing document: ", error);
       });
     }
-    console.log(request);
+    else if (request['requestType'] === 'validate') {
+      this.validateAccount = true;
+    }
   }
 
   ngOnInit(): void {
