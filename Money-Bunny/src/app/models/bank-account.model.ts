@@ -1,7 +1,7 @@
 export class BankAccount {
 	constructor(
 		public iban: string,
-		public pin: number,
+		public pin: string,
 		public sold: number,
 		public accountType: string,
 		public dateOpened: Date,
