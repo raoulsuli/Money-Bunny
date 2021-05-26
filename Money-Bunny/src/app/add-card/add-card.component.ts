@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -11,10 +10,10 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class AddCardComponent implements OnInit {
 
-  iban: string = '';
-  pin: string = '';
-  bank: string = '';
-  account_name: string = '';
+  public iban: string = '';
+  public pin: string = '';
+  public bank: string = '';
+  public account_name: string = '';
   invalidNickname: string = '';
   ok: boolean = false;
 

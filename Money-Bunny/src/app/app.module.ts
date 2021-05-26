@@ -22,6 +22,7 @@ import { OperatorGuardService } from './services/operator-guard.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { AccountDashboardComponent } from './account-dashboard/account-dashboard.component';
 import { NotAccountGuardService } from './services/not-account-guard.service';
+import { NotOperatorGuardService } from './services/not-operator-guard.service';
 import { AccountGuardService } from './services/account-guard.service';
 import { TransactionComponent } from './transaction/transaction.component';
 import { OperatorMenuComponent } from './operator-menu/operator-menu.component';
@@ -30,20 +31,20 @@ import { CurrencyConversionComponent } from './currency-conversion/currency-conv
 import { AddCardComponent } from './add-card/add-card.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
+  { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
   { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService, NotAccountGuardService]},
-  { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
-  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
-  { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'bank-select', component: BankSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
+  { path: 'logged-in-menu', component: LoggedInMenuComponent, canActivate: [AuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
   { path: 'operator-menu', component: OperatorMenuComponent, canActivate: [AuthGuardService, OperatorGuardService]},
-  { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
-  { path: 'add-card', component: AddCardComponent, canActivate: [AuthGuardService, NotAccountGuardService]},
+  { path: 'card-select', component: CardSelectComponent, canActivate: [AuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
+  { path: 'add-card', component: AddCardComponent, canActivate: [AuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
   { path: 'help', component: HelpComponent},
-  { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService]},
-  { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService]},
-  { path: 'transactions-report', component: TransactionsReportComponent, canActivate: [AuthGuardService, AccountGuardService]},
-  { path: 'currency-conversion', component: CurrencyConversionComponent, canActivate: [AuthGuardService, AccountGuardService]},
+  { path: 'account-dashboard', component: AccountDashboardComponent, canActivate: [AuthGuardService, AccountGuardService, NotOperatorGuardService]},
+  { path: 'transaction', component: TransactionComponent, canActivate: [AuthGuardService, AccountGuardService, NotOperatorGuardService]},
+  { path: 'transactions-report', component: TransactionsReportComponent, canActivate: [AuthGuardService, AccountGuardService, NotOperatorGuardService]},
+  { path: 'currency-conversion', component: CurrencyConversionComponent, canActivate: [AuthGuardService, AccountGuardService, NotOperatorGuardService]},
   { path: '**', redirectTo: '/'}
 ];
 
