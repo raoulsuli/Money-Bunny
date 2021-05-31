@@ -35,7 +35,7 @@ export class CurrencyConversionComponent implements OnInit {
 
   selectCurrency() {
     var conv_string = this.account['currency'] + "_" + this.currency;
-    var api_string = 'http://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
+    var api_string = 'https://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
     var subscription = this.http.get(api_string).subscribe((res: any) => {
       this.rate = res[conv_string]['val'];
       subscription.unsubscribe();
