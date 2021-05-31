@@ -43,7 +43,7 @@ export class OperatorMenuComponent implements OnInit {
 
   accept(request: any) {
     if (request['requestType'] == 'open') {
-      this.firestore.collection('users', ref => ref.where("username", "==", request['email'])).get()
+      this.firestore.collection('users', ref => ref.where("email", "==", request['email'])).get()
       .toPromise().then((result: any) => {
         result.forEach((element: any) => {
             if (element.data() != undefined) {
