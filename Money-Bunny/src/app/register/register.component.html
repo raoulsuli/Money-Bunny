@@ -51,7 +51,7 @@
                         class="form-control p-3 input-style" placeholder="Password"
                         name="password" id="password" #password="ngModel" [(ngModel)]="newUser.password" required>
                     <span class="text font-error" *ngIf="password.errors?.pattern">
-                        Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
+                        Minimum ten characters,<br> uppercase and lowercase letters,<br> numbers and special characters!</span>
                 </div>
             </div>
             <div class="col-12 col-sm-6">
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <button type="submit" class="btn mb-2 input-style mb-button w-50" (click)="signUp()">Sign up</button>
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="newUser.name == '' || newUser.username == '' || newUser.password == '' || newUser.email == '' || newUser.cnp == '' || newUser.phone == '' || phone.errors?.pattern || cnp.errors?.pattern || password.errors?.pattern || username.errors?.pattern || email.errors?.pattern" (click)="signUp()">Sign up</button>
         </div>
     </form>
 </div>

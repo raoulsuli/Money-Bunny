@@ -20,7 +20,7 @@ export class CurrencyConversionComponent implements OnInit {
     this.firestore.collection('accounts').doc(this.auth.getCurrentIBAN()).get().toPromise().then((result: any) => {
       this.account = result.data();
     });
-    this.http.get('https://free.currconv.com/api/v7/currencies?apiKey=do-not-use-this-key').subscribe((res: any) => {
+    this.http.get('https://free.currconv.com/api/v7/currencies?apiKey=7272e746547b8c161143').subscribe((res: any) => {
       this.currencies = res['results'];
     });
   }
@@ -35,7 +35,7 @@ export class CurrencyConversionComponent implements OnInit {
 
   selectCurrency() {
     var conv_string = this.account['currency'] + "_" + this.currency;
-    var api_string = 'http://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=do-not-use-this-key';
+    var api_string = 'https://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
     var subscription = this.http.get(api_string).subscribe((res: any) => {
       this.rate = res[conv_string]['val'];
       subscription.unsubscribe();

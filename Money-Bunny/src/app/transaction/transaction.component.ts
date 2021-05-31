@@ -79,7 +79,7 @@ export class TransactionComponent implements OnInit {
           if (!this.updated) {
             this.updated = true;
             var conv_string =  this.transaction['currency'] + "_" + element['currency'];
-            var api_string = 'http://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
+            var api_string = 'https://free.currencyconverterapi.com/api/v5/convert?q=' + conv_string + '&compact=y&apiKey=7272e746547b8c161143';
             this.http.get(api_string).subscribe((res: any) => {
               this.firestore.collection('accounts').doc(this.transaction.IBAN_dest).update({
                 balance: element['balance'] + res[conv_string]['val'] * this.transaction['amount']

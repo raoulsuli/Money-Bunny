@@ -47,11 +47,11 @@ console.log("11", this.user);
 
   accept(request: any) {
     if (request['requestType'] == 'open') {
-      this.firestore.collection('users', ref => ref.where("username", "==", request['email'])).get()
+      this.firestore.collection('users', ref => ref.where("email", "==", request['email'])).get()
       .toPromise().then((result: any) => {
         result.forEach((element: any) => {
             if (element.data() != undefined) {
-              this.firestore.collection('accounts').doc(request['iban']).set({
+              this.firestore.collection('accounts').doc(this.iban).set({
                 IBAN: this.iban,
                 PIN: this.pin,
                 account_name: request['account_name'],
