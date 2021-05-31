@@ -49,6 +49,7 @@ export class OperatorMenuComponent implements OnInit {
           this.user.bank.get().then((op: any) => {
             if (req.id == op.id) {
               this.requests.push(element);
+              console.log(element);
             }
           });
         });
