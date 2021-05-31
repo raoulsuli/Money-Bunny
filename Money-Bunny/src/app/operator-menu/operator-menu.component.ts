@@ -47,7 +47,7 @@ export class OperatorMenuComponent implements OnInit {
       .toPromise().then((result: any) => {
         result.forEach((element: any) => {
             if (element.data() != undefined) {
-              this.firestore.collection('accounts').doc(request['iban']).set({
+              this.firestore.collection('accounts').doc(this.iban).set({
                 IBAN: this.iban,
                 PIN: this.pin,
                 account_name: request['account_name'],
