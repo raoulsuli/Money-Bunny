@@ -51,7 +51,7 @@
                         class="form-control p-3 input-style" placeholder="Password"
                         name="password" id="password" #password="ngModel" [(ngModel)]="newUser.password" required>
                     <span class="text font-error" *ngIf="password.errors?.pattern">
-                        Minimum ten characters, at least one uppercase letter, one lowercase letter, one number and one special character!</span>
+                        Minimum ten characters,<br> uppercase and lowercase letters,<br> numbers and special characters!</span>
                 </div>
             </div>
             <div class="col-12 col-sm-6">
