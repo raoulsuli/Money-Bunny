@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <label for="banks" class="font-weight-bold mb-color h5">Select a Partner Bank</label>
 					<select name="banks" [(ngModel)]="this.bank" id="banks" class="form-control input-style" required>
-                        <option *ngFor="let item of this.banks" [ngValue]="item.name">{{item.name}}</option>
+                        <option *ngFor="let item of this.banks" [ngValue]="item.id">{{item.name}}</option>
                     </select>
                 </div>
             </div>
@@ -35,6 +35,31 @@
 				</div>
             </div>
         </div>
+        <div class="row justify-content-center">
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<select name="account_type" [(ngModel)]="this.account_type" id="account_type" class="form-control input-style" required>
+                        <option value="" disabled selected>Account Type</option>
+						<option value="checking">Checking</option>
+						<option value="savings">Savings</option>
+						<option value="certificate of deposit">Certificate of deposit</option>
+						<option value="credit">Credit</option>
+                    </select>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<select name="currency" [(ngModel)]="this.account_coin" id="currency" class="form-control input-style" required>
+                        <option value="" disabled selected>Currency</option>
+						<option value="RON">Lei</option>
+						<option value="EUR">Euro</option>
+						<option value="USD">USD</option>
+                    </select>
+				</div>
+			</div>
+		</div>
         <div class="row justify-content-center">
             <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="(nicknameInUse() && (invalidNickname!=='')) || this.bank == '' || this.pin == '' || this.iban == ''" >Submit</button>
         </div>

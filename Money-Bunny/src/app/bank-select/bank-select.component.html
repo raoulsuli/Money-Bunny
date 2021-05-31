@@ -5,8 +5,16 @@
 				<div class="form-group">
 					<label for="banks" class="font-weight-bold mb-color h5">Select a Partner Bank</label>
 					<select name="banks" [(ngModel)]="this.account.bank" id="banks" class="form-control input-style" required>
-                        <option *ngFor="let item of this.banks" [ngValue]="item.name">{{item.name}}</option>
+                        <option *ngFor="let item of this.banks" [ngValue]="item.id">{{item.name}}</option>
                     </select>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<label for="account_name" class="font-weight-bold mb-color h5">Account Name</label>
+					<input type="text" [(ngModel)]="this.account_name" id="account_name" name="account_name" class="form-control input-style" required>
 				</div>
 			</div>
 		</div>
@@ -36,7 +44,7 @@
 			</div>
 		</div>
 		<div class="row justify-content-center">
-            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="this.account.coin == '' || this.account.bank == '' || this.account.type == ''" >Submit</button>
+            <button type="submit" class="btn mb-2 input-style mb-button w-50" [disabled]="this.account.coin == '' || this.account.bank == '' || this.account.type == '' || this.account_name == ''" >Submit</button>
         </div>
 	</form>
 </div>

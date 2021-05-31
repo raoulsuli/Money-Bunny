@@ -15,6 +15,7 @@ export class BankSelectComponent implements OnInit {
   public user: any;
   public account: any;
   public banks = [] as any;
+  public account_name: string = '';
 
   constructor(public auth: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
     this.firestore.collection('banks').valueChanges().subscribe((banks: any) => this.banks = banks);
@@ -71,6 +72,7 @@ export class BankSelectComponent implements OnInit {
         type: this.account.type,
 		    coin: this.account.coin,
 		    name: this.account.name,
+        account_name: this.account_name,
 		    nationality: this.account.nationality,
 		    cnp: this.account.cnp,
 		    birthday: this.account.birthday,
@@ -81,6 +83,7 @@ export class BankSelectComponent implements OnInit {
         fromUserType: this.user.userType
       })
       .then((docRef) => {
+          alert("Request sent!");
           this.router.navigateByUrl('logged-in-menu');
           this.firestore.collection('requests').doc(docRef.id).update({ requestID: docRef.id });
       })
@@ -94,6 +97,7 @@ export class BankSelectComponent implements OnInit {
         type: this.account.type,
 		    coin: this.account.coin,
 		    name: this.account.name,
+        account_name: this.account_name,
 		    cnp: this.account.cnp,
 		    nationality: this.account.nationality,
 		    phone: this.account.phone,
