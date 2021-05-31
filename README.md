@@ -1,5 +1,5 @@
 # Money-Bunny
-Proiect IP
+## Online Banking System in Angular
 -> https://console.firebase.google.com/u/0/project/money-bunny-920e7/overview
 -> https://money-bunny-920e7.web.app/
 
