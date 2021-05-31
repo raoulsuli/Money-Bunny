@@ -59,6 +59,7 @@ export class CardSelectComponent implements OnInit {
     var response = confirm("Are you sure you want to block this account?");
     if (response) {
       this.firestore.collection('accounts').doc(account['IBAN']).update({blocked: true});
+      this.auth.unsetCurrentAccount();
       alert("Success");
       this.refresh()
     }
