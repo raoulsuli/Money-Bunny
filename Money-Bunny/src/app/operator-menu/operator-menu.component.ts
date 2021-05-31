@@ -21,8 +21,11 @@ export class OperatorMenuComponent implements OnInit {
   ngOnInit(): void { }
 
   constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router) {
-    this.firestore.collection('users').doc(this.auth.getCurrentUser()).get().toPromise().then((doc) => this.user = doc.data());
-
+    this.firestore.collection('users').doc(this.auth.getCurrentUser()).get().toPromise().then((doc) => {
+      this.user = doc.data();
+      console.log(this.user);
+    });
+console.log("11", this.user);
     this.subscription = this.firestore.collection('requests').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         element['bank'].get().then((req: any) => {
