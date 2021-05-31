@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
                 userType: this.newUser.userType,
                 companyName: this.newUser.companyName
               });
-  
+              alert("Success");
               this.router.navigateByUrl('login');
             }).catch (error => {
               this.invalidEmail = this.newUser.email;
