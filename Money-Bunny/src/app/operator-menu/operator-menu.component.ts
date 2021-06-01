@@ -60,7 +60,7 @@ export class OperatorMenuComponent implements OnInit {
                 blocked: false,
                 closing: false,
                 currency: request['coin'],
-                user_id: this.firestore.doc('accounts/' + element.data().username).ref
+                user_id: this.firestore.doc('users/' + element.data().username).ref
               });
 
               this.firestore.collection('requests').doc(request['requestID']).delete();
@@ -90,7 +90,7 @@ export class OperatorMenuComponent implements OnInit {
                 blocked: false,
                 closing: false,
                 currency: request['coin'],
-                user_id: this.firestore.doc('accounts/' + element.data().username).ref
+                user_id: this.firestore.doc('users/' + element.data().username).ref
               });
 
               this.firestore.collection('requests').doc(request['requestID']).delete();

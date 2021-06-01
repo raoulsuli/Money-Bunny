@@ -20,8 +20,10 @@ export class CardSelectComponent implements OnInit {
   
   constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router,
     public modalService: NgbModal) {
+
     this.subscription = this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
+        console.log(element);
         element['user_id'].get().then((result: any) => {
           if (result.data() != undefined && result.data()['username'] == auth.getCurrentUser()) {
             this.accounts.push(element);
@@ -64,7 +66,6 @@ export class CardSelectComponent implements OnInit {
     modalRef.componentInstance.user = this.name;
     modalRef.result.then((result) => {
       if (result) {
-        console.log(result);
         this.firestore.collection('accounts').doc(account['IBAN']).update({account_name: result});
         this.refresh()
       }
