@@ -59,26 +59,34 @@ export class UserProfileComponent implements OnInit {
         });
         this.router.navigateByUrl('logged-in-menu');
       } else {
-        this.firestore.collection('users').doc(this.newUser.username).set({
-          name: this.newUser.name,
-          username: this.newUser.username,
-          password: this.newUser.password,
-          email: this.newUser.email,
-          cnp: this.newUser.cnp,
-          phone: this.newUser.phone,
-          birthday: this.newUser.birthday,
-          address: this.newUser.address,
-          userType: this.newUser.userType,
-          companyName: this.newUser.companyName
-        }).then(() => {
-          alert("Success");
-          this.router.navigateByUrl('logged-in-menu');
+        this.firestore.collection('users').doc(this.newUser.username).get().toPromise().then((doc) => {
+          if (!(doc.exists)) {
+            this.firestore.collection('users').doc(this.newUser.username).set({
+              name: this.newUser.name,
+              username: this.newUser.username,
+              password: this.newUser.password,
+              email: this.newUser.email,
+              cnp: this.newUser.cnp,
+              phone: this.newUser.phone,
+              birthday: this.newUser.birthday,
+              address: this.newUser.address,
+              userType: this.newUser.userType,
+              companyName: this.newUser.companyName
+            }).then(() => {
+              this.accounts.forEach((acc: any) => {
+                this.firestore.collection('accounts').doc(acc['IBAN']).update({user_id: this.firestore.collection('users').doc(this.newUser.username).ref});
+              });
+              this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).delete();
+              sessionStorage.setItem('user', this.newUser.username);
+              alert("Success");
+              this.router.navigateByUrl('logged-in-menu');
+            });
+          } else {
+            this.invalidUser = this.newUser.username;
+          }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
         });
-        this.accounts.forEach((acc: any) => {
-          this.firestore.collection('accounts').doc(acc['IBAN']).update({user_id: this.firestore.collection('users').doc(this.newUser.username).ref});
-        });
-        this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).delete();
-        sessionStorage.setItem('user', this.newUser.username);
       }
     }
   }
