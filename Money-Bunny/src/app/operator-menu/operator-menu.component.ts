@@ -23,16 +23,14 @@ export class OperatorMenuComponent implements OnInit {
   constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router) {
     this.firestore.collection('users').doc(this.auth.getCurrentUser()).get().toPromise().then((doc) => {
       this.user = doc.data();
-      console.log(this.user);
     });
-console.log("11", this.user);
+
     this.subscription = this.firestore.collection('requests').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         element['bank'].get().then((req: any) => {
           this.user.bank.get().then((op: any) => {
             if (req.id == op.id) {
               this.requests.push(element);
-              console.log(element);
             }
           });
         });
@@ -102,6 +100,12 @@ console.log("11", this.user);
         });
       });
     }
+  }
+
+  deny(request: any) {
+    this.firestore.collection('requests').doc(request['requestID']).delete();
+    alert("Success");
+    this.refresh();
   }
 
   refresh(){

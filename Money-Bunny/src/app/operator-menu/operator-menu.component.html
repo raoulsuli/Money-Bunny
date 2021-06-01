@@ -102,8 +102,11 @@
 				</div>
 			</div>
 			<div class="row mt-3 mb-1 ml-4">
-				<div class="col-12 col-sm-12">
+				<div class="col-12 col-sm-6 d-flex justify-content-end">
 					<button class="btn mb-button" (click)="accept(request)" [disabled]="(request['requestType'] == 'open' && (this.pin == '' || this.iban == ''))">Accept</button>
+				</div>
+				<div class="col-12 col-sm-6">
+					<button class="btn mb-button" (click)="deny(request)">Deny</button>
 				</div>
 			</div>
         </div>
