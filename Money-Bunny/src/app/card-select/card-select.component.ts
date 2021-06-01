@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
+import { ModalRenameCardComponent } from '../modal-rename-card/modal-rename-card.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-card-select',
@@ -14,8 +16,10 @@ export class CardSelectComponent implements OnInit {
   public accounts = [] as any;
   public banks = new Map();
   private subscription: Subscription;
+  public name: string = '';
   
-  constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router) {
+  constructor(private firestore: AngularFirestore, public auth: AuthenticationService, private router: Router,
+    public modalService: NgbModal) {
     this.subscription = this.firestore.collection('accounts').valueChanges().subscribe((data: any) => {
       data.forEach((element: any) => {
         element['user_id'].get().then((result: any) => {
@@ -52,6 +56,18 @@ export class CardSelectComponent implements OnInit {
           });
         }
       });
+    });
+  }
+
+  openModal(account: any) {
+    const modalRef = this.modalService.open(ModalRenameCardComponent);
+    modalRef.componentInstance.user = this.name;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+        this.firestore.collection('accounts').doc(account['IBAN']).update({account_name: result});
+        this.refresh()
+      }
     });
   }
 

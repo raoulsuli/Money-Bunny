@@ -29,6 +29,8 @@ import { OperatorMenuComponent } from './operator-menu/operator-menu.component';
 import { TransactionsReportComponent } from './transactions-report/transactions-report.component';
 import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
 import { AddCardComponent } from './add-card/add-card.component';
+import { ModalRenameCardComponent } from './modal-rename-card/modal-rename-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [NotAuthGuardService, NotAccountGuardService, NotOperatorGuardService]},
@@ -64,7 +66,8 @@ const routes: Routes = [
     OperatorMenuComponent,
     TransactionsReportComponent,
     CurrencyConversionComponent,
-    AddCardComponent
+    AddCardComponent,
+    ModalRenameCardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ const routes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

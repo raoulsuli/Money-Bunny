@@ -12,6 +12,7 @@
 	        <br>
 	        <br>
 	        An individual help page for each of these will appear as soon as you click on your preferred option.
+			<br>
     	</div>
     </div>
 </div>
@@ -85,23 +86,28 @@
     		<br>
 	        <h2>Welcome to the select bank account help page section!</h2>
 	        <br>
-	        <div style="text-align: center;">
-	        	<img class="logobig" src="assets/images/cs.png" alt="Help Logo">
-	        </div>
 	        <br>
-	        On this page you either have to click on an existing Bank Account, or click the green button below to create a new Banking account. Each option will provide you with a new help page.
+	        On this page you can either click on a Bank Account already inserted in the app, make a request to open a new bank account at a MoneyBunny Partner Bank, or add an existing bank account to MoneyBunny. Each option will provide you with a new help page.
 	        <br>
 	        <br>
 	        After you click on the existing Bank Account, you have to choose between Select This Account, Close This Account or Block This Account.
+	        <br><br>
+	        <div style="text-align: center;">
+	        	<img class="logofit" src="assets/images/cs.png" alt="Help Logo">
+	        </div>
+	        <br><br>
+	        "Select This Account" redirects you to a different page where you can perform operations with this bank account.
 	        <br>
 	        <br>
-	        "Select This Account" redirects you to a different page with several options which has its own help page.
+	        "Rename This Account" allows you to enter a new nickname for the bank account.
 	        <br>
 	        <br>
-	        "Close This Account" provides you with a message of confirmation in regards to closing the account.
+	        "Block This Account" will block the account and forbid you from selecting it. You can unblock it whenever you want. Getting in touch with the bank about the issue that made you need to block the account is recommended.
+			<br>
+			<br>
+	        "Close This Account" will send a request to close the account to the bank. A bank operator will have to review it and approve it, but until then you will be unable to acces the account or modify anything abput it. When the request is accepted, the account will disappear from the list.
 	        <br>
 	        <br>
-	        "Block This Account" provides you with a message of confirmation in regards to blocking the account.
     	</div>
     </div>
 </div>
@@ -112,15 +118,34 @@
     		<br>
 	        <h2>Welcome to the select bank help page section!</h2>
 	        <br>
-	        <div style="text-align: center;">
-	        	<img class="logobig" src="assets/images/bs.png" alt="Help Logo">
-	        </div>
 	        <br>
-	        On this page you can choose from which bank to open a new Banking Account with Money-Bunny. After you click the desired bank, you will be prompted with a series of forms to complete.
+	        On this page you can open a new Banking Account with Money-Bunny at one of our Partner Banks. Your request will be reviewed by a bank operator and, when accepted, your new bank account will appear among your registered accounts.
 	        <br>
 	        <br>
-	        Each form has a default text which provides information in regards to the information to be written inside it.
-    	</div>
+	        Insert a nickname for your new account in the Account Name field. This will be the name that appears in the list of your registered accounts. You can change it anytime.
+			<br>
+	        <br>
+	    </div>
+    </div>
+</div>
+
+<div *ngIf="tipHelp == 'add-card'" class="row">
+    <div class="col">
+    	<div class="textul">
+    		<br>
+	        <h2>Welcome to the add account help page section!</h2>
+	        <br>
+	        <br>
+	        On this page you can add an existing Banking Account from one of our Partner Banks to Money-Bunny. Your request will be reviewed by a bank operator and, when accepted, your bank account will appear among your registered accounts.
+	        <br>
+	        <br>
+	        You must provide the IBAN and the PIN of your account, as well as its type and currecy su that the Partner Bank can check its existence and validate that it is yours.
+			<br>
+	        <br>
+	        Insert a nickname for your new account in the Account Name field. This will be the name that appears in the list of your registered accounts. You can change it anytime.
+			<br>
+	        <br>
+	    </div>
     </div>
 </div>
 

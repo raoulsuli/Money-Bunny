@@ -66,10 +66,13 @@
                 <a class="btn mb-button hidden-md-down" [ngClass]="{'disabled': account['blocked'] || account['closing']}" (click)="this.selectAccount(account['account_name'])">Select This Account</a>
             </div>
             <div class="col-6 col-sm d-flex justify-content-center">
+              <a class="btn mb-button" (click)="openModal(account)" [ngClass]="{'disabled': account['closing']}">Rename This Account</a>
+            </div>
+            <div class="col-6 col-sm d-flex justify-content-center">
               <a class="btn mb-button" *ngIf="!account['blocked']" (click)="blockAccount(account)" [ngClass]="{'disabled': account['closing']}">Block This Account</a>
               <a class="btn mb-button" *ngIf="account['blocked']" (click)="unblockAccount(account)" [ngClass]="{'disabled': account['closing']}">Unblock This Account</a>
             </div>
-            <div class="col-6 col-sm">
+            <div class="col-12 col-sm d-flex select-btn">
               <a class="btn mb-button" [ngClass]="{'disabled': account['closing']}" (click)="closeAccount(account)">Close This Account</a>
             </div>
           </div>

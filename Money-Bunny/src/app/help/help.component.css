@@ -17,3 +17,7 @@ div.daiscroll{
     width: 6rem;
     height: auto;
 }
+.logofit {
+    max-width:100%;
+    height: auto;
+}
