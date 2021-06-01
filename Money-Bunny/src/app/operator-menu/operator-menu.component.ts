@@ -103,6 +103,9 @@ export class OperatorMenuComponent implements OnInit {
   }
 
   deny(request: any) {
+    if (request['requestType'] == 'close') {
+      this.firestore.collection('accounts').doc(request['iban']).update({closing: false});
+    }
     this.firestore.collection('requests').doc(request['requestID']).delete();
     alert("Success");
     this.refresh();
