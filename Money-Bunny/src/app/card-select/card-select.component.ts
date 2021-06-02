@@ -66,8 +66,10 @@ export class CardSelectComponent implements OnInit {
     modalRef.componentInstance.user = this.name;
     modalRef.result.then((result) => {
       if (result) {
-        this.firestore.collection('accounts').doc(account['IBAN']).update({account_name: result});
-        this.refresh()
+        this.firestore.collection('accounts').doc(account['IBAN']).update({account_name: result}).then(() => {
+          this.refresh();
+        });
+        
       }
     });
   }
