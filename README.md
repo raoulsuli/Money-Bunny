@@ -1,6 +1,6 @@
 # Money-Bunny
 ## Online Banking System in Angular
--> https://money-bunny-920e7.web.app/
+https://money-bunny-920e7.web.app/
 
 ID | Nume | Asignat | Sprint | Estimare | Mențiuni
 --- | --- | --- | --- |--- |---
