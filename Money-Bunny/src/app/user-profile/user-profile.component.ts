@@ -104,8 +104,11 @@ export class UserProfileComponent implements OnInit {
               this.accounts.forEach((acc: any) => {
                 this.firestore.collection('accounts').doc(acc['IBAN']).update({user_id: this.firestore.collection('users').doc(this.newUser.username).ref});
               });
+              console.log("Username: ",this.authenticationService.getCurrentUser());
               this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).delete();
               sessionStorage.setItem('user', this.newUser.username);
+              console.log("New username: ",this.authenticationService.getCurrentUser());
+              
               alert("Success");
               this.router.navigateByUrl('logged-in-menu');
             });
