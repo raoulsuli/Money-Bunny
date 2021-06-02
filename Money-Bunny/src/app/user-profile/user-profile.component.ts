@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MoneyBunnyUser } from '../models/money-bunny-user.model';
 import { AuthenticationService } from '../services/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,7 +18,7 @@ export class UserProfileComponent implements OnInit {
   currentName: string = "";
   accounts = [] as any;
 
-  constructor(private authenticationService: AuthenticationService, private firestore: AngularFirestore, private router: Router) {
+  constructor(private authenticationService: AuthenticationService, private firestore: AngularFirestore, private router: Router, private angularFireAuth: AngularFireAuth) {
     this.firestore.collection('users').doc(this.authenticationService.getCurrentUser()).get().subscribe((res: any) => {
       this.newUser = new MoneyBunnyUser(res.data()['name'], res.data()['username'], res.data()['password'], res.data()['email'],
       res.data()['cnp'], res.data()['phone'], res.data()['birthday'], res.data()['address'], res.data()['userType'], res.data()['companyName']);
@@ -41,7 +42,34 @@ export class UserProfileComponent implements OnInit {
 
   update() {
     if (this.passCheck === this.newUser.password) {
+      if (this.newUser.email !== this.authenticationService.getCurrentEmail()) {
+        this.angularFireAuth.currentUser.then((user) => {
+          if (user) {
+            this.angularFireAuth.signInWithEmailAndPassword(
+              this.authenticationService.getCurrentEmail()!, this.authenticationService.getCurrentPassword()!).then(() => {
 
+                user.updateEmail(this.newUser.email).then(() => {
+                  sessionStorage.setItem('email', this.newUser.email);
+                  this.angularFireAuth.signInWithEmailAndPassword(this.newUser.email, this.authenticationService.getCurrentPassword()!)
+                }).catch(err => console.log(err));
+              });
+          }
+        });
+      }
+      if (this.newUser.password !== this.authenticationService.getCurrentPassword()) {
+        this.angularFireAuth.currentUser.then((user) => {
+          if (user) {
+            this.angularFireAuth.signInWithEmailAndPassword(
+              this.authenticationService.getCurrentEmail()!, this.authenticationService.getCurrentPassword()!).then(() => {
+
+              user.updatePassword(this.newUser.password).then(() => {
+                sessionStorage.setItem('password', this.newUser.password);
+                this.angularFireAuth.signInWithEmailAndPassword(this.authenticationService.getCurrentEmail()!, this.newUser.password)
+              }).catch(err => console.log(err));
+            });
+          }
+        });
+      }
       if (this.newUser.username === this.authenticationService.getCurrentUser()) {
         this.firestore.collection('users').doc(this.newUser.username).update({
           name: this.newUser.name,

@@ -20,12 +20,16 @@ export class AuthenticationService {
   /* Sign in */
   SignIn(email: string, password: string) {
 
+    console.log('password');
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
       this.firestore.collection('users').valueChanges().subscribe((data) => {
         data.forEach((item: any) => {
           if (item['email'] == email) {
             sessionStorage.setItem('user', item['username']);
+            sessionStorage.setItem('email', item['email']);
+            sessionStorage.setItem('password', item['password']);
+            console.log(item['password']);
             if (item['userType'] === 'operator') {
               sessionStorage.setItem('userType', 'operator');
               this.router.navigateByUrl('operator-menu');
@@ -57,8 +61,16 @@ export class AuthenticationService {
     return this.loggedIn;
   }
 
+  getCurrentEmail() {
+    return sessionStorage.getItem('email') || undefined;
+  }
+
   getCurrentUser() {
     return sessionStorage.getItem('user') || undefined;
+  }
+
+  getCurrentPassword() {
+    return sessionStorage.getItem('password') || undefined;
   }
 
   isAccountSet() {

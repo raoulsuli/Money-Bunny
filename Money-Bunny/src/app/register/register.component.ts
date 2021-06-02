@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './../services/authentication.service';
 import { MoneyBunnyUser } from './../models/money-bunny-user.model';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from '@angular/router';
@@ -28,7 +27,7 @@ export class RegisterComponent implements OnInit {
   signUpMessage: boolean = false;
   invalidEmail: string = '';
  
-  constructor(private authenticationService:AuthenticationService, private firestore: AngularFirestore, private router: Router, private angularFireAuth: AngularFireAuth) { }
+  constructor(private firestore: AngularFirestore, private router: Router, private angularFireAuth: AngularFireAuth) { }
 
   signUp() {
     if (this.passCheck === this.newUser.password) {
